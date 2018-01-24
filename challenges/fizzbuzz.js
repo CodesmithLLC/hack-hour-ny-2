@@ -17,7 +17,7 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-  const myArr = [0];
+  const myArr = [];
   for (let i = 1; i <= num; i += 1) {
     if (i % 3 === 0 && i % 5 === 0) myArr.push('fizzbuzz');
     else if (i % 3 === 0) myArr.push('fizz');
