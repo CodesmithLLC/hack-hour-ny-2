@@ -17,7 +17,45 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+	let newArr = [];
+	
+	let divisibleBy3 = function(i){
+		if(i % 3 === 0)
+			return true
+	}
+	
+	let divisibleBy5 = function(i){
+		if(i % 5 === 0)
+			return true
+	}
+	
+	let divisibleBy5n3 = function(i){
+		if(i % 3 === 0 && i % 5 === 0)
+			return true
+	}
 
+		for(var i = 1; i < num; i++){
+			if(divisibleBy5n3(i))
+				newArr.push('fizzbuzz')
+			else if(divisibleBy5(i))
+				newArr.push('buzz')
+			else if(divisibleBy3(i))
+				newArr.push('fizz')
+			else 
+				newArr.push(i);
+		}
+
+		// 	if(i % 3 === 0 && i % 5 === 0 && i !== 0)
+		// 		newArr.push('fizzbuzz')
+		// 	else if(i % 5 === 0 && i !== 0)
+		// 		newArr.push('buzz')
+		// 	else if(i % 3 === 0 && i !== 0)
+		// 		newArr.push('fizz')
+		// 	else 
+		// 		newArr.push(i);
+		// }
+
+	return newArr; 
 }
 
 module.exports = fizzbuzz;
