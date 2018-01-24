@@ -18,14 +18,11 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-
-
 function fizzbuzz(num) {
 	var result = [];
 	for (let i = 1; i <= num; i++) {
 		let nextNum = [];  // check if nextNum meets one of the conditions
 
-		
 		if (i % 3 === 0) {
 			nextNum.push('fizz');
 		}
@@ -42,9 +39,7 @@ function fizzbuzz(num) {
 			result.push(nextNum[0])
 		}
 	}
-
 	return result;
-
 }
 
 module.exports = fizzbuzz;
