@@ -17,13 +17,15 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+
+
 	let newArr = [];
 	
 	let divisibleBy3 = function(i){
 		if(i % 3 === 0)
 			return true
 	}
-	
+
 	let divisibleBy5 = function(i){
 		if(i % 5 === 0)
 			return true
@@ -34,7 +36,10 @@ function fizzbuzz(num) {
 			return true
 	}
 
-		for(var i = 1; i < num; i++){
+	if(num < 0)
+		return; 
+
+		for(var i = 1; i <= num; i++){
 			if(divisibleBy5n3(i))
 				newArr.push('fizzbuzz')
 			else if(divisibleBy5(i))
