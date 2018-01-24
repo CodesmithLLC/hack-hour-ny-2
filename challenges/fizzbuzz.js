@@ -17,7 +17,17 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+	let fbArray = [];
 
+	for(let i = 1; i <= num; i++){
+		if(i % 3 === 0){
+			fbArray.push("fizz") 
+		} else if(i % 5 === 0){
+			fbArray.push("buzz")
+		}
+		fbArray.push(i)
+	}
+	return fbArray
 }
 
 module.exports = fizzbuzz;
