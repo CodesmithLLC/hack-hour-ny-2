@@ -17,7 +17,28 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+    const res = [];
 
+    for (let i = 0; i <= Math.abs(num); i++) {
+        let value = i;
+        if (divisbleby(value, 3) && divisbleby(value, 5)) {
+            value = "fizzbuzz";
+        } else if (divisbleby(value, 3)) {
+            value = "fizz";
+        } else if (divisbleby(value, 5)) {
+            value = "buzz";
+        } else if (num < 0) {
+            value = value * -1;
+        }
+
+        res.push(value);
+    }
+
+    return res;
+
+    function divisbleby(value, factor) {
+        return (value % factor === 0);
+    }
 }
 
 module.exports = fizzbuzz;
