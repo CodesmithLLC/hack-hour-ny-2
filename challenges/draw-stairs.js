@@ -18,15 +18,17 @@ function drawStairs(n) {
         return;
     }
 
-    for(let i = n - 1; i >= 0; i--){
-        let str = '';
+    let str = '';
 
+    for(let i = n - 1; i >= 0; i--){
         for(let j = 0; j < n; j++){
             str += (j < i) ? " " : "*";
         }
 
-        console.log(str);
+        str += "\n";
     }
+
+    console.log(str);
 }
 
 drawStairs(100);
