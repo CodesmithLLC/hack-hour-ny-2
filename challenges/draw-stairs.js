@@ -14,8 +14,13 @@
 */
 
 function drawStairs(n) {
-
+	let step = '*';
+	
+	for (let i = 0; i < n; i++){
+		console.log(step);
+		step += '*';
+	}
 }
-
+drawStairs(6);
 
 module.exports = drawStairs;
