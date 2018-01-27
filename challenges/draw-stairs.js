@@ -13,26 +13,21 @@
 
 */
 
-function drawStairs(n) {
-	if (n <= 0) {
-		return 'Enter a positive integer'
-	}
+function drawStairs(n, counter = 1) {
+	if (n <= 0) return n;
 
 	if (n > 100) n = 100;
 
+	let space = ' ';
 	let str = '*';
 
-
-	if (n > 0) {
-		str += '*'
-		console.log(str.repeat(n));
-		n--
-		return drawStairs(n, str)
+	if (counter <= n) {
+		str = str.repeat(counter);
+		space = space.repeat(n - counter)
+		console.log(space + str);
+		counter++
+		return drawStairs(n, counter)
 	}
-
-	// for (let i = 0; i <= n; i++) {
-	// 	console.log(str.repeat(n));
-	// }
 }
 
 
