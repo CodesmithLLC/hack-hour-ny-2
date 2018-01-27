@@ -11,7 +11,35 @@
 
 
 function modemean(array) {
+	let mode, mean; 
+	let sum = 0; 
+	let newModeObj = {};
+	let greatest = 0;
 
+	for(let i = 0; i < array.length; i++){
+		sum += array[i]; 
+		if(newModeObj[array[i]]){
+			newModeObj[array[i]]++; 
+		} else {
+		  newModeObj[array[i]] = 1; 
+		}
+	}	
+	
+
+	for(let counter in newModeObj){
+		if(newModeObj[counter] > greatest)
+		  greatest = counter; 
+		if(newModeObj[counter] === newModeObj[greatest])
+		  greatest = Math.max(counter,greatest)
+	}
+	  
+	   mode = greatest;
+	   mean = sum / array.length;
+	   
+	if(mean === mode)
+	  return true;
+	return false; 
 }
+
 
 module.exports = modemean;
