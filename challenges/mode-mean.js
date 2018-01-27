@@ -16,7 +16,7 @@ function modemean(array) {
 	let newModeObj = {};
 	let greatest = 0;
 
-	for(let i = 0; i < array.length; i++){
+	for(let i = 0; i < array.length; i++){ // array loop. Average assignment and object fill
 		sum += array[i]; 
 		if(newModeObj[array[i]]){
 			newModeObj[array[i]]++; 
@@ -24,8 +24,10 @@ function modemean(array) {
 		  newModeObj[array[i]] = 1; 
 		}
 	}	
+	
+	mean = sum / array.length;
 
-	for(let counter in newModeObj){
+	for(let counter in newModeObj){ //mode determination
 		if(newModeObj[counter] > greatest){
 		  greatest = newModeObj[counter]
 		  mode = counter; 
@@ -33,16 +35,10 @@ function modemean(array) {
 		if(newModeObj[counter] === newModeObj[mode])
 		  mode = Math.max(counter,mode)
 	}
-	 
-	   mean = sum / array.length;
-	   
-	   console.log('mode ' +mode);
-	   console.log('mean ' + mean);
-	   
+	
 	if(mean === mode)
 	  return true;
 	return false; 
 }
-
 
 module.exports = modemean;
