@@ -24,17 +24,20 @@ function modemean(array) {
 		  newModeObj[array[i]] = 1; 
 		}
 	}	
-	
 
 	for(let counter in newModeObj){
-		if(newModeObj[counter] > greatest)
-		  greatest = counter; 
-		if(newModeObj[counter] === newModeObj[greatest])
-		  greatest = Math.max(counter,greatest)
+		if(newModeObj[counter] > greatest){
+		  greatest = newModeObj[counter]
+		  mode = counter; 
+		 }
+		if(newModeObj[counter] === newModeObj[mode])
+		  mode = Math.max(counter,mode)
 	}
-	  
-	   mode = greatest;
+	 
 	   mean = sum / array.length;
+	   
+	   console.log('mode ' +mode);
+	   console.log('mean ' + mean);
 	   
 	if(mean === mode)
 	  return true;
