@@ -27,7 +27,7 @@ function modemean(array) {
     }).
     reduce((acc,curr) => {
       return Math.max(acc, curr);
-    }, 0);
+    });
   mean = Math.floor(mean/array.length);
   if (mode === mean) return true;
   return false;
