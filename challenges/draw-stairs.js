@@ -13,8 +13,21 @@
 
 */
 
-function drawStairs(n) {
+function drawStairs(n, counter = 1) {
+	if (n <= 0) return n;
 
+	if (n > 100) n = 100;
+
+	let space = ' ';
+	let str = '*';
+
+	if (counter <= n) {
+		str = str.repeat(counter);
+		space = space.repeat(n - counter)
+		console.log(space + str);
+		counter++
+		return drawStairs(n, counter)
+	}
 }
 
 
