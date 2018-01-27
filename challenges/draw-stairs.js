@@ -14,7 +14,25 @@
 */
 
 function drawStairs(n) {
+	if (n <= 0) {
+		return 'Enter a positive integer'
+	}
 
+	if (n > 100) n = 100;
+
+	let str = '*';
+
+
+	if (n > 0) {
+		str += '*'
+		console.log(str.repeat(n));
+		n--
+		return drawStairs(n, str)
+	}
+
+	// for (let i = 0; i <= n; i++) {
+	// 	console.log(str.repeat(n));
+	// }
 }
 
 
