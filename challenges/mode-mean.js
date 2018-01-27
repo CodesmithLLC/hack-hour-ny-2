@@ -10,39 +10,42 @@
  */
 
 
-function modemean(array) {
-  const counter = {};
-  const arr = array;
-  arr.sort();
+ function modemean(array) {
+   const counter = {};
+   const arr = array;
+   arr.sort();
 
-  const sum = arr.reduce((a, b) => a + b);
+   const sum = arr.reduce((a, b) => a + b);
 
-  const mean = Math.floor(sum / arr.length);
+   const mean = Math.floor(sum / arr.length);
 
-  // loop through sorted array and compare index to nextIndex
-  for (let i = 1; i < arr.length; i += 1) {
-    // keep track of longest run with counter
-    if (arr[i] === arr[i - 1]) {
-      if (!counter[arr[i]]) counter[arr[i]] = 1;
-      else counter[arr[i]] += 1;
-    }
-  }
-  // get keys
-  const keys = Object.keys(counter);
+   // loop through sorted array and compare index to nextIndex
+   for (let i = 1; i < arr.length; i += 1) {
+     // keep track of longest run with counter
+     if (arr[i] === arr[i - 1]) {
+       if (!counter[arr[i]]) counter[arr[i]] = 1;
+       else counter[arr[i]] += 1;
+     }
+   }
+   // get keys
+   const keys = Object.keys(counter);
 
-  let mode = keys[0];
+   let mode = keys[0];
 
-  for (let i = 1; i < keys.length; i += 1) {
-    if (counter[keys[i]] > counter[keys[i - 1]]) {
-      mode = keys[i];
-    }
-    if (counter[keys[i]] === counter[keys[i - 1]]) {
-      mode = Math.max(keys[i], keys[i - 1]);
-    }
-  }
+   for (let i = 1; i < keys.length; i += 1) {
+     if (keys.length === 1) break;
+     if (counter[keys[i]] > counter[keys[i - 1]]) {
+       mode = keys[i];
+     }
+     if (counter[keys[i]] === counter[keys[i - 1]]) {
+       mode = Math.max(keys[i], keys[i - 1]);
+     }
+   }
 
-  if (mean === mode) return true;
-  return false;
-}
+   mode = parseInt(mode)
+
+   if (mean === mode) return true;
+   return false;
+ }
 
 module.exports = modemean;
