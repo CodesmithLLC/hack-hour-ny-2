@@ -11,7 +11,9 @@
 
  function modemean(array) {
    const mean = findMean(array);
+   console.log(mean);
    const mode = findMode(array);
+   console.log(mode);
    return mean === mode;
  }
 
@@ -38,7 +40,7 @@
        value = key;
      }
    }
-   return value;
+   return parseInt(value);
  }
 
 module.exports = modemean;
