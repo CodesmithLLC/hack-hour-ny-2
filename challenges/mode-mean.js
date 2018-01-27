@@ -9,9 +9,36 @@
  *
  */
 
+ function modemean(array) {
+   const mean = findMean(array);
+   const mode = findMode(array);
+   return mean === mode;
+ }
 
-function modemean(array) {
+ function findMean(arr) {
+   let sum = arr.reduce((total, num) => total + num);
+   return Math.floor(sum / arr.length);
+ }
 
-}
+
+ function findMode(arr) {
+   let numCounts = {};
+   for (let num of arr) {
+     if (numCounts[num] === undefined) {
+       numCounts[num] = 1;
+     } else {
+       numCounts[num]++;
+     }
+   }
+   let max = 0;
+   let value = 0;
+   for (let key in numCounts) {
+     if (numCounts[key] >= max) {
+       max = numCounts[key];
+       value = key;
+     }
+   }
+   return value;
+ }
 
 module.exports = modemean;
