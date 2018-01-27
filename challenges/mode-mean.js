@@ -28,30 +28,21 @@ function modemean(array) {
     }
   }
   // get keys
-  const entries = Object.entries(counter);
+  const keys = Object.keys(counter);
 
-  mergeSortNested(entries);
+  let mode = keys[0];
 
-  const mode = counter[entries[0][0]];
-
-  if (mean === mode) return true
-  return false;
-}
-
-
-function mergeSortNested(array) {
-  if(array.length === 1) return array;
-  const result = [];
-  const arr1 = mergeSort(array.slice(0, array.length/2));
-  const arr2 = mergeSort(array.slice(array.length/2));
-  while (arr1.length > 0 && arr2.length > 0) {
-    if (arr1[0][1] > arr2[0][1]) result.push(arr2.shift());
-    else result.push(arr1.shift());
+  for (let i = 1; i < keys.length; i += 1) {
+    if (counter[keys[i]] > counter[keys[i - 1]]) {
+      mode = keys[i];
+    }
+    if (counter[keys[i]] === counter[keys[i - 1]]) {
+      mode = Math.max(keys[i], keys[i - 1]);
+    }
   }
-  if (arr1.length > 0) result.push(arr1.shift());
-  if (arr2.length > 0) result.push(arr2.shift());
-  const flatArr = [].concat(...result);
-  return flatArr;
+
+  if (mean === mode) return true;
+  return false;
 }
 
 module.exports = modemean;
