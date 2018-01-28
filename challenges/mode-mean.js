@@ -24,13 +24,15 @@ function modemean(array) {
             if (!counter[array[i]]) counter[array[i]] = 1;
             else {
                 counter[array[i]] = counter[array[i]] + 1;
-                if(counter[array[i]] > counter.highestCount) {
-                    counter.mostFreqKey = array[i];
-                    counter.highestCount = counter[array[i]];
-                } else if (counter[array[i]] === counter.highestCount) {
-                    if (array[i] > counter.mostFreqKey) counter.mostFreqKey = array[i]
-                }
             }
+            
+            if(counter[array[i]] > counter.highestCount) {
+                counter.mostFreqKey = array[i];
+                counter.highestCount = counter[array[i]];
+            } else if (counter[array[i]] === counter.highestCount) {
+                 if (array[i] > counter.mostFreqKey) counter.mostFreqKey = array[i]
+             }
+
         }
         return counter.mostFreqKey;
     }
