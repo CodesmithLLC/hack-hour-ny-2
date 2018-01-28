@@ -13,13 +13,13 @@
 
 */
 
-function drawStairs(n, previous = 0, stair = [""]) {
-    if (n !== 0) {
-        let newStair = "\n" + stair[previous] + "*";
-        stair.push(newStair);
-        drawStairs(n - 1, previous + 1, stair);
-    } else {
-        console.log(stair.join(""));
+function drawStairs(n) {
+    let space = " ";
+    let stair = "*";
+
+    for(let i = 0; i < n; i++) {
+        let level = space.repeat(n) + stair.repeat(n-i);
+        console.log(level);
     }
 }
 
