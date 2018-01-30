@@ -27,13 +27,18 @@ function kthToLastNode(k, head) {
   let element = null;
 
   while (current !== undefined) {
+    console.log(current)
     count += 1
     if (current.next !== null){
-      current = current.next 
+      current = current.next
+      
     }
     else {
       current = undefined
     }  
+  }
+  if (k > count) {
+    return undefined;
   }
   current = head;
   for (let i = 0; i < count - k; i += 1){
