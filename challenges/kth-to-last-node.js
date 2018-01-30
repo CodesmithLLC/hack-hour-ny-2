@@ -23,7 +23,7 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   const nodeObj = {0: head.value};
-  if (head.value === null) {
+  if (head.value === undefined) {
     return undefined;
   }
   let next = head.next;
