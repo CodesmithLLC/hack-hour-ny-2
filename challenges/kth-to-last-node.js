@@ -30,8 +30,8 @@ function kthToLastNode(k,head) {
 
             let i = 1;
             let val = head;
-            while (head != null)
-            {
+            while (head != null) {
+
                 // not enough nodes
                 if (head.next == null && i < k)
                     return -1;
@@ -41,8 +41,7 @@ function kthToLastNode(k,head) {
                     {
                         return val.value;
                     }
-                    else
-                    {
+                    else {
                         if (i == k)
                             val = val.next;
                         else
@@ -53,7 +52,7 @@ function kthToLastNode(k,head) {
                 }
             }
 
-            return -1;
+            return undefined;
         }
 }
 
