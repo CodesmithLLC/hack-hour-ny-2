@@ -34,7 +34,7 @@ function kthToLastNode(k, head) {
   obj[count] = temp.value;
   const fromLast = k - 1;
   const positionOfK = count - fromLast;
-  if (k > count) {
+  if (k > count || obj[positionOfK] === undefined) {
     return undefined;
   }
   return obj[positionOfK];
