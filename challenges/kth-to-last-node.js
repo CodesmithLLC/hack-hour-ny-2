@@ -33,13 +33,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-	for (i = 0; i <= k; i++){
-		if (head.next === null) return 'k out of bounds';
-		head = head.next;
+	let saveHead = head;
+	function getLength(headNode){
+		let len = 0;
+		while( headNode.next !== null){
+			len++;
+			headNode = headNode.next;
+		}
+		return len;
 	}
-	return head.value;
+	k = getLength(saveHead) - k;
+	for (i = 0; i <= k; i++){
+		if (saveHead.next === null) return 'k out of bounds';
+		saveHead = saveHead.next;
+	}
+	return saveHead.value;
 }
 
-console.log(kthToLastNode(3,a));
+console.log(kthToLastNode(2,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
