@@ -43,14 +43,14 @@ function kthToLastNode(k, head) {
 		return len;
 	}
 	k = getLength(saveHead) - k;
-	if (k < 0) return 'k is negative';
+	if (k < 0) return ;
 	for (i = 0; i <= k; i++){
-		if (saveHead.next === null) return 'k out of bounds';
+		if (saveHead.next === null) return ;
 		saveHead = saveHead.next;
 	}
 	return saveHead.value;
 }
 
-console.log(kthToLastNode(5,a));
+console.log(kthToLastNode(8,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
