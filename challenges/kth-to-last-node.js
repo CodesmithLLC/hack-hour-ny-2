@@ -23,7 +23,6 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   if (k<=0) return undefined;
-  let idxHead = 0;
   let node1 = head;
   for (let i=0; i<k-1; i++) {
     node1 = node1.next;
