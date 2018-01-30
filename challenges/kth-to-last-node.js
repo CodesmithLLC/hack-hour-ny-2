@@ -42,14 +42,11 @@ function kthToLastNode(k, head) {
   // get to the length - k + 1  Node (kth to last)
   for(var i = 0; i < count - k; i++) {    // to get there, jump 'lengh - k' times from the first node
     currentNode = currentNode.next;
-
   }
 
-  return currentNode.value;
-
-
+  if(!head) return undefined;
+  else return currentNode.value;
 // return Node.value
-
 
 }
 
