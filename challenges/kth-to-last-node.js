@@ -22,8 +22,6 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if(!head.value) return undefined
-  	
   let counter = 0;
   let curr = head;
   let obj = {};
@@ -33,10 +31,10 @@ function kthToLastNode(k, head) {
 	curr = curr.next
 	counter++;
   }
-
-  if(k > counter) return undefined
-	
   let diff = counter - k;
+
+  if(counter < k || !obj[diff]) return undefined
+	
 
   return obj[diff].value
 }
