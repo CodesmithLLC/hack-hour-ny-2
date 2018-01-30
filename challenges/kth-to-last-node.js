@@ -35,7 +35,7 @@ function Node(val) {
 function kthToLastNode(k, head) {
 	let saveHead = head;
 	function getLength(headNode){
-		let len = 0;
+		let len = 1;
 		while( headNode.next !== null){
 			len++;
 			headNode = headNode.next;
@@ -44,13 +44,13 @@ function kthToLastNode(k, head) {
 	}
 	k = getLength(saveHead) - k;
 	if (k < 0) return ;
-	for (i = 0; i <= k; i++){
-		if (saveHead.next === null) return ;
+	for (i = 0; i < k; i++){
+		//if (saveHead.next === null) return ;
 		saveHead = saveHead.next;
 	}
 	return saveHead.value;
 }
 
-console.log(kthToLastNode(8,a));
+console.log(kthToLastNode(2,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
