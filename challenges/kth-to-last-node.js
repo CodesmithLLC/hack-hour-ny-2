@@ -30,7 +30,8 @@ function kthToLastNode(k, head) {
     i += 1;
     next = next.next; //rename
   }
-  return nodeObj[i-k];
+  // return nodeObj[i-k];
+  return (!nodeObj.hasOwnProperty(i-k))? undefined : nodeObj[i-k];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
