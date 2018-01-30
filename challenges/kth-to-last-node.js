@@ -45,8 +45,14 @@ function kthToLastNode(k, head) {
   }
 
   if(!head || k <= 0 || !currentNode.value) return undefined;
-  
-  else return currentNode.value;
+
+  function checkIfValueExists(obj, key) {
+    return obj.hasOwnProperty(key);
+  }
+
+  if (checkIfValueExists(currentNode, value) {
+    return currentNode.value;
+  } 
 // return Node.value
 
 }
