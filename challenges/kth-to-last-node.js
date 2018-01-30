@@ -45,12 +45,12 @@ function kthToLastNode(k, head) {
 	k = getLength(saveHead) - k;
 	if (k < 0) return ;
 	for (i = 0; i < k; i++){
-		//if (saveHead.next === null) return ;
+		if (saveHead.next === null) return ;
 		saveHead = saveHead.next;
 	}
 	return saveHead.value;
 }
 
-console.log(kthToLastNode(2,a));
+console.log(kthToLastNode(6,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
