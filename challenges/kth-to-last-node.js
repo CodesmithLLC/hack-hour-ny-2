@@ -23,22 +23,21 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   let count = 1;
-  let temp = head
-  let obj = {};
-  while(temp.next !== null) {
+  let temp = head;
+  const obj = {};
+  while (temp.next !== null) {
     obj[count] = temp.value;
-    count++;
+    count += 1;
     temp = temp.next;
   }
 
   obj[count] = temp.value;
-  let fromLast = k - 1;
-  let positionOfK = count - fromLast;
-   if (count < k || obj[positionOfK]) {
+  const fromLast = k - 1;
+  const positionOfK = count - fromLast;
+  if (k > count) {
     return undefined;
-  } else {
-    return obj[positionOfK];
   }
+  return obj[positionOfK];
 }
 
 
