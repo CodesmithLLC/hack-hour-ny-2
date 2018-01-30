@@ -36,11 +36,11 @@ function kthToLastNode(k, head) {
     let end = size - k;
     let counter = 1;
 
-    if (size === k) return head;
+    if (size === k) return head.value;
     if (k > size) return undefined;
 
     while (head.next) {
-      if (counter === end) return head.next;
+      if (counter === end) return head.next.value;
 
       counter++;
       head = head.next;       
