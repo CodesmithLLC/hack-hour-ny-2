@@ -23,18 +23,18 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   //check if head points to null
-  if(!head) return undefined;
+  if (!head) return undefined;
 
   let current = head;
   let sLLValues = [current.value];
 
-  while(!current.next) {
+  while (current.next !== null) {
     current = current.next;
     sLLValues.push(current.value);
   }
 
-  return sLLValues[sLLValues.length - 1 - k];
-  //
+
+  return sLLValues[sLLValues.length - k];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
