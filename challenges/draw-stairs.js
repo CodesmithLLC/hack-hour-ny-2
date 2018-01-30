@@ -14,7 +14,15 @@
 */
 
 function drawStairs(n) {
-
+	for(i = 1; i <= n; i++){
+		let stairs = '';
+		let spaces = ['', '', '', '', '']
+		spaces.forEach((space) => {
+			stairs += space
+		})
+		spaces.pop();
+		stairs += '*\n'
+	}
 }
 
 
