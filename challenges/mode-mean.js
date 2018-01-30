@@ -38,6 +38,6 @@ function modemean(array) {
   return Math.floor(sum / array.length) === mode;
 }
 
-modemean([1, 2, 3, 3, 4, 5, 5])
+// modemean([1, 2, 3, 3, 4, 5, 5])
 
 module.exports = modemean;
