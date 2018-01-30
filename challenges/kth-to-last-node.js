@@ -21,7 +21,35 @@ function Node(val) {
   this.next = null;
 }
 
+// return value of kth to last node
 function kthToLastNode(k, head) {
+
+// find length of the LL
+  var currentNode = head;  // or head.next? (But, i think head is pointing at first node)
+  var count = 0;
+
+  while(currentNode !== null) {
+    count++;
+    currentNode = currentNode.next;
+  }
+
+  // count += 1; // to account for the last node, which didn't count up (didn't go into while loop)
+      // nvm, changed the while loop condition
+
+  // now count should be updated to the number of Nodes..
+  
+  currentNode = head;   // reset the currentNode to first one
+  // get to the length - k + 1  Node (kth to last)
+  for(var i = 0; i < count - k; i++) {    // to get there, jump 'lengh - k' times from the first node
+    currentNode = currentNode.next;
+
+  }
+
+  return currentNode.value;
+
+
+// return Node.value
+
 
 }
 
