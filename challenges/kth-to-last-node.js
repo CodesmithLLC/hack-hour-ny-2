@@ -23,7 +23,7 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   //check if head points to null
-  if(!head) return -1;
+  if(!head) return undefined;
 
   let current = head;
   let sLLValues = [current.value];
@@ -33,7 +33,7 @@ function kthToLastNode(k, head) {
     sLLValues.push(current.value);
   }
 
-  return sLLValues[sLLValues.length - k];
+  return sLLValues[sLLValues.length - 1 - k];
   //
 }
 
