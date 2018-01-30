@@ -15,20 +15,20 @@
 
 function drawStairs(n) {
 	let step = '*';
-	let space = n-1;
-	function spaces(j){
+	let numOfSpaces = n-1;
+	spaces = (s) => {
 		let ws = '';
-		for (let i = 0; i < j; i++){
+		for (let i = 0; i < s; i++){
 			ws += ' ';
 		}
 		return ws;
 	}
 	for (let i = 0; i < n; i++){
-		console.log( spaces(space) + step);
+		console.log( spaces(numOfSpaces) + step);
 		step += '*';
-		space--;
+		numOfSpaces--;
 	}
 }
-drawStairs(6);
+drawStairs(1);
 
 module.exports = drawStairs;
