@@ -15,7 +15,6 @@
  *
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
-
 function Node(val) {
   this.value = val;
   this.next = null;
@@ -25,7 +24,7 @@ function kthToLastNode(k, head) {
   let count = 1;
   let temp = head;
   const obj = {};
-  while (temp.next !== null) {
+  while (temp.next) {
     obj[count] = temp.value;
     count += 1;
     temp = temp.next;
@@ -34,7 +33,7 @@ function kthToLastNode(k, head) {
   obj[count] = temp.value;
   const fromLast = k - 1;
   const positionOfK = count - fromLast;
-  if (k > count || obj[positionOfK] === undefined) {
+  if (!obj[positionOfK]) {
     return undefined;
   }
   return obj[positionOfK];
