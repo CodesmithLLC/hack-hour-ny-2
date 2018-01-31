@@ -3,6 +3,16 @@
  */
 
 function pow(base, power) {
+  if (power === 0) {
+    return base;
+  }
+  
+  if (power === 1) {
+    return base;
+  }
+  else {
+    return (base * pow(base, power -1) )
+  }
 
 }
 
