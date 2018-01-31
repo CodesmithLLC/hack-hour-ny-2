@@ -4,9 +4,9 @@
 
 function pow(base, power) {
   if (power === 0) {
-    return base;
+    return 1;
   }
-  
+
   if (power === 1) {
     return base;
   }
