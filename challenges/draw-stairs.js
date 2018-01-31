@@ -27,4 +27,7 @@ function drawStairs(n) {
   }
 };
 
+// Try to do it by creating a string with new line characters and printing it out 
+// at the end with just one console.log command.
+
 module.exports = drawStairs;
