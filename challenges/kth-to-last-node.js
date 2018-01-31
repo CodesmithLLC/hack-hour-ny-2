@@ -19,10 +19,23 @@
 function Node(val) {
   this.value = val;
   this.next = null;
+  this.previous = null; 
 }
 
 function kthToLastNode(k, head) {
-
+	function recursiveLoop(k,head){
+    let storage = []; 
+	  if(head.next === null){
+	    storage.push(head.value)
+	    return storage
+	  } 
+	  storage.push(head.value);
+	  storage = storage.concat(recursiveLoop(k, head.next))
+	  return storage
+	}
+	let arr = recursiveLoop(k, head)
+	return arr[arr.length - k];
 }
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
