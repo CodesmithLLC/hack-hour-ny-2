@@ -21,23 +21,17 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  let count = 1;
+  let count = 0;
   let temp = head;
   const obj = {};
-  while (temp.next) {
-    obj[count] = temp.value;
-    count += 1;
+  while (temp) {
+    obj[count] = temp;
     temp = temp.next;
+    count += 1;
   }
-
-  obj[count] = temp.value;
-  const fromLast = k - 1;
-  const positionOfK = count - fromLast;
-  if (!obj[positionOfK]) {
-    return undefined;
-  }
-  return obj[positionOfK];
+  const diff = count - k;
+  if (count < k || !obj[diff]) return undefined;
+  return obj[diff].value;
 }
-
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
