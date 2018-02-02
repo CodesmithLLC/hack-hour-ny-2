@@ -13,11 +13,17 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
-  for (let i = array.length; i >= 0; i -= 1) {
-    array.push(array[i]);
-  }
-  return array.slice(array.length/2 + 1);
-}
+ function reverseInPlace(array) {
+   if (array === []) return [];
+   const length = array.length;
+   for (let i = array.length - 1; i >= 0; i -= 1) {
+     array.push(array[i]);
+   }
+   // return array.slice(array.length/2 + 1);
+   for (let i = 0; i < length; i += 1) {
+     array.shift();
+   }
+   return array;
+ }
 
 module.exports = reverseInPlace;
