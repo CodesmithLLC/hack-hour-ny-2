@@ -18,15 +18,24 @@ function reverseInPlace(array) {
   let i = 0;
   let j = array.length - 1;
 
-  while (first < last) {
+  while (i < j) {
     let temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+    array[i++] = array[j];
+    array[j--] = temp;
 
-    i++;   //commented out for 'coolness' (trying out suffix ++ above)
-    j--;
+    // i++;   //commented out for 'coolness' (trying out suffix ++ above)
+    // j--;
   }
   return array;
+
+  // let temp = [];
+  // for (let i of array) {
+  //   temp.unshift(array[i]);
+  // }
+  // console.log(temp)
+  // return temp;
+
+
 }
 
 module.exports = reverseInPlace;
