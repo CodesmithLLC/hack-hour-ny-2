@@ -22,18 +22,33 @@ function Node(val) {
   this.previous = null; 
 }
 
+// method 1 -> build up from base case. 
 function kthToLastNode(k, head) {
-	function recursiveLoop(k,head){
+	function recursiveLoop(k,storage){
     let storage = []; 
 	  if(head.next === null){
 	    storage.push(head.value)
 	    return storage
 	  } 
 	  storage.push(head.value);
-	  storage = storage.concat(recursiveLoop(k, head.next))
+	  storage = storage.concat(recursiveLoop(k, storage))
 	  return storage
 	}
 	let arr = recursiveLoop(k, head)
+	return arr[arr.length - k];
+}
+
+// method 2 -> build up to base case.
+function kthToLastNode(k, head) {
+	function recursiveLoop(storage,headInner){
+	  if(headInner.next === null){
+	    storage.push(headInner.value)
+	    return storage
+	  } 
+	  storage.push(headInner.value);
+	  return recursiveLoop(storage, headInner.next)
+	}
+	let arr = recursiveLoop([], head)
 	return arr[arr.length - k];
 }
 
