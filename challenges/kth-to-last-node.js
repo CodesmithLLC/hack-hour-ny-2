@@ -25,7 +25,7 @@ function kthToLastNode(k,head) {
   {
             //null check
             if (head == null || k < 1 ){
-                return undefined;
+                return -1;
             }
 
             let i = 1;
@@ -53,7 +53,7 @@ function kthToLastNode(k,head) {
                 }
             }
 
-            return undefined;
+            return -1;
         }
 }
 
