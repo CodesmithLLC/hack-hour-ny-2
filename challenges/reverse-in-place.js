@@ -15,25 +15,25 @@
 
 
 function reverseInPlace(array) {
-  // let i = 0;
-  // let j = array.length - 1;
+  let i = 0;
+  let j = array.length - 1;
 
-  // while (first < last) {
-  //   let temp = array[i];
-  //   array[i] = array[j];
-  //   array[j] = temp;
+  while (i < j) {
+    let temp = array[i];
+    array[i++] = array[j];
+    array[j--] = temp;
 
-  //   i++;   //commented out for 'coolness' (trying out suffix ++ above)
-  //   j--;
-  // }
-  // return array;
-
-  let temp = [];
-  for (let i of array) {
-    temp.unshift(array[i]);
+    // i++;   //commented out for 'coolness' (trying out suffix ++ above)
+    // j--;
   }
-  console.log(temp)
-  return temp;
+  return array;
+
+  // let temp = [];
+  // for (let i of array) {
+  //   temp.unshift(array[i]);
+  // }
+  // console.log(temp)
+  // return temp;
 
 
 }
