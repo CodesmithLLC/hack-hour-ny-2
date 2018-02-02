@@ -14,7 +14,25 @@
  */
 
 function reverseInPlace(array) {
+  // find the halfway point
+  // iterate to the halfway point
+  // switch the characters with the char at (length-1) - currentIndex
 
+  // check if length is even or odd
+  const midpoint = (array.length % 2 === 0) ? (array.length-1)/2 : Math.floor(array.length/2);
+  // iterate up to midpoint
+  for (let i = 0; i <= midpoint; i++) {
+    // find the opposite index
+    let oppositeIndex = (array.length-1) - i;
+    // save the front character
+    let frontChar = array[i];
+    // save the back character
+    let backChar = array[oppositeIndex];
+    // reassign the opposite characters
+    array[i] = backChar;
+    array[oppositeIndex] = frontChar;
+  }
+  return array;
 }
 
 module.exports = reverseInPlace;
