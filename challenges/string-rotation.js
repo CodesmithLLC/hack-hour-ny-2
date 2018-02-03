@@ -16,7 +16,14 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  // s2 has to be the same length, has to be in the proper order
+  // find the location of h and splice from there,
+  // add on the rest of the word
+  // if word equals s1 then they are the same
+  let s2Arr = s2.split('');
+  let hIndex = s2.indexOf('h');
+  let hArr = s2Arr.splice(hIndex);
+  return (hArr.concat(s2Arr).join('') === s1? true: false);
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
