@@ -21,9 +21,9 @@ function stringRotation(s1, s2) {
   // add on the rest of the word
   // if word equals s1 then they are the same
   let s2Arr = s2.split('');
-  let hIndex = s2.indexOf('h');
-  let hArr = s2Arr.splice(hIndex);
-  return (hArr.concat(s2Arr).join('') === s1? true: false);
+  let firstIndex = s2.indexOf(s1.charAt(0));
+  let firstArr = s2Arr.splice(firstIndex);
+  return (firstArr.concat(s2Arr).join('') === s1? true: false);
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
