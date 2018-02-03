@@ -16,6 +16,9 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  if (s1 === s2) {
+    return true
+  }
   let sub2 = s2
   for (var i = 1; i < s2.length; i += 1) { 
     sub2 = sub2.substring(sub2.length -1) + sub2.substring(0, sub2.length -1)
