@@ -12,11 +12,23 @@
  */
 
 function isSubstring(s1, s2) {
+  // returns true if second string is found in the first string
   return s1.indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
+  // takes two strings
+  // string 2 has to be the same length as string one in order to check, if not return false
+  if (s1.length === s2.length) {
+    // split second string in half
+    // makes one call to isSubstring to check if half of string 2 is contained within string 1
+    let half = Math.round(s1.length / 2);
+    let s2substring = s2.substring(0, half);
+    return isSubstring(s1, s2substring);
+  }
 
+  return false;
 }
+
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
