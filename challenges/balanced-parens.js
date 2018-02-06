@@ -24,8 +24,21 @@
  *
  */
 
-function balancedParens(input){
-
+const PAIRS = { '(': ')', '[': ']', '{': '}' }
+function balancedParens(input) {
+  if (input.length % 2 !== 0) return false;
+  input = input.split('');
+  let expected = '';
+  let actual = '';
+  const midPoint = Math.floor((input.length) / 2);
+  for (let i = 0; i < midPoint; i += 1) {
+    const eleFront = input.shift();
+    const eleBack = input.pop();
+    expected += PAIRS[eleFront];
+    actual += eleBack;
+  }
+  if (actual === expected) return true;
+  return false;
 }
 
 module.exports = balancedParens;
