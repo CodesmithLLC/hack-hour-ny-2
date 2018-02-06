@@ -24,8 +24,38 @@
  *
  */
 
-function balancedParens(input){
-
-}
+ function balancedParens(input){
+   // create list of all parens
+   // set boolean variable to false (make three different variables)
+   if (input.length <= 1) {
+     return false;
+   }
+   let foundParenz;
+   let foundSquare;
+   let foundBracket;
+   for (let i = 0; i < input.length; i++) {
+     if (input.charCodeAt(i) === 40) {
+       foundParenz = false;
+     } if (input.charCodeAt(i) === 41 && foundParenz === false) {
+       foundParenz = true;
+     } if (input.charCodeAt(i) === 91) {
+       foundSquare = false;
+     } if (input.charCodeAt(i) === 93 && foundSquare === false) {
+       foundSquare = true;
+     } if (input.charCodeAt(i) === 123) {
+       foundBracket = false;
+     } if (input.charCodeAt(i) === 125 && foundBracket === false) {
+       foundBracket = true;
+     }
+   }
+   if (foundBracket === undefined) {
+     foundBracket = true;
+   } if (foundSquare === undefined) {
+     foundSquare = true;
+   } if (foundParenz === undefined) {
+     foundParenz = true;
+   }
+   return foundBracket && foundSquare && foundParenz;
+ }
 
 module.exports = balancedParens;
