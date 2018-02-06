@@ -24,19 +24,51 @@
  *
  */
 
-for (let i = 0; i < input.length; i += 1){
-  let i2 = input.length - 1;
-  if (openBraces.indexOf(input[i]) > 0){
-    let ob = openBraces.indexOf(input[i]);
-    for (i2; i2 > i; i -= 1){
-      if (closeBraces.indexOf(input[i2])){
-        if (closeBraces.indexOf(input[i2]) === ob) { break}
-        else {return false}
-      }
+function balancedParens(input) {
+  const openSign = ['(', '{', '['];
+  const closeSign = [')', '}', ']'];
+  let parens = 0;
+  let curly = 0;
+  let brakets = 0;
+  let opens = [];
+  for (let i = 0; i < input.length; i += 1) {
+    switch (input[i]) {
+      case '(':
+        parens += 1;
+        opens.push(0);
+        break;
+      case '{':
+        curly += 1;
+        opens.push(1);
+        break;
+      case '[':
+        brakets +=1;
+        opens.push(2);
+        break;
+      case ')':
+      if (opens[opens.length -1] !== 0) {return false}
+        parens -= 1;
+        opens.pop();
+        break; 
+      case '}':
+      if (opens[opens.length -1] !== 1) {return false}
+        curly -= 1; 
+        opens.pop(); 
+        break;
+      case ']':
+      if (opens[opens.length -1] !== 2) {return false}
+        brakets -= 1;
+        opens.pop();      
+        break; 
+    }
+    if (parens < 0 || curly < 0 || brakets < 0) {
+      return false;
     }
   }
-}
-return true
+  if (parens > 0 || curly > 0 || brakets > 0) {
+    return false;
+  }
+  return true;
 }
 
 module.exports = balancedParens;
