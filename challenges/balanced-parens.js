@@ -44,7 +44,7 @@ function balancedParens(input){
 		}
 			
 	}
-	console.log(stack);
+	//console.log(stack);
 	if (stack.length > 0)
 		return false;
 	else return true;
@@ -52,6 +52,6 @@ function balancedParens(input){
 
 
 
-console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
+//console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
 
-//module.exports = balancedParens;
+module.exports = balancedParens;
