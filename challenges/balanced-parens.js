@@ -17,15 +17,41 @@
  *  balancedParens('[(]{)}'); // false
  *
  * Step 3:
- * ignore non-bracket characters
+ * ignore non-bracket inputacters
  * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
  * balancedParens(' var hubble = function() { telescopes.awesome();'); // false
  *
  *
  */
+ 
 
 function balancedParens(input){
+	
+	
+	const stack = [];
 
+	for (let i = 0; i < input.length; i++){
+		if (input[i] === '(' || input[i] === '{' || input[i] === '[')
+			stack.push(input[i]);
+		else if (input[i] === ')' || input[i] === '}' || input[i] === ']'){
+			let lastPushed = stack.pop();
+			if (input[i] === ')' && lastPushed !== '(')
+			 	return false;
+			 else if (input[i] === '}' && lastPushed !== '{')
+			 	return false;
+			 else if (input[i] === ']' && lastPushed !== '[')
+			 	return false;
+		}
+			
+	}
+	console.log(stack);
+	if (stack.length > 0)
+		return false;
+	else return true;
 }
 
-module.exports = balancedParens;
+
+
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
+
+//module.exports = balancedParens;
