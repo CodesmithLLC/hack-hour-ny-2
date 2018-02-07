@@ -27,12 +27,12 @@ function romanNumeral(n) {
 	for (let i = 0; i < ints.length; i++){
 		if (n >= ints[i]){
 			result += romans[i];
-			n = n%ints[i];
+			n = n-ints[i];
 		}
 	}
 	return result;
 }
- //console.log(romanNumeral(6));
+ //console.log(romanNumeral(66));
 
 
 module.exports = romanNumeral;
