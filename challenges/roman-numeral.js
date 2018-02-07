@@ -32,7 +32,7 @@ function romanNumeral(n) {
 	}
 	return result;
 }
- console.log(romanNumeral(6));
+ //console.log(romanNumeral(6));
 
 
 module.exports = romanNumeral;
