@@ -25,7 +25,33 @@
  */
 
 function balancedParens(input){
+ let opens = ['(', '[', '{']; // make +1
+ let close = [')', ']', '}']; // make -1
 
+ let left = 0;
+ let right = 0;
+ let opened = true;
+
+ if (close.includes(input[0])) return false;
+
+ for (var i of input){
+
+   if(opens.includes(i)) {
+     left++;
+   }
+   if(close.includes(i)) {
+     right++;
+   }
+
+   console.log(i, left, right)
+
+ }
+
+ return left == right
 }
+
+balancedParens('[(]{)}');
+
+
 
 module.exports = balancedParens;
