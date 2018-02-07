@@ -30,7 +30,9 @@ function romanNumeral(n, romanNum = '') {
 	}
 
 	if (n >= 1000) {
-		return "M";
+		romanNum += "M";
+		n = n - 1000;
+		return romanNumeral(n, romanNum);
 	}
 
 	if (n >= 500 && n < 1000) {
@@ -121,6 +123,6 @@ function convertNumToStr(num, romanChar) {
 	return tempStr;
 }
 
-console.log(romanNumeral(523));
+console.log(romanNumeral(1523));
 
 module.exports = romanNumeral;
