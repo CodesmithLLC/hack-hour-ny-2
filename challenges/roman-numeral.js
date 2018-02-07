@@ -25,14 +25,14 @@ function romanNumeral(n) {
 	let result = '';
 	let tempNum;
 	for (let i = 0; i < ints.length; i++){
-		if (n >= ints[i]){
+		while (n >= ints[i]){
 			result += romans[i];
 			n = n-ints[i];
 		}
 	}
 	return result;
 }
- //console.log(romanNumeral(66));
+ console.log(romanNumeral(98));
 
 
 module.exports = romanNumeral;
