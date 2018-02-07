@@ -14,11 +14,23 @@
  *      500   ->    D
  *      900   ->    CM
  *      1000  ->    M
- * 
+ *
  */
 
 function romanNumeral(n) {
-
+  if (n >= 1000) return 'M' + romanNumeral(n - 1000);
+  if (n >= 900) return 'CM' + romanNumeral(n - 900);
+  if (n >= 500) return 'D' + romanNumeral(n - 500);
+  if (n >= 400) return 'CD' + romanNumeral(n - 400);
+  if (n >= 100) return 'C' + romanNumeral(n - 100);
+  if (n >= 90) return 'XC' + romanNumeral(n - 90);
+  if (n >= 50) return 'L' + romanNumeral(n - 50);
+  if (n >= 40) return 'XL' + romanNumeral(n - 40);
+  if (n >= 10) return 'X' + romanNumeral(n - 10);
+  if (n === 9) return 'XL' + romanNumeral(n - 9);
+  if (n >= 5) return 'V' + romanNumeral(n - 5);
+  if (n === 4) return 'IV' + romanNumeral(n - 4);
+  if (n >= 1) return 'I' + romanNumeral(n - 1);
+  if (n === 0) return '';
 }
-
 module.exports = romanNumeral;
