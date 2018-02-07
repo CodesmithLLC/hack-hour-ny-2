@@ -17,8 +17,22 @@
  * 
  */
 
-function romanNumeral(n) {
+ let ints = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
+ let romans = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
 
+
+function romanNumeral(n) {
+	let result = '';
+	let tempNum;
+	for (let i = 0; i < ints.length; i++){
+		if (n >= ints[i]){
+			result += romans[i];
+			n = n%ints[i];
+		}
+	}
+	return result;
 }
+ console.log(romanNumeral(6));
+
 
 module.exports = romanNumeral;
