@@ -37,15 +37,12 @@ function romanNumeral(n) {
 	if(numerals[n]) return numerals[n]
 	let numeral = '';
 	let nums = Object.keys(numerals).reverse();
-	let idx = 0;
-  while(n % Number(nums[idx])){
-    if(n % Number(nums[idx]) !== n) {
-      n -= nums[idx]
-      numeral += numerals[nums[idx]]
-    }
-    idx++
-  }
-  if(numerals[n]) numeral += numerals[n]
+	for (var i = 0;i<=nums.length;i++) {
+    	while (n % nums[i] < n) {     
+      		numeral += numerals[nums[i]];
+      		n -= nums[i];
+    	}
+  	}
 	return numeral
 }
 
