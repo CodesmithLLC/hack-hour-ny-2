@@ -25,7 +25,39 @@
  */
 
 function balancedParens(input){
+	// ignore non-bracket characters
+	let cleanInput = input.replace(/[A-Za-z0-9$&+,:;=?@#|'<>.\^*%!-]/g, '');
+	cleanInput = cleanInput.replace(/\s/g, '');
 
+	let counter = 0;
+	let stack = [];
+	
+	while (counter < cleanInput.length) {
+		if (cleanInput[counter] === '[' || cleanInput[counter] === '(' || cleanInput[counter] === '{') {
+			stack.push(cleanInput[counter]);
+		}
+
+		if (cleanInput[counter] === ']' || cleanInput[counter] === ')' || cleanInput[counter] === '}') {
+			let last = stack.pop();
+			if (!isPair(last, cleanInput[counter])) return false;	
+		}
+		counter++
+	}
+
+	if (stack.length) {
+		return false;
+	} else {
+		return true;	
+	}
 }
+
+function isPair(char1, char2) {
+	if (char1 === '[' && char2 === ']') return true;
+	if (char1 === '(' && char2 === ')') return true;
+	if (char1 === '{' && char2 === '}') return true;
+	return false;
+}
+
+console.log(balancedParens('({}){(]')); // false
 
 module.exports = balancedParens;
