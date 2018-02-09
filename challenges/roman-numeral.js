@@ -25,7 +25,6 @@ function romanNumeral(n) {
     let input = n;
     let result = "";
     for (let i = 0; i < digits.length; i += 1) {
-        console.log(input / digits[i])
         if (input / digits[i] > 0) {
             let times = Math.floor(input / digits[i]);
             result += romans[i].repeat(times);
