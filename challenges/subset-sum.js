@@ -9,7 +9,7 @@
  */
 
 // generate all possible subarrays
-function subarrays(array) { // O(2^n)
+function subarrays(array) { 
 	const results = [[]];
 	for (const value of array) {
 		const copy = [...results];
