@@ -9,16 +9,16 @@
  */
 
 // generate all possible subarrays
-const subarrays = (array) => {
- 	const results = [[]];
- 	for (const value of array) {
- 		const copy = [...results];
- 		for (const prefix of copy) {
- 			results.push(prefix.concat(value));
- 		}
- 	}
- 	return results;
- };
+function subarrays(array) { // O(2^n)
+	const results = [[]];
+	for (const value of array) {
+		const copy = [...results];
+		for (const prefix of copy) {
+			results.push(prefix.concat(value));
+		}
+	}
+	return results;
+};
 
 // use reduce to see if sum of any subarray === target value
 function subsetSum(array, target) {
