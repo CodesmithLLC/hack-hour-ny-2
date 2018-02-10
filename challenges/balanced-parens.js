@@ -49,21 +49,6 @@
    }
    return true;
  }
-
-  // for (let i = input.length; i > 0; i--) {
-  //   if (input[i] === ')' || input[i] === ']' || input[i] === '}') {
-      // const lastItem = checkArr.pop()
-      // switch (input[i]) {
-      //   case ')':
-      //     if (lastItem !== '(') return false;
-      //   case ']':
-      //     if (lastItem !== '[') return false;
-      //   case '}':
-      //     if (lastItem !== '{') return false;
-      // }
-  //   }
-  // }
-  // return true;
 }
 
 module.exports = balancedParens;
