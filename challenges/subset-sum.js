@@ -11,11 +11,35 @@
 function subsetSum(array, target) {
 	// inputs: array of nums, target num which is the sum of SOME integers contained in the array
 	// output true if the target is met, false otherwise
+	// sort array in descending order
+	let end = array.length,
+			sum = 0,
+			temp;
 
-	// create 2D array for all posible sum combinations
+	for (let j = 0; j < array.length; j++) {
+		for (let i = 1; i < end; i++) {
+			if (array[i - 1] < array[i]) {
+				temp = array[i - 1];
+				array[i - 1] = array[i];
+				array[i] = temp;
+			}
+		}
+		end -= 1;
+	}
 
+	console.log(array)
 
-
+	// reduce to true or false
+	return array.reduce((bool, num) => {
+		console.log('num',num)
+		if (num + sum <= target) {
+			console.log('sum',sum)
+			sum += num;
+			return true;
+		} else {
+			return false;
+		}
+	}, false)
 }
 
 console.log(subsetSum([8, 2, 4, 12], 13));
@@ -23,32 +47,3 @@ console.log(subsetSum([8, 2, 4, 12], 13));
 module.exports = subsetSum;
 
 
-	// sort array in descending order
-	// let end = array.length,
-	// 		sum = 0,
-	// 		temp;
-
-	// for (let j = 0; j < array.length; j++) {
-	// 	for (let i = 1; i < end; i++) {
-	// 		if (array[i - 1] < array[i]) {
-	// 			temp = array[i - 1];
-	// 			array[i - 1] = array[i];
-	// 			array[i] = temp;
-	// 		}
-	// 	}
-	// 	end -= 1;
-	// }
-
-	// console.log(array)
-
-	// // reduce to true or false
-	// return array.reduce((bool, num) => {
-	// 	console.log('num',num)
-	// 	if (num + sum <= target) {
-	// 		console.log('sum',sum)
-	// 		sum += num;
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// }, false)
