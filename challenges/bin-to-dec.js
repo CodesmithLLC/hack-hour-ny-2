@@ -16,9 +16,20 @@
 function binToDec(binary) {
   let decimal = 0;
   for (let i = 0; i < binary.length; i += 1) {
-    decimal += binary[binary.length - 1 - i] * Math.pow(2, i)
+    decimal += binary[binary.length - 1 - i] * Math.pow(2, i);
   }
-  return decimal
+  return decimal;
   }
+
+function decToBin(decimal) {
+  let divided = decimal;
+  let binary ='';
+  while (divided > 0) {
+    binary = divided % 2 + binary;
+    divided = Math.floor(divided / 2);
+  }
+  return binary;
+}
+
 
 module.exports = binToDec;
