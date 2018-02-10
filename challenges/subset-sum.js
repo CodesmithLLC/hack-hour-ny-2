@@ -12,15 +12,16 @@ function subsetSum(array, target) {
   if(!array.length){
     return target === 0;
   }
-  if(array.includes(target)){
-    return true;
+  if(!target){
+    return false;
   }
 
-  let start = 0;
-  return array.reduce((bool, num) => {
-    start++;
-    return bool || subsetSum(array.slice(start), target - num);
-  }, false)
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
+  // let start = 0;
+  // return array.reduce((bool, num) => {
+  //   start++;
+  //   return bool || subsetSum(array.slice(start), target - num);
+  // }, false)
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5)) //- > true, 3 + 2 = 5
