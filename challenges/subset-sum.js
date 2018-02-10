@@ -31,6 +31,7 @@ function subsetSum(array, target) {
   for (let i = 0; i < arr.length - 2; i++) {
     let restStart = i + 1;
     let restEnd = arr.length - 1;
+    let restStartTwo = i + 2;
 
 
     // just testing.. some test cases
