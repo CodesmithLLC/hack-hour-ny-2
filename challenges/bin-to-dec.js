@@ -14,7 +14,11 @@
  */
 
 function binToDec(binary) {
-
-}
+  let decimal = 0;
+  for (let i = 0; i < binary.length; i += 1) {
+    decimal += binary[binary.length - 1 - i] * Math.pow(2, i)
+  }
+  return decimal
+  }
 
 module.exports = binToDec;
