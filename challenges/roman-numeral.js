@@ -17,8 +17,22 @@
  * 
  */
 
-function romanNumeral(n) {
 
+const digits = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+const romans = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+
+function romanNumeral(n) {
+    let input = n;
+    let result = "";
+    for (let i = 0; i < digits.length; i += 1) {
+        if (input / digits[i] > 0) {
+            let times = Math.floor(input / digits[i]);
+            result += romans[i].repeat(times);
+            input -= digits[i] * times;
+        }
+
+    }
+    return result;
 }
 
 module.exports = romanNumeral;

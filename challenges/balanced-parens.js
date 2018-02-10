@@ -25,7 +25,77 @@
  */
 
 function balancedParens(input){
+    let stack = [];
 
+    function isOpening(input, i) {
+        let character = input.charAt(i);
+
+        if (character === "[") return true;
+        if (character === "{") return true;
+        if (character === "(") return true;
+        return false;
+    }
+
+    function isClosing(input, i) {
+        let character = input.charAt(i);
+
+        if (character === "]") return true;
+        if (character === "}") return true;
+        if (character === ")") return true;
+        return false;
+    }
+
+    for(let i = 0; i < input.length; i += 1) {
+        if(isOpening(input, i)) stack.push(input.charAt(i));
+        else if (isClosing(input,i)) {
+            let pop = stack.pop();
+            if(pop === "[") {
+                if(input.charAt(i) !== "]") return false;
+            } else if (pop === "{") {
+                if (input.charAt(i) !== "}") return false;
+            } else if (pop === "(") {
+                if (input.charAt(i) !== ")") return false;
+            } 
+        }
+    }
+    if(stack.length > 0) return false;
+    return true;
+
+
+    // let i = 0,
+    //     brackets = false,
+    //     curly = false,
+    //     parens = false;
+    
+    // while (i < input.length) {
+    //     if(input.charAt(i) === "[") {
+    //         brackets = true;
+    //         // i += 1
+    //     } else if (input.charAt(i) === "{") {
+    //         curly = true;
+    //         // i += 1
+    //     } else if (input.charAt(i) === "(") {
+    //         parens = true;
+    //         // i += 1
+    //     }
+
+    //     else if (brackets && input.charAt(i) === "]" ) {
+    //         if(curly || parens) return false;
+    //         brackets = false;
+    //     } else if (curly && input.charAt(i) === "}") {
+    //         if (brackets || parens) return false;
+    //         curly = false;
+    //     } else if (parens && input.charAt(i) === ")") {
+    //         if (brackets || curly) return false;
+    //         parens = false;
+    //     }
+
+    //     i += 1;
+    // }
+
+    // if(!brackets && !curly && !parens) return true;
+
+    // return false;
 }
 
 module.exports = balancedParens;
