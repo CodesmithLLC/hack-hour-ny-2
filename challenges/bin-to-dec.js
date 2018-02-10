@@ -26,6 +26,7 @@ function binToDec(binary) {
 }
 
 function power(num, bin, total = 1) {
+  if (num === 0 & bin === 0) return 0;
   if (num === 0) return total;
   if (bin === 0) return 0;
   return power(num - 1, bin, total * 2);
