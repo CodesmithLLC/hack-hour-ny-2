@@ -9,56 +9,34 @@
  */
 
 function subsetSum (array, target) {
-  
+  let possibilities = [];
+
+  for (let i = 0; i < array.length; i++) {
+    for (let exclude = 0; exclude < array.length; exclude++) {
+      let newPossibility = [];
+      newPossibility.push(array[i]);
+      for (let k = exclude; k < array.length; k++) {
+        if (k !== i) newPossibility.push(array[k]);
+        if (possibilities.includes(JSON.stringify(newPossibility))) continue;
+        let entry = newPossibility.reduce((acc, curr) => {
+          acc.push(curr);
+          return acc;
+        }, []);
+        if (checkAnswer(entry, target)) return true;
+        possibilities.push(JSON.stringify(entry));
+      }
+    }
+  }
+  return false;
 }
-  
 
-
-  // for (let i = 0; i < array.length; i++) {
-  //   if(!possibilities.includes(array[i])) possibilities.push([array[i]]);
-  //   for (j = 0; j < array.length; j++) {
-  //     if (j !== i) {
-  //       if (j < i) {
-  //         if(!possibilities.includes(array.slice(j, i))) possibilities.push(array.slice(j, i));
-  //       }
-  //       else {
-  //         if(!possibilities.includes(array.slice(i, j + 1))) possibilities.push(array.slice(i, j + 1));
-  //       }
-  //     }
-  //   }
-  // }
-
-
-
-// function subsetSum(array, target, i = 0) {
-//   let newArr = array.sort();
-
-//   if (array.includes(target)) return true;
-//   if (array[0] > target) {
-//     return subsetSum(array, target, i += 1);
-//   }
-//   return subsetSum(array.slice(1), target - array[0], i);
-// }
-
-
-// function subsetSum(array, target) {
-//   let arr = [];
-//   let i = 0;
-//   let total = 0;
-
-//   arr = array.sort();
-//   for (let j = 0; array[j] < target; j++) {
-//     total += array[j];
-//     for (let i = 0; i < arr.length; i++) {
-//       if (total + array[i] === target) return true;
-//       if (total + array[i] > target) {
-
-//       }
-//     }
-//   }
-// }
-
-
+function checkAnswer(possibility, target) {
+  let sum = possibility.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
+  if (sum === target) return true;
+  return false;
+}
 
 
 module.exports = subsetSum;
