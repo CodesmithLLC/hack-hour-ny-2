@@ -10,46 +10,37 @@
 
 function subsetSum(array, target) {
 
-	let subArr = array.filter(number) => target > number; 
-	return array; 
-
-}
-
-module.exports = subsetSum;
-
-function subsetSum(array, target) {
-
-	let subArr = array.filter(number => (target >= number)); 
+	let subArr = array;
 	subArr.sort(function(a,b) {return a-b});
-	console.log(subArr)
-	
+
 	let value = null; 
+	var checker = 0;
 	
 	for(let i = 0; i < subArr.length; i++){
 	  if(i === target)
-	    return true;
-	   value = subSet(i);
+	    return true
+	  value = subSet(i,0)
 	}
 
-	function subSet(i){
-	  let value = 0; 
-      for(let j = i; j < subArr.length; j++){
-        value = subArr[j]
-	    if(value === target)
-	       return value; 
-	    else if(value > target)
-	      return 0; 
-	    else{ 
-	      i = i + 1 
-	      value = value + (subSet(i));
-	      console.log(value)
-	   }
-	   return value; 
-    }
+ 
+	function subSet(i,sum){
+	  let value = 0
+      value = subArr[i]
+      sum = value + sum
+    if(sum === target){
+	    checker = 1;
+	    }
+	  else if(sum > target){
+	    return 0
+	    }
+	  else{ 
+	    for(let k = i+1; k < subArr.length; k++){
+	      subSet(k,sum);
+	    }
+	  }
 	}
 	
-  if(value === target)
+  if(checker === 1)
     return true; 
   return false; 
 }
-

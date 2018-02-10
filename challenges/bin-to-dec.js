@@ -28,7 +28,7 @@ function binToDec(binary) {
 	if(Number(binary.charAt(2)) !== 0)
 		counter += 2
 	if(Number(binary.charAt(3)) !== 0)
-		counter +=1
+		counter += 1
 
 	return counter;
 }
