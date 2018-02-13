@@ -8,6 +8,28 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
+function subsetSum(array, target) {
+  console.log(array);
+  if (!target) return true;
+  if (!array.length) return false;
+  
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
+}
+
+subsetSum([3, 34, 4, 12, 5, 12], 32)
+
+
+
+
+
+
+
+
+
+
+
+
+
 function subsetSum (array, target) {
   let possibilities = [];
 
