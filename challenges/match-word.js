@@ -13,6 +13,9 @@
 function matchWord(str) {
   // build a stack
   // add each word to the stack
+  if (!str) {
+    return true;
+  }
   const stack = [];
   let stackCheck = false;
   str = str.toLowerCase();
