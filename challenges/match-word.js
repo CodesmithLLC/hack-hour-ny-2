@@ -16,8 +16,8 @@ function matchWord(str) {
   const arr2 = arr1.filter( (item) => {
     return item !== '';
   })
+  if (arr2.length%2 === 1) return fasle;
   const buffer = [];
-  //buffer.push(arr2[0]);
   for (let i=0; i<arr2.length; i++) {
     const s1 = buffer[buffer.length-1];
     if (closedPair(s1,arr2[i])) {
