@@ -14,6 +14,7 @@
  */
 
 function binToDec(binary) {
+
     let bin = binary.split("");
     let base = 2;
     let result = 0;
