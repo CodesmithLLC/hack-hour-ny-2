@@ -7,9 +7,6 @@
 // matchWord('__ENDDNE__');  -> false       (not separated by a space)
 // matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
 // matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
-// matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
-// matchWord('');  -> true
-
 function matchWord(str) {
     let stack = [];
     let input = str;
@@ -20,14 +17,14 @@ function matchWord(str) {
             //concat alphanumeric word
             let word = [];
             while (alphanum(input[i])) {
-                word.push(input[i]);
+                word.push(input[i].toLowerCase());
                 i++;
             }
-            word = word.toLowerCase();
+
             //when I hit a nonalphanumeric 
             let closing = stack.indexOf(word.reverse().join(""))
-            console.log(word.reverse().join(""))
             //check if its reverse if already in the stack
+            console.log(closing)
             if (closing !== -1) {
                 //if it is at the last index pop the last index
                 if (closing === stack.length - 1) stack.pop();
@@ -35,8 +32,9 @@ function matchWord(str) {
                 else return false;
             } else {
                 // if the reverse is not in the stack push it to the stack
-                stack.push(word.join(""));
+                stack.push(word.reverse().join(""));
             }
+            console.log(stack);
         }
     }
     //if the stack is empty after going through the whole str return true
@@ -45,8 +43,8 @@ function matchWord(str) {
 }
 
 function alphanum(input) {
+    if (!input) return false;
     return input.match(/^[a-z0-9]+$/i) !== null;
 }
-
 
 module.exports = matchWord;
