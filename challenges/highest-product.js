@@ -3,8 +3,10 @@
  */
 
 function highestProduct(array) {
-
+  let max = Math.max(...array);
+  array.splice(array.indexOf(max), 1);
+  let nextMax = Math.max(...array)
+  return max * nextMax
 }
-
 
 module.exports = highestProduct;
