@@ -14,7 +14,7 @@ function matchWord(str) {
   let newStr = str.toUpperCase();
   let rx = /[A-Z]/;
   let stack = [];
-  let endword = false;
+  let endWord = false;
 
   for (let i = 0; i < newStr.length; i++) {
     if (stack.length > 0 && !rx.test(newStr[i])) endword = true;
