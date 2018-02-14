@@ -3,9 +3,8 @@
  */
 
 function highestProduct(arr) {
-  const n = arr.length;
-  if (n<3) return 'error';
-  if (n===3) return arr[0]*arr[1]*arr[2];
+  if (!Array.isArray(arr) || arr.length < 3) return 0;
+  if (arr.length===3) return arr[0]*arr[1]*arr[2];
   const a1 = arr.filter( (i)=>{return i>=0});
   const a2 = arr.filter( (i)=>{return i<0});
   a1.sort((a,b)=>{return b-a});
