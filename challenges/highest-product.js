@@ -4,18 +4,33 @@
 
 function highestProduct(array) {
 
-  if (array.length < 3 || array.constructor !== Array) {
-    return 0;
-  }
-
+  // if (array.length < 3 || array.constructor !== Array) {
+  //   return 0;
+  // }
+  if (array.length < 3) return 0;
+  if (array.constructor !== Array) return 0;
+  
   // sorting the array
   array = array.sort((a, b) => (a - b));
   // get last 3 numbers (biggest numbers, or 'smallest' negative numbers)
-  array = array.slice(array.length - 3)
-  console.log(array)
+
+  let len = array.length;
+  let numsToMult = [];
+  console.log(array[len - 3])
+  if (array[len - 3] < 0 && array[len - 2] < 0) {
+    numsToMult.push(array[0], array[1], array[len - 1]);
+
+  }
+  else {
+    numsToMult = array.slice(len - 3)
+  }
+  // numsToMult = array.slice(len-3)
+
+  console.log(numsToMult)
+
 
   // just multiply to win??
-  let result = array[0] * array[1] * array[2]
+  let result = numsToMult[0] * numsToMult[1] * numsToMult[2]
   return result
 }
 
