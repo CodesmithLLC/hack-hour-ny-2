@@ -17,6 +17,7 @@ function matchWord(str) {
             //concat alphanumeric word
             let word = [];
             while (alphanum(input[i])) {
+                if (i > input.length) return false;
                 word.push(input[i].toLowerCase());
                 i++;
             }
@@ -24,7 +25,6 @@ function matchWord(str) {
             //when I hit a nonalphanumeric 
             let closing = stack.indexOf(word.reverse().join(""))
             //check if its reverse if already in the stack
-            console.log(closing)
             if (closing !== -1) {
                 //if it is at the last index pop the last index
                 if (closing === stack.length - 1) stack.pop();
@@ -34,7 +34,6 @@ function matchWord(str) {
                 // if the reverse is not in the stack push it to the stack
                 stack.push(word.reverse().join(""));
             }
-            console.log(stack);
         }
     }
     //if the stack is empty after going through the whole str return true
