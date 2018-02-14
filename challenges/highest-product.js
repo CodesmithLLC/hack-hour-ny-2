@@ -3,10 +3,8 @@
  */
 
 function highestProduct(array) {
-    let arr = array.sort((a,b)=>b-a);
-    if(arr.length === 0) return 0;
-    if(arr.length === 1) return arr[0];
-    if(arr.length === 2) return arr[0] * arr[1];
+    if(arr.length < 3) return 0;
+    let arr = array.sort((a, b) => b - a);
     return arr[0]*arr[1]*arr[2];
 }
 
