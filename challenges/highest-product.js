@@ -11,6 +11,9 @@ function sortArr(array) {
 function highestProduct(array) {
   // sort array
   // find the product of the biggest numbers
+  if (!array) {
+    return 0;
+  }
   let sorted = sortArr(array);
   let largest = sorted.slice(0, 3);
   return largest.reduce((acc, curr) => {
