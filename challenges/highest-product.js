@@ -20,7 +20,7 @@ function sortArray(array) {
 function highestProduct(array) {
   const sorted = sortArray(array);
   let product = 1;
-  for (i = sorted.length - 1; (i >= sorted.length - 3 || i === 0); i -= 1) {
+  for (i = sorted.length - 1; (i >= sorted.length - 3 && i >= 0); i -= 1) {
     product *= sorted[i]
   }
   return product
