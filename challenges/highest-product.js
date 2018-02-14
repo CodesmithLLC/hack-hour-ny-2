@@ -9,17 +9,18 @@ function mult(arr) {
 }
 
 function highestProduct(array) {
-  if(array.length < 3){
+  // keep track of two most negative numbers
+  // keep track of the three most positive numbers
+  if(!Array.isArray(array) || array.length < 3){
     return 0;
   }
-  
+
   array.sort();
   const optionOne = [array[0], array[1], array[array.length - 1]];
   const optionTwo = [array[array.length - 3], array[array.length - 2], array[array.length - 1]];
 
   return Math.max(mult(optionOne), mult(optionTwo));
-  // keep track of two most negative numbers
-  // keep track of the three most positive numbers
+
   // let min = [];
   // let max = [];
   //
