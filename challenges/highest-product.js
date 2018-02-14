@@ -4,6 +4,10 @@
 
 function highestProduct(array) {
 
+  if (array.length < 3 || array.constructor !== Array) {
+    return 0;
+  }
+
   // sorting the array
   array = array.sort((a, b) => (a - b));
   // get last 3 numbers (biggest numbers, or 'smallest' negative numbers)
