@@ -38,7 +38,7 @@ function matchWord(str) {
     }
     //if the stack is empty after going through the whole str return true
     if (stack.length === 0) return true;
-    return 'false';
+    return false;
 }
 
 function alphanum(input) {
