@@ -21,28 +21,38 @@ function binToDec(binary) {
 
     binary.toString().split()
   */
-  let num = binary.toString().split('');
-  let len = num.length;
+ 
+  // let num = binary.toString().split('');
+  // let len = num.length;
 
-  //   console.log(num)
-  //   console.log(parseInt(num[len-1]))
+  // //   console.log(num)
+  // //   console.log(parseInt(num[len-1]))
 
-  num = num.map((el) => parseInt(el))
-  //              {
-  //     return parseInt(el)
-  //   });
-  //   console.log(num[len-1])
+  // num = num.map((el) => parseInt(el))
+  // //              {
+  // //     return parseInt(el)
+  // //   });
+  // //   console.log(num[len-1])
 
-  let result = 0;
+  // let result = 0;
 
-  for (let i = 0; i < len; i++) {
-    result += num[len - i - 1] * Math.pow(2, i);
-  }
+  // for (let i = 0; i < len; i++) {
+  //   result += num[len - i - 1] * Math.pow(2, i);
+  // }
 
 
-  console.log(result)
+  // console.log(result)
 
-  return result;
+  // return result;
+
+  
+  let idx = 0;
+  return binary.split('').reverse().reduce((acc, curr) => {
+    acc += (Math.pow(2, idx) * curr)
+    idx++
+    return acc
+  }, 0)
+  
 
 }
 
