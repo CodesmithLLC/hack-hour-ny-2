@@ -23,6 +23,7 @@ function matchWord(str) {
                 word.push(input[i]);
                 i++;
             }
+            word = word.toLowerCase();
             //when I hit a nonalphanumeric 
             let closing = stack.indexOf(word.reverse().join(""))
             console.log(word.reverse().join(""))

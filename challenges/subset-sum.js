@@ -8,15 +8,32 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-    if (array.length === 0) return false;
-    if (array.includes(target)) return true;
 
-    for (let i = 0; i < array.length; i += 1) {
-        let arr = [...array];
-        let curr = arr.splice(0, 1);
-        return subsetSum(arr, target - curr);
+function subsetSum(array, target) {
+
+
+
+
+    let subsets = [];
+
+    for(let i = 0; i < array.length; i += 1) {
+       // add one to elem to each array;
+        let subset = []
+        subset.push(array[i]);
+        subsets.push(subset);
+
     }
+
+
+    return subsets;
+    // if (array.length === 0) return false;
+    // if (array.includes(target)) return true;
+
+    // for (let i = 0; i < array.length; i += 1) {
+    //     let arr = [...array];
+    //     let curr = arr.splice(0, 1);
+    //     return subsetSum(arr, target - curr);
+    // }
 }
 
 module.exports = subsetSum;
