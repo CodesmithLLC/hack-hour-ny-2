@@ -17,7 +17,7 @@ function matchWord(str) {
             //concat alphanumeric word
             let word = [];
             while (alphanum(input[i])) {
-                if (i > input.length) return false;
+                if (i > input.length - 1) return false;
                 word.push(input[i].toLowerCase());
                 i++;
             }
