@@ -25,6 +25,8 @@ function subsetSum(array, target) {
         //     subsetSum(array.slice(i), target);
         //   }
         // }
+
+
         
         
   let arr = array.sort();
@@ -57,6 +59,26 @@ function subsetSum(array, target) {
     }
   }
   return false;
+
+   // function subsetSum(array, target) {
+  const result = subset(array);
+  for (let arr of result) {
+    const sum = arr.reduce((acc, num) => acc + num);
+    if (sum === target) return true;
+  }
+  return false;
+ }
+  
+ function subset(array) {
+  let result = [[]];
+  for (let ele of array) {
+    for (let subset of result.slice(0)) {
+      result.push(subset.concat(ele));
+    }
+  }
+  result.shift();
+  return result;
+  }
 
 }
 

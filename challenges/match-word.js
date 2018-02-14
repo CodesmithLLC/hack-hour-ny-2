@@ -12,6 +12,12 @@
 
 function matchWord(str) {
 
+  // let separators = 
+  // let str = str.split(/[\s,]+/);
+
+  str.replace(/\b[a-zA-Z]+\b/g)
+
+  // 
 }
 
 module.exports = matchWord;
