@@ -18,12 +18,11 @@ function highestProduct(array) {
     }
   }
 	recur([], array);
-  
+  console.log(combinations);
   let result = false;
   let product;
   let greatest = combinations[0].reduce((acc, cur) => 
-  	acc * cur, 
-  	combinations[0][0])
+  	acc * cur)
 
   
   combinations.forEach((comb) => {
@@ -34,5 +33,5 @@ function highestProduct(array) {
   return greatest;
 }
 
-//console.log(highestProduct([1, 2, 3, 4]));
+console.log(highestProduct([-5, 2, 1, 4, 3]));
 module.exports = highestProduct;
