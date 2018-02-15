@@ -3,10 +3,9 @@
  */
 
  function highestProduct(array) {
-   if (array.length === 0) return 0;
-   if (lessThanThreeNumbers(array)) return 0;
    if (!Array.isArray(array)) return 0;
-   let max = Number.NEGATIVE_INFINITY;
+   if (array.length < 3) return 0;
+   let max = 0;
    let subsets = powerSet(array);
    subsets = drop(subsets, 3);
    for (let ele of subsets) {
@@ -14,15 +13,6 @@
     if (product > max) max = product;
    }
    return max;
- }
-
- function lessThanThreeNumbers(arr) {
-   let count = 0;
-   for (let i = 0; i < arr.length; i++) {
-     if (typeof(arr[i]) === 'number') count++;
-   }
-   if (count < 3) return true;
-   return false;
  }
 
  function powerSet(array) {
