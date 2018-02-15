@@ -3,6 +3,10 @@
  */
 
 function highestProduct(array) {
+
+  if (!Array.isArray(array)) return 0;
+  if (array.length < 3) return 0;
+
 	const combinations = [];
   const recur = (comb, arr) => {
    // console.log(comb);
@@ -30,5 +34,5 @@ function highestProduct(array) {
   return greatest;
 }
 
-console.log(highestProduct([1, 2, 3, 4]));
+//console.log(highestProduct([1, 2, 3, 4]));
 module.exports = highestProduct;
