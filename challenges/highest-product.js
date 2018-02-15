@@ -20,12 +20,9 @@ function sortArray(array) {
 function highestProduct(array) {
   if (array.length < 3 || !Array.isArray(array)) return 0;
   const sorted = sortArray(array);
-  let product = 1;
-  for (i = sorted.length - 1; i >= sorted.length - 3; i -= 1) {
-    console.log(sorted[i])
-    product *= sorted[i]
-  }
-  return product
+  const p1 = sorted[0] * sorted[1] * sorted[sorted.length - 1]
+  const p2 = sorted[sorted.length - 1] * sorted[sorted.length - 2] * sorted[sorted.length - 3]
+  return p2 >= p1? p2 : p1
 }
 
 
