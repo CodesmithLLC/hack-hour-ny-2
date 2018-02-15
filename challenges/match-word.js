@@ -11,8 +11,8 @@
 // matchWord('');  -> true
 const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const PAIRS = { '(': ')', '[': ']', '{': '}' }
-const OPENINGS = '([{';
-const CLOSINGS = ')]}';
+// const OPENINGS = '([{';
+// const CLOSINGS = ')]}';
 function matchWord(str) {
   if (str === '') return true;
   let result = '';
