@@ -25,6 +25,7 @@ function zip(l1, l2) {
     curr1 = temp1;
     temp1 = curr1.next;
     curr2 = temp2;
+    temp2 = curr2.next;
   }
 
   return l1;
