@@ -11,15 +11,15 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if (!l1.next) return l2;
-  if (!l2.next) return l1;
+  if (!l1) return l2;
+  if (!l2) return l1;
 
   let curr1 = l1, 
       curr2 = l2,
       temp1 = curr1.next,
       temp2 = curr2.next;
 
-  while (curr1.next && curr2.next) {
+  while (curr1.next !== null && curr2.next !== null) {
     curr1.next = curr2;
     curr2.next = temp1;
     curr1 = temp1;
