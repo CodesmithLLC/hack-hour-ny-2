@@ -10,8 +10,49 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
-
+const isLetter = (str) => {
+  return str.match(/[a-zA-Z]/i);
 }
+const getReverse = (str) => {
+	let temp = '';
+	for (let i = str.length-1; i >= 0; i--){
+		temp += str[i];
+	}
+	return temp.toUpperCase();
+}
+
+function matchWord(str) {
+	
+	if (str.length < 3) return false;
+
+	const stack = [];
+	let temp = '';
+	for (let i = 0; i < str.length; i++){
+		if (isLetter(str[i])){
+				temp += str[i];
+			}
+		if (!isLetter(str[i]) && temp.length !== 0){
+			if (stack.length === 0)
+				stack.push(temp.toUpperCase());
+			else if (stack[stack.length-1] === getReverse(temp))
+				stack.pop();
+			else if (stack[stack.length-1] !== getReverse(temp))
+				stack.push(temp.toUpperCase());
+			temp = '';
+		}
+		if (temp.length > 0 && i === str.length-1)
+			if (stack[stack.length-1] === getReverse(temp))
+				stack.pop();
+	}
+
+	console.log(stack);
+	if (stack.length > 0) return false;
+	else return true;
+}
+
+
+//console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+
+
 
 module.exports = matchWord;
