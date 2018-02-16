@@ -11,6 +11,16 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+	let newObj = new Node(l1)
+	let newObj2 = new Node (l2)
+	newObj.next = newObj2; 
+
+
+
+// testing to see what the test cases are. 
+	return newObj; 
+
+
 };
 
 module.exports = {Node: Node, zip: zip};
