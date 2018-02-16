@@ -23,7 +23,7 @@ function zip(l1, l2) {
   }
 
   if(l1.head) {
-    while(l1TempNextTwo.next != null && l2TempNextTwo.next != null) {
+    while(l1TempNextTwo != null && l2TempNextTwo != null) {
       
       // (re)set l1.currentNode before proceeding and changing
       l1.currentNode = l1.head.next;
