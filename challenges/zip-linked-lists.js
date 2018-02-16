@@ -23,7 +23,8 @@
      nextl1 = nextl1.next;
      nextl2 = nextl2.next;
    }
-   zipped[i] = nextl2.value;
+   zipped[i] = nextl1.value;
+   zipped[i+1] = nextl2.value;
    return zipped;
  }
 
