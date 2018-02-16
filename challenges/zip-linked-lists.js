@@ -6,7 +6,7 @@
  */
 
 function Node(val) {
-  this.value = val;
+  this.val = val;
   this.next = null;
 }
 
