@@ -11,12 +11,12 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-	if(!l1.head) return l2;
-	if(!l2.head) return l1;
+	if(!l1.head && !l1.head.next) return l2;
+	if(!l2.head && !l2.head.next) return l1;
 	let currNode = l1.head;
+	let nextNode = l2.head;
 	let l1next = true;
 	while(currNode.next) {
-		let nextNode = l2.head;
 		let templ1 = currNode.next
 		let templ2 = nextNode.next
 		currNode.next = nextNode;
@@ -31,6 +31,7 @@ function zip(l1, l2) {
 	if(l2.head) {
 		l1.tail.next = l2.head
 	}
+	return l1
 };
 
 module.exports = {Node: Node, zip: zip};
