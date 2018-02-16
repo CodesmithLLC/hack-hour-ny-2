@@ -36,17 +36,20 @@ function zip(l1, l2) {
   let currentTwo = l2;
 
   while(currentOne !== null && currentTwo !== null){
-    let tempOne = currentOne.next;
-    currentOne.next = new Node(currentTwo.value);
-    currentOne.next.next = tempOne;
+    let nextOne = currentOne.next;
+    let nextTwo = currentTwo.next;
 
-    // if(!currentOne.next){
-    //   currentOne.next = currentTwo;
-    // }
-    currentOne = tempOne;
-    currentTwo = currentTwo.next;
+    currentOne.next = currentTwo;
+    currentOne.next.next = nextOne;
+
+    if(!nextOne && nextTwo){
+      currentOne.next.next = nextTwo;
+      break;
+    }
+
+    currentOne = nextOne;
+    currentTwo = nextTwo;
   }
-
 
   return l1;
 };
