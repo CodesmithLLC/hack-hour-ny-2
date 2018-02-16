@@ -29,6 +29,9 @@ function Node(val) {
 // }
 
 function zip(l1, l2) {
+  if(!l2) return l1;
+  if(!l1) return l2;
+
   let currentOne = l1;
   let currentTwo = l2;
 
@@ -37,14 +40,18 @@ function zip(l1, l2) {
     currentOne.next = new Node(currentTwo.value);
     currentOne.next.next = tempOne;
 
+    // if(!currentOne.next){
+    //   currentOne.next = currentTwo;
+    // }
     currentOne = tempOne;
     currentTwo = currentTwo.next;
   }
 
+
   return l1;
 };
 
-// const listOne = create([0, 2, 4]);
+// const listOne = create([0, 2]);
 // const listTwo = create([1, 3, 5]);
 //
 // zip(listOne, listTwo);
