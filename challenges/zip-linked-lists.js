@@ -11,6 +11,8 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+	if(!l1.head) return l2;
+	if(!l2.head) return l1;
 	let currNode = l1.head;
 	let l1next = true;
 	while(currNode.next) {
@@ -25,6 +27,9 @@ function zip(l1, l2) {
 			l2.head = templ2;
 			l1next = !l1next
 		}
+	}
+	if(l2.head) {
+		l1.tail.next = l2.head
 	}
 };
 
