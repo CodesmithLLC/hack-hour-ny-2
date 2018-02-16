@@ -45,7 +45,7 @@ function matchWord(str) {
 				stack.pop();
 	}
 
-	console.log(stack);
+	//console.log(stack);
 	if (stack.length > 0) return false;
 	else return true;
 }
