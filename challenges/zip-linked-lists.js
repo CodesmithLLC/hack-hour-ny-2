@@ -57,8 +57,8 @@ function zip(l1, l2) {
 			newObj.next = new Node(mergedValueArr[i])
 		newObj = new Node(mergedValue[i]);
 	}
-	
-	return newObj; 
+
+	return newObj 
 };
 
 module.exports = {Node: Node, zip: zip};
