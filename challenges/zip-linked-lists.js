@@ -11,6 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  // TempNextTwo variables are there to: 1. help TempNext update, 2. check for LL end condition (though could be done with TempNext)
   let l1TempNext = l1.head.next;
   let l1TempNextTwo = l1TempNext.next;
   let l2TempNext = l2.head.next;
@@ -25,7 +26,7 @@ function zip(l1, l2) {
   if(l1.head) {
     while(l1TempNextTwo != null && l2TempNextTwo != null) {
       
-      // (re)set l1.currentNode before proceeding and changing
+      // (re)set 
       l1.currentNode = l1.head.next;
       l1.head.next = l2.head;
       
@@ -33,12 +34,15 @@ function zip(l1, l2) {
       l2.currentNode = l2.head.next;
       l2.head.next = l1TempNext;
       // update l1TempNext and l1TempNextTwo, also add condition to check if next node exists (to check end of each LL)
+      // update l1.currentNode before proceeding and changing
+      l1.currentNode = l1TempNext;
       // if(l1TempNextTwo != null) {
         l1TempNext = l1TempNextTwo;
         l1TempNextTwo = l1TempNextTwo.next;
       // }
       
-      l1.currentNode.next = l2TempNext;
+      // update l2.currentNode before proceeding and changing
+      l2.currentNode = l2TempNext;
       //update L2TempNext and L2TempNextTwo
       // if (l1TempNextTwo != null) {
         l2TempNext = l2TempNextTwo;
