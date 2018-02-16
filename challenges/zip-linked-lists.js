@@ -5,32 +5,31 @@
  * BONUS: Do this in place
  */
 
-function Node(val) {
-  this.val = val;
-  this.next = null;
-}
+ function Node(val) {
+   this.value = val;
+   this.next = null;
+ }
 
-function zip(l1, l2) {
-  if (!l1) return l2;
-  let newlist = new Node(l1.val);
-  let curentNewlist = newlist;
-  let currentNode1 = l1.next;
-  let currentNode2 = l2;
+ function zip(l1, l2) {
+   if (!l1) return l2;
+   let newlist = l1;
+   let curentNewlist = newlist;
+   let currentNode1 = l1.next;
+   let currentNode2 = l2;
 
-  while (currentNode1 || currentNode2) {
-    if (currentNode2) {
-      curentNewlist.next = new Node(currentNode2.val);
-      currentNode2 = currentNode2.next;
-      curentNewlist = curentNewlist.next;
-    }
-    if (currentNode1) {
-      curentNewlist.next = new Node(currentNode1.val);
-      currentNode1 = currentNode1.next;
-      curentNewlist = curentNewlist.next;
-    }
-  }
-  return newlist;
-
-};
+   while (currentNode1 || currentNode2) {
+     if (currentNode2) {
+       curentNewlist.next = currentNode2;
+       currentNode2 = currentNode2.next;
+       curentNewlist = curentNewlist.next;
+     }
+     if (currentNode1) {
+       curentNewlist.next = currentNode1;
+       currentNode1 = currentNode1.next;
+       curentNewlist = curentNewlist.next;
+     }
+   }
+   return newlist;
+ }
 
 module.exports = {Node: Node, zip: zip};
