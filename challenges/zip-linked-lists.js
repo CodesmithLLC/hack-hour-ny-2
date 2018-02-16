@@ -15,10 +15,17 @@ function zip(l1, l2) {
   let l1TempNextTwo = l1TempNext.next;
   let l2TempNext = l2.head.next;
   let l2TempNextTwo = l2TempNext.next;
-  if(h1.head) {
-    // (re)set l1.currentNode before proceeding and changing
-    while(l1TempNextTwo.next != null && l2TempNextTwo.next != null) {
+  if(l2.head === null) {
+    return l1;
+  }
+  if (l1.head === null) {
+    return l2;
+  }
 
+  if(l1.head) {
+    while(l1TempNextTwo != null && l2TempNextTwo != null) {
+      
+      // (re)set l1.currentNode before proceeding and changing
       l1.currentNode = l1.head.next;
       l1.head.next = l2.head;
       
@@ -40,6 +47,7 @@ function zip(l1, l2) {
       
       // ... and so on and so on it goes
       
+
     }
   }
 };
