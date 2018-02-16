@@ -16,7 +16,7 @@ function matchWord(str) {
   const arr2 = arr1.filter( (item) => {
     return item !== '';
   })
-  if (arr2.length%2 === 1) return fasle;
+  if (arr2.length%2 === 1) return false;
   const buffer = [];
   for (let i=0; i<arr2.length; i++) {
     const s1 = buffer[buffer.length-1];
