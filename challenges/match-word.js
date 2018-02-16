@@ -22,7 +22,8 @@ const getReverse = (str) => {
 }
 
 function matchWord(str) {
-	
+
+	if (str === '') return true;
 	if (str.length < 3) return false;
 
 	const stack = [];
