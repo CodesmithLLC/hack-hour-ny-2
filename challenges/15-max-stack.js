@@ -32,7 +32,7 @@
  }
 
  Stack.prototype.getMax = function() {
-   if (this.max = null) return undefined;
+   if (this.max === null) return undefined;
    return this.max;
  }
 module.exports = Stack;
