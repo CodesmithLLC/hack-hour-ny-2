@@ -10,10 +10,16 @@ function Stack() {
   // body...
   this.storage = {};
   this.index = 0;
+  this.maxIndex = 0;
 }
 
 Stack.prototype.push = (value) => {
   this.storage[this.index] = value;
+  if(this.index > 0) {
+    if(value > this.storage[this.maxIndex]) {
+      this.maxIndex = this.index;
+    }
+  }
   this.index++;
   return index;
 }
@@ -27,11 +33,12 @@ Stack.prototype.pop = () => {
 }
 
 Stack.prototype.getMax = () => {
-  let max = this.storage[0];
-  for(let i = 0; i < this.index; i++) {
-    if(this.storage[i] > max) max = this.storage[i];
-  }
-  return max;
+  // let max = this.storage[0];
+  // for(let i = 0; i < this.index; i++) {
+  //   if(this.storage[i] > max) max = this.storage[i];
+  // }
+  // return max;
+  return this.maxIndex;
 }
 
 module.exports = Stack;
