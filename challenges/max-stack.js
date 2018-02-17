@@ -9,10 +9,11 @@
 function Stack() {
   this.length = 0;
   this.storage = [];
-  this.max = 0;
+  this.max;
 }
 
 Stack.prototype.push(el) {
+	if(this.max === undefined) this.max = el;
 	if(el > this.max) this.max = el;
 	this.storage[this.length] = el;
 	this.length++;
