@@ -26,7 +26,8 @@ Stack.prototype.pop = function () {
 };
 
 Stack.prototype.getMax = function () {
-  return this.max[0];
+  if (this.stack.length = 1) return undefined;
+  return this.max[1];
 };
 
 module.exports = Stack;
