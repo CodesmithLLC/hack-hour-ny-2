@@ -8,7 +8,7 @@
 
 function Stack() {
   this.stack = [];
-  this.max = [];
+  this.max = [Number.NEGATIVE_INFINITY];
 }
 
 Stack.prototype.push = function (val) {
