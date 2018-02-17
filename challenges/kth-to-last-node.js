@@ -21,41 +21,65 @@ function Node(val) {
 
 }
 
-function kthToLastNode(k,head) {
-  {
-            //null check
-            if (head == null || k < 1 ){
-                return -1;
-            }
+function kthToLastNode(k, head) {
+  if (head == null) {
+    return 0;
+  }
 
-            let i = 1;
-            let val = head;
-            while (head != null)
-            {
-                // not enough nodes
-                if (head.next == null && i < k)
-                    return undefined;
-                else
-                {
-                    if (i == k && head.next == null)
-                    {
-                        return val.value;
-                    }
-                    else
-                    {
-                        if (i == k)
-                            val = val.next;
-                        else
-                            i++;
-                    }
-                    head = head.next;
+  let curr = head;
 
-                }
-            }
+  while (k > 0) {
+    curr = curr.next;
+    k--;
+  }
 
-            return -1;
-        }
+  let sec = head;
+
+  while (curr != null) {
+    curr = curr.next;
+    sec = sec.next;
+  }
+  let i = sec.data;
+  return i;
 }
+
+
+
+// function kthToLastNode(k,head) {
+//   {
+//             //null check
+//             if (head == null || k < 1 ){
+//                 return -1;
+//             }
+//
+//             let i = 1;
+//             let val = head;
+//             while (head != null)
+//             {
+//                 // not enough nodes
+//                 if (head.next == null && i < k)
+//                     return undefined;
+//                 else
+//                 {
+//                     if (i == k && head.next == null)
+//                     {
+//                         return val.value;
+//                     }
+//                     else
+//                     {
+//                         if (i == k)
+//                             val = val.next;
+//                         else
+//                             i++;
+//                     }
+//                     head = head.next;
+//
+//                 }
+//             }
+//
+//             return -1;
+//         }
+// }
 
 
 const a = new Node('A');
@@ -69,6 +93,9 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-kthToLastNode(2,a);
+kthToLastNode(2, a);
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = {
+  Node: Node,
+  kthToLastNode: kthToLastNode
+};
