@@ -26,7 +26,6 @@
    return result;
  }
 
-
  function drop(array, n) {
    let result = [];
    for (let ele of array) {
