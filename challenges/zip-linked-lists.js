@@ -40,6 +40,7 @@ function zip(l1, l2) {
 		second = secondNext;
 	}	
 	l2 = second;
+	return l1;
 };
 
 
