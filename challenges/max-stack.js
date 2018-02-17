@@ -12,7 +12,7 @@ function Stack() {
   this.max;
 }
 
-Stack.prototype.push(el) {
+Stack.prototype.push = function(el) {
 	if(this.max === undefined) this.max = el;
 	if(el > this.max) this.max = el;
 	this.storage[this.length] = el;
@@ -20,11 +20,13 @@ Stack.prototype.push(el) {
 	return this.length;
 }
 
-Stack.prototype.pop() {
+Stack.prototype.pop = function() {
+	// if(this.storage[this.length--] === this.max) this.max = undefined;
 	return this.storage[this.length--];
 }
 
-Stack.prototype.getMax() {
+Stack.prototype.getMax = function() {
+	// if(this.max === undefined && this.length !== 0)
 	return this.max;
 }
 
