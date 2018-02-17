@@ -29,7 +29,7 @@ function zip(l1, l2) {
   }
 
   if(!curr2.next) curr2.next = temp1;
-  else if (!curr1.next) curr1.next = temp2;
+  else if (!curr1.next) curr1.next = curr2;
 
   return l1;
 }
