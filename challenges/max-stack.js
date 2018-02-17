@@ -13,7 +13,7 @@ function Stack() {
 
 Stack.prototype.push = function (val) {
   this.stack.splice(0, 0, val);
-  if (val > this.max) this.max.push(val);
+  if (val > this.max[this.max.length - 1]) this.max.push(val);
   return this.stack.length;
 };
 
@@ -26,8 +26,8 @@ Stack.prototype.pop = function () {
 };
 
 Stack.prototype.getMax = function () {
-  if (this.stack.length = 1) return undefined;
-  return this.max[1];
+  if (this.stack.length === 1) return undefined;
+  return this.max[this.max.length - 1];
 };
 
 module.exports = Stack;
