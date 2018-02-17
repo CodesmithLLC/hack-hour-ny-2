@@ -13,7 +13,7 @@ function Stack() {
   this.maxIndex = 0;
 }
 
-Stack.prototype.push = (value) => {
+Stack.prototype.push = function(value) {
   this.storage[this.index] = value;
   if(this.index > 0) {
     if(value > this.storage[this.maxIndex]) {
@@ -24,7 +24,7 @@ Stack.prototype.push = (value) => {
   return index;
 }
 
-Stack.prototype.pop = () => {
+Stack.prototype.pop = function() {
   this.index--;
   // let pos = index - 1;
   const poppedVar = this.storage[index];
@@ -32,13 +32,13 @@ Stack.prototype.pop = () => {
   return poppedVar;
 }
 
-Stack.prototype.getMax = () => {
-  // let max = this.storage[0];
-  // for(let i = 0; i < this.index; i++) {
-  //   if(this.storage[i] > max) max = this.storage[i];
-  // }
-  // return max;
-  return this.maxIndex;
+Stack.prototype.getMax = function() {
+  let max = this.storage[0];
+  for(let i = 0; i < this.index; i++) {
+    if(this.storage[i] > max) max = this.storage[i];
+  }
+  return max;
+  // return this.maxIndex;
 }
 
 module.exports = Stack;
