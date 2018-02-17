@@ -10,16 +10,16 @@
 
 function Stack() {
   // body...
-  this.stack = {};
+  this.store = {};
   this.length = 0;
-  this.maxVal;
+  this.maxVal = null;
 }
 
 Stack.prototype.push = (num) => {
-  this.stack[this.length] = num;
+  this.store[this.length] = num;
   if (this.maxVal && num > this.maxVal) {
     this.maxVal = num;
-  } if (!this.maxVal) {
+  } else if (!this.maxVal) {
     this.maxVal = num;
   }
   this.length++;
@@ -27,22 +27,22 @@ Stack.prototype.push = (num) => {
 }
 
 Stack.prototype.pop = () => {
-  let popped = this.stack[this.length-1];
-  delete this.stack[this.length-1];
+  let popped = this.store[this.length-1];
+  delete this.store[this.length-1];
   this.length--;
   // somehow find the maxval if it was just deleted..
   return popped;
 }
 
 Stack.prototype.getMax = () => {
-  // iterate through the stack and find the largest num :(
+  // iterate through the store and find the largest num :(
   // orrrr return maxVal
   if (!this.maxVal) {
-    for (let key in this.stack) {
+    for (let key in this.store) {
       if (!this.maxVal) {
-        this.maxVal = this.stack[key];
-      } else if (this.stack[key] > this.maxVal) {
-        this.maxVal = this.stack[key];
+        this.maxVal = this.store[key];
+      } else if (this.store[key] > this.maxVal) {
+        this.maxVal = this.store[key];
       }
     }
   }
