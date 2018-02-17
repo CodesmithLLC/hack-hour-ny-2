@@ -13,12 +13,11 @@ function Node(val) {
 function zip(l1, l2) {
   if (!l1) return l2;
   if (!l2) return l1;
-  console.log("l1", l1);
-  console.log("l2", l2)
-  let curr1 = l1, 
-      curr2 = l2,
-      temp1 = curr1.next,
-      temp2 = curr2.next;
+
+  let curr1 = l1,
+    curr2 = l2,
+    temp1 = curr1.next,
+    temp2 = curr2.next;
 
   while (curr1.next !== null && curr2.next !== null) {
     curr1.next = curr2;
@@ -29,9 +28,9 @@ function zip(l1, l2) {
     temp2 = curr2.next;
   }
 
-  if(!curr2.next) curr2.next = temp1;
-  else if (!curr1.next) curr1.next = curr2;
-  console.log("return l1", l1);
+  if (!curr2.next) curr2.next = temp1;
+  if (!curr1.next) curr1.next = curr2;
+
   return l1;
 }
 
