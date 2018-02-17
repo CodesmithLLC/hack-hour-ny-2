@@ -28,6 +28,9 @@ function zip(l1, l2) {
     temp2 = curr2.next;
   }
 
+  if(!curr2.next) curr2.next = temp1;
+  else if (!curr1.next) curr1.next = temp2;
+
   return l1;
 }
 
