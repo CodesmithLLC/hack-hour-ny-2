@@ -18,6 +18,26 @@
 
 function fizzbuzz(num) {
 
+  let arr = [];
+
+  for (let i = 0; i < num; i++) {
+    let output = '';
+
+    if (i % 3 == 0) {
+      output += 'fizz';
+    }
+
+    if (i % 5 == 0) {
+      output += 'buzz';
+    }
+
+    if (output === ''){
+      arr.push(i)
+    } else {
+      arr.push(output)
+    }
+  }
+  return arr;
 }
 
 module.exports = fizzbuzz;
