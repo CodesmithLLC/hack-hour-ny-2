@@ -23,13 +23,20 @@
 
  Stack.prototype.pop = function() {
    if (this.length === 0) return undefined;
-   const last = this.content.pop();
-   //this.content[this.length-1] = undefined;
+   const last = this.content[this.length-1];
+   this.content[this.length-1] = undefined;
    this.length--;
-   if (this.length === 0) this.max = null;
-   else this.max = Math.max(...this.content);
+   this.setNewMax();
    return last;
  }
+Stack.prototype.setNewMax = function() {
+  this.max = null;
+  for (let i=0; i<this.length; i++) {
+    if (this.max === null || this.max < this.content[i]) {
+      this.max = this.content[i];
+    }
+  }
+}
 
  Stack.prototype.getMax = function() {
    if (this.max === null) return undefined;
