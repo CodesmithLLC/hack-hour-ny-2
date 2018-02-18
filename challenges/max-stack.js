@@ -7,7 +7,7 @@
  ****the stack should be sorted? and retrieve the last item??? nah, just hold the largest val
  in the stack in a separate variable !
  */
- 
+
 function Stack() {
   // body...
   this.store = {};
@@ -41,7 +41,7 @@ Stack.prototype.changeMax = function() {
   for (let key in this.store) {
     if (!secondMax) {
       secondMax = this.store[key];
-    } else if (this.store[key] < this.maxVal && this.store[key] > secondMax) {
+    } else if (this.store[key] <= this.maxVal && this.store[key] >= secondMax) {
       secondMax = this.store[key];
     }
   }
@@ -51,6 +51,7 @@ Stack.prototype.changeMax = function() {
 Stack.prototype.getMax = function() {
   // iterate through the stack and find the largest num :(
   // orrrr return maxVal
+  if (!this.store) return undefined;
   if (!this.maxVal) {
     for (let key in this.store) {
       if (!this.maxVal) {
