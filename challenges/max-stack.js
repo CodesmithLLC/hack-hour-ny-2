@@ -51,7 +51,7 @@ Stack.prototype.changeMax = function() {
 Stack.prototype.getMax = function() {
   // iterate through the stack and find the largest num :(
   // orrrr return maxVal
-  if (!this.store) return undefined;
+  if (Object.keys(this.store).length === 0) return undefined;
   if (!this.maxVal) {
     for (let key in this.store) {
       if (!this.maxVal) {
