@@ -7,35 +7,49 @@
  ****the stack should be sorted? and retrieve the last item??? nah, just hold the largest val
  in the stack in a separate variable !
  */
-
+ 
 function Stack() {
   // body...
   this.store = {};
-  this.length = 0;
+  this.len = 0;
   this.maxVal = null;
 }
 
-Stack.prototype.push = (num) => {
-  this.store[this.length] = num;
+Stack.prototype.push = function(num){
+  this.store[this.len] = num;
   if (this.maxVal && num > this.maxVal) {
     this.maxVal = num;
   } else if (!this.maxVal) {
     this.maxVal = num;
   }
-  this.length++;
-  return this.length;
-}
+  this.len++;
+  return this.len;
+};
 
-Stack.prototype.pop = () => {
-  let popped = this.store[this.length-1];
-  delete this.store[this.length-1];
-  this.length--;
+Stack.prototype.pop = function() {
+  let popped = this.store[this.len-1];
+  delete this.store[this.len-1];
+  this.len--;
   // somehow find the maxval if it was just deleted..
+  (popped === this.maxVal)? this.changeMax() : false;
   return popped;
-}
+};
 
-Stack.prototype.getMax = () => {
-  // iterate through the store and find the largest num :(
+Stack.prototype.changeMax = function() {
+  // change the maxVal to the second highest maxVal
+  let secondMax;
+  for (let key in this.store) {
+    if (!secondMax) {
+      secondMax = this.store[key];
+    } else if (this.store[key] < this.maxVal && this.store[key] > secondMax) {
+      secondMax = this.store[key];
+    }
+  }
+  this.maxVal = secondMax;
+};
+
+Stack.prototype.getMax = function() {
+  // iterate through the stack and find the largest num :(
   // orrrr return maxVal
   if (!this.maxVal) {
     for (let key in this.store) {
@@ -47,5 +61,6 @@ Stack.prototype.getMax = () => {
     }
   }
   return this.maxVal;
-}
+};
+
 module.exports = Stack;
