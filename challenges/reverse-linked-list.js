@@ -16,7 +16,7 @@ function Node(value) {
 function reverseLinkedList(head) {
   let current = head;
   let storage = [];
-  while(current.next) {
+  while(current) {
     storage.push(current);
     current = current.next;
   }
@@ -27,7 +27,8 @@ function reverseLinkedList(head) {
     current = current.next;
   }
   current.next = null;
-  return newHead;
+  list = newHead;
+  return list;
 }
 
 
