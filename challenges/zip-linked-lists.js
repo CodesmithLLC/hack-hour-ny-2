@@ -5,94 +5,41 @@
  * BONUS: Do this in place
  */
 
-function Node(val) {
-   this.value = val;
-   this.next = null;
-}
+ // Iterative
 
-function zip(l1, l2) {
+ function zip (l1, l2) {
+   if (!l1) return l2;
+   if (!l2) return l1;
 
- 	let zipped;
- 	let currNode;
- 	let nextNode1;
- 	let nextNode2;
- 	let nextNode;
- 	let nextList;
+   var head = l1;
+   var temp = l1;
 
+   l1 = l1.next;
 
- 	if(l1){
- 		if (!l2) return l1;
- 		currNode = zipped = new Node(l1.val);
- 		nextNode1 = l1.next;
- 		nextNode2 = l2;
- 		nextNode = nextNode2;
- 		nextList = 2;
- 	}
- 	else if (l2){
- 		if (!l1) return l2;
- 		currNode = zipped = new Node(l2.val);
- 		nextNode1 = l1;
- 		nextNode2 = l2.next;
- 		nextNode = nextNode1;
- 		nextList = 1;
- 	}
+   while (l2 && l1) {
+     temp.next = l2;
+     l2 = l2.next;
+     temp = temp.next;
+     temp.next = l1;
+     l1 = l1.next;
+     temp = temp.next;
+   }
 
- 	console.log('zipped -->', zipped)
- 	console.log('currNode -->', currNode)
- 	console.log('nextNode1 -->', nextNode1)
- 	console.log('nextNode2 -->', nextNode2)
- 	console.log('nextNode -->', nextNode)
- 	console.log('nextList -->', nextList)
-
- 	let run = true;
-
- 	while (run){
- 		if (run===false) return zipped;
- 		if (nextNode!==null && nextList===1) {
- 			zipped.next = new Node(nextNode.val);
- 			nextNode = nextNode2.next;
- 			nextList=2;
- 		}
- 		else if (nextNode!==null && nextList===2) {
- 			zipped.next = new Node(nextNode.val);
- 			nextNode = nextNode1.next;
- 			nextList=1;
- 			console.log('inside of else 2, zipped -->', zipped)
- 			console.log('inside of else 2, nextNode -->', nextNode)
- 			console.log('inside of else 2, nextList -->', nextList)
- 		}
- 		else run=false;
- 	}
+   temp.next = l2 ? l2 : l1;
+   return head;
  }
 
- const l1 = {
- 	val: 'a',
- 	next: {
- 		val: 'b',
- 		next: {
- 			val: 'c',
- 			next: null
- 		}
- 	}
+ // Recursive
+ function zip (l1, l2) {
+   if (!l1) return l2;
+   if (!l2) return l1;
+
+   var curr = new Node(l1.value);
+   curr.next = zip(l2, l1.next);
+   return curr;
  }
 
- const l2 = {
- 	val: 'x',
- 	next: {
- 		val: 'y',
- 		next: {
- 			val: 'z',
- 			next: null
- 		}
- 	}
-}
-console.log(zip(l1, l2))
-// function Node(val) {
-//   this.value = val;
-//   this.next = null;
-// }
-//
-// function zip(l1, l2) {
-// };
+
+ // Add CommentCollapse 
 
 module.exports = {Node: Node, zip: zip};
