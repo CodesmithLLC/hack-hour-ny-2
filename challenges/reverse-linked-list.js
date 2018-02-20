@@ -17,7 +17,7 @@ function reverseLinkedList(head) {
   let prev = null;
   let current = head;
 
-  if(!current.next){
+  if(!current || !current.next){
     return head;
   }
 
@@ -33,26 +33,26 @@ function reverseLinkedList(head) {
   return current;
 }
 
-function create(arr){
-  let prev = null;
-  let current = null;
-  let start = null;
+// function create(arr){
+//   let prev = null;
+//   let current = null;
+//   let start = null;
+//
+//   arr.forEach((val, i) => {
+//     prev = current;
+//     current = new Node(val);
+//     if(prev){
+//       prev.next = current;
+//     }
+//     else {
+//       start = current;
+//     }
+//   });
+//   return start;
+// }
 
-  arr.forEach((val, i) => {
-    prev = current;
-    current = new Node(val);
-    if(prev){
-      prev.next = current;
-    }
-    else {
-      start = current;
-    }
-  });
-  return start;
-}
-
-let list = create([1, 2, 3, 4, 5]);
-console.log(JSON.stringify(list, null, 4));
-console.log(JSON.stringify(reverseLinkedList(list), null, 4));
+// let list = create([1, 2, 3, 4, 5]);
+// console.log(JSON.stringify(list, null, 4));
+// console.log(JSON.stringify(reverseLinkedList(list), null, 4));
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
