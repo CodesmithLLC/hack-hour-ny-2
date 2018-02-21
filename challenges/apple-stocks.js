@@ -13,7 +13,17 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  if (!Array.isArray(stock_prices_yesterday)) return 0;
+  if (stock_prices_yesterday.length < 2) return 0;
+  let highest = 0;
+  for (let i = stock_prices_yesterday.length - 2; i >= 0; i--) {
+    for (let j = i + 1; j < stock_prices_yesterday.length; j++) {
+      if (stock_prices_yesterday[j] - stock_prices_yesterday[i] > highest) {
+        highest = stock_prices_yesterday[j] - stock_prices_yesterday[i];
+      }
+    }
+  }
+  return highest;
 }
 
 module.exports = bestProfit;
