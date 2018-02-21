@@ -11,9 +11,12 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-
+ 
 function bestProfit(stock_prices_yesterday) {
-
+  if(!Array.isArray(stock_prices_yesterday)) return 0
+  let bestPurchase = Math.min(...stock_prices_yesterday);
+	let bestSell = Math.max(...stock_prices_yesterday);
+	return bestSell - bestPurchase
 }
 
 module.exports = bestProfit;
