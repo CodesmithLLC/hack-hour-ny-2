@@ -12,7 +12,27 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+function bestProfit(s_p_y) {
+    if (!Array.isArray(s_p_y) || !s_p_y) return 0;
+    let min_spy = [...s_p_y].sort((a, b) => a - b);
+    let max_spy = [...s_p_y].sort((a, b) => b - a);
+    let possibleGains = [];
+    //check reutrn index of min
+    for (let i = 0; i < min_spy.length; i++) {
+        for (let j = 0; j < max_spy.length; j++) {
+            let min = min_spy[i];
+            let max = max_spy[j];
+            let validTrans = s_p_y.indexOf(min) < s_p_y.indexOf(max);
+            let isProfit = max_spy[j] - min_spy[i] > 0;
+            console.log(isProfit);
+            if (validTrans && isProfit) {
+                possibleGains.push(max_spy[j] - min_spy[i]);
+            }
+        }
+    }
+
+    let profit = Math.max(...possibleGains);
+    return (profit <= 0) ? 0 : profit;
 
 }
 
