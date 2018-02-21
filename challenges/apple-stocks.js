@@ -23,17 +23,14 @@ function bestProfit(s_p_y) {
             let min = min_spy[i];
             let max = max_spy[j];
             let validTrans = s_p_y.indexOf(min) < s_p_y.indexOf(max);
-            let isProfit = max_spy[j] - min_spy[i] > 0;
-            console.log(isProfit);
+            let isProfit = max_spy[j] - min_spy[i] >= 0;
             if (validTrans && isProfit) {
                 possibleGains.push(max_spy[j] - min_spy[i]);
             }
         }
     }
 
-    let profit = Math.max(...possibleGains);
-    return (profit <= 0) ? 0 : profit;
-
+    return Math.max(...possibleGains);
 }
 
 module.exports = bestProfit;
