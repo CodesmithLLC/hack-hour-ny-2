@@ -37,7 +37,7 @@ function bestProfit(stock_prices_yesterday) {
 
 	let maxGain = largestP - smallestP; 
 
-	if(maxGain === 0 || stock_prices_yesterday.length < 3)
+	if(maxGain === 0 || stock_prices_yesterday.length < 2)
 		return 0;
 	return maxGain; 
 
