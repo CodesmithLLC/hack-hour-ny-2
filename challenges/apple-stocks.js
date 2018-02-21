@@ -13,6 +13,10 @@
  */
 
 function bestProfit(s_p_y) {
+  
+  if (!Array.isArray(s_p_y) || !s_p_y.forEach((item) => {if (isNaN(item)) return false} )) {
+    return 0
+  }
   let absoluteMax = 0;
   for (let i = 0; i < s_p_y.length; i += 1) {
     let tempMax = 0;
@@ -22,6 +26,36 @@ function bestProfit(s_p_y) {
       }
     }
     if (tempMax > absoluteMax) {
+      absoluteMax = tempMax;
+    }
+  }
+  return absoluteMax;
+}
+
+// Version that provided profit, buy time, and sell time
+function bestProfit2(s_p_y) {
+  if (!Array.isArray(s_p_y) || !s_p_y.forEach((item) => {if (isNaN(item)) return false} )) {
+    return 0
+  };
+  
+  let absoluteMax = { profit: 0,
+                     buy: null,
+                     sell: null
+                    };           
+                     
+  for (let i = 0; i < s_p_y.length; i += 1) {
+    let tempMax = { profit: 0,
+                    buy: null,
+                    sell: null
+                  } ;
+    for (let j = i; j < s_p_y.length; j += 1) {
+      if (s_p_y[j] - s_p_y[i] > tempMax.profit) { 
+        tempMax.profit = s_p_y[j] - s_p_y[i];
+        tempMax.buy = i;
+        tempMax.sell = j
+      }
+    }
+    if (tempMax.profit > absoluteMax.profit) {
       absoluteMax = tempMax;
     }
   }
