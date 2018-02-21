@@ -13,7 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+// check if input is an array
+  if (!Array.isArray(stock_prices_yesterday)) return 0;
+// find the highest amount and the lowest amount that is before it
+  let difference = 0;
+  for (let i = 0; i < stock_prices_yesterday.length; i++) {
+    for (let k = i+1; k < stock_prices_yesterday.length; k++) {
+      let currDifference = stock_prices_yesterday[k] - stock_prices_yesterday[i];
+      if (currDifference > difference) {
+        difference = currDifference;
+      }
+    }
+  }
+  return difference;
 }
 
 module.exports = bestProfit;
