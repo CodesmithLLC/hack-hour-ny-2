@@ -19,10 +19,10 @@ function bestProfit(stock_prices_yesterday) {
   }
 
   let min = stock[0];
-  let max = stock[1];
-  let profit = max - min;
+  let max = stock[0];
+  let profit = 0;
 
-  for(let i = 3; i < stock.length; i++){
+  for(let i = 1; i < stock.length; i++){
     if(stock[i] < min){
       min = stock[i];
     }
@@ -36,7 +36,7 @@ function bestProfit(stock_prices_yesterday) {
 }
 
 let stocks = [];
-for(let i = 0; i < 10; i++){
+for(let i = 0; i < 4; i++){
   stocks.push(Math.round(Math.random() * 100));
 }
 
