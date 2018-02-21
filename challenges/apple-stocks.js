@@ -14,6 +14,7 @@
 
 function bestProfit(stock_prices_yesterday) {
   const p = stock_prices_yesterday;
+  if (!Array.isArray(p) || p.length === 0) return 0;
   let min = p[0];
   let max = p[0];
   for (let i=1; i<p.length; i++) {
