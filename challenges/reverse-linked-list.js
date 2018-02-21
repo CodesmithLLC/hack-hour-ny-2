@@ -13,14 +13,14 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head) {
-	let currNode = head;
-	while(currNode.next) {
-		let newHead = currNode.next;
-		if(currNode.value === head.value && currNode.next.value === head.next.value) currNode.next = null;
-		newHead.next = currNode;
-		currNode = newHead;
-	}
-}
+// function reverseLinkedList(head) {
+// 	let currNode = head;
+// 	while(currNode.next) {
+// 		let newHead = currNode.next;
+// 		if(currNode.value === head.value && currNode.next.value === head.next.value) currNode.next = null;
+// 		newHead.next = currNode;
+// 		currNode = newHead;
+// 	}
+// }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
