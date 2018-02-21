@@ -16,8 +16,8 @@ const arr = [1,2,6,4,9,3,9,12,6,3,0];
 function bestProfit(stock_prices_yesterday) {
 	
 	if (!Array.isArray(stock_prices_yesterday)) return 0;
-	let lowPrice = 0;
-	let highPrice = 0;
+	let lowPrice = stock_prices_yesterday[0];
+	let highPrice = stock_prices_yesterday[0];
 
 
 	stock_prices_yesterday.forEach((price) => {
