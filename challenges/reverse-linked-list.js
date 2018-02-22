@@ -1,5 +1,3 @@
-// create LL for testing
-
 function LinkedList(){
   this.head = null;
 }
@@ -29,6 +27,7 @@ ll.push(5)
 console.log(ll.head) // 2
 console.log(ll.head.next) // 3
 console.log(ll.head.next.next) // 4
+console.log(ll.head.next.next.next) // 5
 
 console.log('Forward:')
 console.log(ll)
@@ -47,36 +46,24 @@ function Node(value) {
   this.next = null;
 }
 
-function reverseLinkedList(head) {
- if(!head && !head.next) return head;
-
- const nodes = [];
- let current = head;
-
- // store all nodes in an Array
- while(current){
-   nodes.push(current);
-   current = current.next;
- }
-
- let reversedLL = new LinkedList();
-
- reversedLL.head = nodes.pop();
- current = reversedLL.head;
-
- let node = nodes.pop();
-
- //make sure to make next of the newly inserted node to be null
-  //other wise the last node of your SLL will retain its old next.
-  while(node){
-    node.next = null;
-    current.next = node;
-
-    current = current.next;
-    node = nodes.pop();
-  }
-  return reversedLL;
+// in place 
+function reverseLL(head) {
+	if (!head || !head.next) return head;
+	
+	let prev = null, curr = head, next;
+	while (curr) {
+		next = curr.next;
+		curr.next = prev;
+		prev = curr;
+		curr = next;
+	}
+	
+	head = prev; // prev is the last truthy node
+	return head; 
 }
 
+/////////////////
+
+
 console.log('Reversed: ')
-reverseLinkedList(ll.head)
+reverseLL(ll.head)
