@@ -23,7 +23,7 @@ function mergeArrays(arr1, arr2) {
         newArr.push(...nextVal);
     }
 
-    newArr.concat(a1, a2);
+    newArr = newArr.concat(a1, a2);
 
     return newArr;
 }
