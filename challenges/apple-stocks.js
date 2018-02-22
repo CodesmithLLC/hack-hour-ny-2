@@ -11,7 +11,6 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-
 function bestProfit(s_p_y) {
     if (!Array.isArray(s_p_y) || !s_p_y) return 0;
     let min_spy = [...s_p_y].sort((a, b) => a - b);
@@ -22,15 +21,18 @@ function bestProfit(s_p_y) {
         for (let j = 0; j < max_spy.length; j++) {
             let min = min_spy[i];
             let max = max_spy[j];
+            if (max === min) break;
+
             let validTrans = s_p_y.indexOf(min) < s_p_y.indexOf(max);
-            let isProfit = max_spy[j] - min_spy[i] >= 0;
+            let isProfit = max - min >= 0;
             if (validTrans && isProfit) {
-                possibleGains.push(max_spy[j] - min_spy[i]);
+                possibleGains.push(max - min);
             }
         }
     }
+    let maxProfit = Math.max(...possibleGains);
 
-    return Math.max(...possibleGains);
+    return maxProfit < 0 ? 0 : maxProfit;
 }
 
 module.exports = bestProfit;
