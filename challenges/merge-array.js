@@ -14,7 +14,29 @@
  */
 
 function mergeArrays(arr1, arr2) {
+  const len1 = arr1.length;
+  const len2 = arr2.length;
+  let arr3 = new Array(len1 + len2);
+  // while (i < len1) {
+  
+  //   }
+  // }
 
+  while (i < len1 && j < len2) {
+    if(arr1[i] < arr2[j]) arr3.push(arr1[i++]);
+    else arr3.push(arr2[j++])
+    
+  }
+  while (i < len1) {
+    arr3.push(arr1[i++]);
+  }
+  while (j < len2) {
+    arr3.push(arr2[j++]);
+  }
+  // just concat and sort that?
+  // arr1.concat(arr2);
+  // arr.sort((a, b) => a - b);
+  return arr3;
 }
 
 module.exports = mergeArrays;
