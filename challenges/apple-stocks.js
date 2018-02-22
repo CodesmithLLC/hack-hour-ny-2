@@ -40,7 +40,7 @@ for(let i = 0; i < 4; i++){
   stocks.push(Math.round(Math.random() * 100));
 }
 
-console.log(stocks);
-console.log(bestProfit(stocks));
+// console.log(stocks);
+// console.log(bestProfit(stocks));
 
 module.exports = bestProfit;
