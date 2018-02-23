@@ -11,26 +11,21 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-const arr = [1,2,6,4,9,3,9,12,6,3,0];
+const arr = [13,2,6,4,9,3,9,12,6,3,10];
 
 function bestProfit(stock_prices_yesterday) {
-	
+
 	if (!Array.isArray(stock_prices_yesterday)) return 0;
-	let lowPrice = stock_prices_yesterday[0];
-	let highPrice = stock_prices_yesterday[0];
+	let profit = 0;
+	let lowBuy = stock_prices_yesterday[0]
 
-
-	stock_prices_yesterday.forEach((price) => {
-		if (price < lowPrice) lowPrice = price;
-		if (price > highPrice) highPrice = price;
-
-	})
-
-	if (lowPrice < highPrice) return highPrice - lowPrice;
-	else return 0;
-
+	for (let i = 0; i < stock_prices_yesterday.length; i++){
+		lowBuy = Math.min(lowBuy, stock_prices_yesterday[i])
+		profit = Math.max(profit, stock_prices_yesterday[i] - lowBuy)
+	}
+ return profit;
 }
 
-//console.log(bestProfit(arr))
+console.log(bestProfit(arr))
 
 module.exports = bestProfit;
