@@ -34,16 +34,16 @@ function mergeArrays(arr1, arr2) {
 		}
 	}
 
-	if (arr1.length !== 0)
+	if (arr1.length !== i)
 		return merged.concat(arr1.slice(i))
-	else if (arr2.length !== 0)
+	else if (arr2.length !== j)
 		return merged.concat(arr2.slice(j))
 
 	return merged;
 }
 
 // var my_array = [3,4,6,10,11,15,21];
-// var another_array = [1,5,8,12,14,19];
+// var another_array = [1,5,8];
 //
 // console.log(mergeArrays(my_array, another_array))
 
