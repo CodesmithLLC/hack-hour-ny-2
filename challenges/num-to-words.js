@@ -22,9 +22,13 @@ function numToWords(num) {
   let result = [];
   let ones, tens, hundreds, thousands;
 
+  function isTruthy(item) {
+    return !!item;
+  }
+
   const oneTo19 = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
 
-  const TENS = ["Ten", "Twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+  const TENS = ["Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
 
   if (num < 20) {
     return oneTo19[num - 1];
@@ -38,8 +42,12 @@ function numToWords(num) {
     return result.join('');
   }
 
+  hudreds = Math.floor(num / 100);  // 345 => 3 => Three
+  result.push(numToWords(hundreds)); // 3 => Three
+  result.push("Hundred");   // 'ThreeHundred
+  result.push(numToWords(num % 100)); // 45 => FourtyFive
 
-
+  return result.join("");
 }
 
 module.exports = numToWords;
