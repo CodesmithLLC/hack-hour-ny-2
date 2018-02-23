@@ -14,7 +14,7 @@
 
 function bestProfit(stock_prices_yesterday) {
 
-  if(!Array.isArray(stock_price_yesterday)) return 0;
+  if(!Array.isArray(stock_price_yesterday) || stock_prices_yesterday.length === 0) return 0;
   let lowPrice = stock_prices_yesterday[0];
   let highPrice = stock_prices_yesterday[0];
 
@@ -23,8 +23,8 @@ function bestProfit(stock_prices_yesterday) {
     if(i > highPrice) highPrice = i;
   }
 
-  if(lowPrice < highPrice) return highPrice - lowPrice;
-  else return 0;
+  // if(lowPrice < highPrice) return highPrice - lowPrice;
+  // else return 0;
 }
 
 module.exports = bestProfit;

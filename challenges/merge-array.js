@@ -16,40 +16,56 @@
 function mergeArrays(arr1, arr2) {
   const len1 = arr1.length;
   const len2 = arr2.length;
+
   // let arr3 = new Array(len1 + len2);
   // let arr3 = [...Array(len1+len2)];
-  let arr3 = [];
+  const arr3 = [];
   // while (i < len1) {
-  
+
   //   }
   // }
-  let i, j, k = 0;
+  let i, j, k;
+  i = j = k = 0;
 
-  while (i < len1 && j < len2) {
-    if(arr1[i] < arr2[j]) {
-      // arr3.push(arr1[i++]);
-      arr3[k++] = arr1[i++];
+  // while (i < len1 && j < len2) {
+  while (arr1[i] && arr2[j]) {
+    if (arr1[i] < arr2[j]) {
+      arr3.push(arr1[i++]);
+
+      // arr3[k++] = arr1[i++];
+      // console.log(arr3[k])
+      // console.log(arr1[i])
     }
-    // else arr3.push(arr2[j++])
     else {
-      arr3[k++] = arr2[j++];
+      arr3.push(arr2[j++])
+
     }
-    
+    // else {
+    //   arr3[k++] = arr2[j++];
+    //       console.log(arr3[k])
+    //   console.log(arr2[j])
+    // }
+
   }
   while (i < len1) {
-    // arr3.push(arr1[i++]);
-    arr3[k++] = arr1[i++];
+    arr3.push(arr1[i++]);
+    // arr3[k++] = arr1[i++];
 
   }
   while (j < len2) {
-    // arr3.push(arr2[j++]);
-    arr3[k++] = arr2[j++];
+    arr3.push(arr2[j++]);
+    // arr3[k++] = arr2[j++];
 
   }
+
+  // const left = !arr1[i] ? arr2.slice(j) : arr1.slice(i);
+  // return arr3.concat(left);
+  return arr3;
+
   // just concat and sort that?
   // arr1.concat(arr2);
   // arr.sort((a, b) => a - b);
-  return arr3;
+  // return arr3;
 }
 
 module.exports = mergeArrays;
