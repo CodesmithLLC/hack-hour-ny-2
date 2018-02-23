@@ -46,10 +46,17 @@ function binToDec(binary) {
   // return result;
 
   
+  // let idx = 0;
+  // return binary.split('').reverse().reduce((acc, curr) => {
+  //   acc += (Math.pow(2, idx) * curr)
+  //   idx++
+  //   return acc
+  // }, 0)
+
   let idx = 0;
-  return binary.split('').reverse().reduce((acc, curr) => {
+  return binary.split('').reverse().reduce((acc, curr, idx) => {
     acc += (Math.pow(2, idx) * curr)
-    idx++
+    // idx++
     return acc
   }, 0)
   

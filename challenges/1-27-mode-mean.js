@@ -35,7 +35,7 @@ function modemean(array) {
     if(storage[i] > storage[mode]) { // reset mode if another number has more occurences
       mode = i;
     } else if (storage[i] === storage[mode]) {
-      if()
+      
     }
   }
 

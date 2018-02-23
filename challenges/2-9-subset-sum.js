@@ -25,10 +25,6 @@ function subsetSum(array, target) {
         //     subsetSum(array.slice(i), target);
         //   }
         // }
-
-
-        
-        
   let arr = array.sort();
   for (let i = 0; i < arr.length - 2; i++) {
     let restStart = i + 1;
@@ -78,8 +74,8 @@ function subsetSum(array, target) {
   }
   result.shift();
   return result;
-  }
-
 }
+
+
 
 module.exports = subsetSum;
