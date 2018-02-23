@@ -39,7 +39,7 @@ function numToWords(num) {
     result.push(TENS[tens - 1]);
     result.push(oneTo19[ones - 1]);
 
-    return result.join('');
+    return result.filter(isTruthy).join('');
   }
 
   hudreds = Math.floor(num / 100);  // 345 => 3 => Three
@@ -47,7 +47,7 @@ function numToWords(num) {
   result.push("Hundred");   // 'ThreeHundred
   result.push(numToWords(num % 100)); // 45 => FourtyFive
 
-  return result.join("");
+  return result.filter(isTruthy).join("");
 }
 
 module.exports = numToWords;
