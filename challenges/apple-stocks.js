@@ -14,17 +14,32 @@
 
 function bestProfit(stock_prices_yesterday) {
 
-  if(!Array.isArray(stock_price_yesterday) || stock_prices_yesterday.length === 0) return 0;
-  let lowPrice = stock_prices_yesterday[0];
-  let highPrice = stock_prices_yesterday[0];
+  // if(!Array.isArray(stock_price_yesterday) || stock_prices_yesterday.length === 0) return 0;
+  // let lowPrice = stock_prices_yesterday[0];
+  // // let highPrice = stock_prices_yesterday[0];
+  // let profit;
 
-  for(let i of stock_prices_yesterday) {
-    if(i < lowPrice) lowPrice = i;
-    if(i > highPrice) highPrice = i;
+  // for(let i of stock_prices_yesterday) {
+  //   if(i < lowPrice) lowPrice = i;
+  //   if(i > lowPrice) profit = i - lowPrice;
+  // }
+
+  // // if(lowPrice < highPrice) return highPrice - lowPrice;
+  // // else return 0;
+  // return profit;
+
+  const p = stock_prices_yesterday;
+  if (!Array.isArray(p) || p.length === 0) return 0;
+  let min = { value: p[0], idx: 0 };
+  let max = { value: p[0], idx: 0 };
+  let result = 0;
+  for (let i = 0; i < p.length - 1; i++) {
+    for (let j = i + 1; j < p.length; j++) {
+      if (p[j] - p[i] > result) result = p[j] - p[i];
+    }
   }
-
-  // if(lowPrice < highPrice) return highPrice - lowPrice;
-  // else return 0;
+  return result;
+  
 }
 
 module.exports = bestProfit;
