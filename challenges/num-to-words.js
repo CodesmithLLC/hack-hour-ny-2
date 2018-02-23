@@ -37,7 +37,8 @@ function numToWords(num) {
     ones = num % 10;
     tens = Math.floor(num / 10);
     result.push(TENS[tens - 1]);
-    result.push(oneTo19[ones - 1]);
+    // result.push(oneTo19[ones - 1]);
+    result.push(numToWords(ones));
 
     return result.filter(isTruthy).join('');
   }
