@@ -13,8 +13,28 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
 
+function mergeArrays(arr1, arr2) {
+  const long = arr1.length >= arr2.length ? arr1 : arr2; 
+  const short = arr1.length < arr2.length ? arr1 : arr2;
+  
+  const output = [];
+  
+  while(long.length > 0){
+    if(long[0] <= short[0] || !short[0]){
+      output.push(long[0]);
+      long.shift();
+    } else {
+      output.push(short[0]);
+      short.shift();
+    }
+  }
+  
+  return output;
 }
+
+// mergeArrays([3,4,6,10,11,15,21], [1,5,8,12,14,19])
+
+
 
 module.exports = mergeArrays;
