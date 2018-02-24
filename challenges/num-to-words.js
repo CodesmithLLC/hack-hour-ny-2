@@ -14,7 +14,6 @@
 
 function numToWords(num) {
   let newNum = num.toString().split('').reverse();
-  console.log(newNum)
   let numOfDigits = newNum.length;
   let obj = {
     0: null,    //hundreds
@@ -32,8 +31,9 @@ function numToWords(num) {
     k++;
   }
   obj[k] = newNum.slice(i).reverse();
-  
-  let names = {
+  console.log(obj)
+
+  let things = {
     0: null,
     1: 'Thousand',
     2: 'Million',
@@ -67,7 +67,19 @@ function numToWords(num) {
     9: 'Ninety',
   }
   
-  let answer= {
+  let teens = {
+    1: 'Eleven',
+    2: 'Twelve',
+    3: 'Thirteen',
+    4: 'Fourteen',
+    5: 'Fifteen',
+    6: 'Sixteen',
+    7: 'Seventeen',
+    8: 'Eighteen',
+    9: 'Nineteen',
+  }
+  
+  let answer = {
     0: '',
     1: '',
     2: '',
@@ -76,13 +88,23 @@ function numToWords(num) {
   }
   
   Object.keys(obj).forEach((unit) => {
-    let placeHolder = (names[unit]) ? names[unit] : '';
+    let placeHolder = (things[unit]) ? things[unit] : '';
     let string = '';
+    let bool = false;
     if (obj[unit][0]) string = string.concat(nums[obj[unit][0]] + 'Hundred');
-    if (obj[unit][1]) string = string.concat(tens[obj[unit][1]]);
-    if (obj[unit][2]) string = string.concat(nums[obj[unit][2]]);
+    if (obj[unit][1]) {
+      console.log(obj[unit][1])
+      console.log(obj[unit][1] === 1)
+      if (obj[unit][1] === '1') {
+        if (obj[unit][2] !== 0) {
+          string = string.concat(teens[obj[unit][2]]);
+          bool = true;
+        }
+      }
+      else string = string.concat(tens[obj[unit][1]]);
+    }
+    if (obj[unit][2] && !bool) string = string.concat(nums[obj[unit][2]]);
     string = string.concat(placeHolder);
-    console.log(string)
     answer[unit] = string;
   });
   
@@ -92,6 +114,7 @@ function numToWords(num) {
   })
   return answerString
 }
+
 
 
 module.exports = numToWords;
