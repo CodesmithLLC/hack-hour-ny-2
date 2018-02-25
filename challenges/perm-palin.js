@@ -46,4 +46,4 @@ function permPalin(str) {
 	return odds === 1 || odds === 0;
 }
 
-module.exports = permPalin;
+module.exports = {permPalin: permPalin, letterObj: letterObj};
