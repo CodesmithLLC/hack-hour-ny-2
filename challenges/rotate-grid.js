@@ -17,7 +17,18 @@
  */
 
 function rotateGrid(grid, n) {
+	let storedArr = Array.concat(...grid)
+	let pos = 1; 
 
+	for(let i = 0; i <= n; i++){
+	  for(let j = 0; j <= n; j++){
+		    grid[i][j] = storedArr[storedArr.length - pos - n]
+		    pos += 3
+	  }
+	    pos = pos - pos - i; 
+	}
+	return grid;
 }
+
 
 module.exports = rotateGrid;
