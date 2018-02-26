@@ -8,6 +8,9 @@
  *
  */
 
+ // use a counter to go through the list and then create a new linked list while
+ // decrementing the counter
+
 let arr = [];
 function Node(value) {
   this.value = value;
