@@ -49,3 +49,7 @@ permPalin = (str) => {
 
 
  module.exports = permPalin;
+
+
+
+ 
