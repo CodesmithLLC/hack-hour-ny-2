@@ -14,7 +14,8 @@ Stack.prototype.push = function(val) {
 
 Stack.prototype.pop = function() {
     if(!this.stack.length) return undefined;
-    return this.stack.splice(0,1);
+    let temp = this.stack.splice(0, 1)
+    return temp[0];
 }
 
 Stack.prototype.getStack = function() {
@@ -40,13 +41,13 @@ Queue.prototype.length = function() {
     return this.primary.length() + this.temp.length() + (!!this.nextVal);
 }
 
-Queue.prototype.push = function(val) {
+Queue.prototype.enqueue = function(val) {
     if(!this.length()) this.nextVal = val;
     if(!this.temp) this.primary.push(val);
     return this.length();
 }
 
-Queue.prototype.pop = function() {
+Queue.prototype.dequeue = function() {
     let temp = this.nextVal;
 
     if(this.length() > 1) {
