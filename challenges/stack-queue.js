@@ -26,11 +26,11 @@ function Queue() {
   this.stack2 = new Stack();
 }
 
-Queue.prototype.enquene = function(val) {
+Queue.prototype.enqueue = function(val) {
   this.stack1.push(val);
 }
 
-Queue.prototype.dequene = function() {
+Queue.prototype.dequeue = function() {
   if (this.stack2.length > 0) return this.stack2.pop();
   const n1 = this.stack1.length;
   for (let i=0; i<n1; i++) {
