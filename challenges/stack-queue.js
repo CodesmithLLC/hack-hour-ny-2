@@ -43,7 +43,7 @@ function Queue() {
   this.index = 0; // same as size/length
 
   this.enqueue = (value) => {
-    // move every previous value up one index
+    // move every previous value up one index (doesn't loop when index == 0, for first element)
     for(let i = this.index; i > 0; i--){
       this.storage[i] = this.storage[i-1];
     }
