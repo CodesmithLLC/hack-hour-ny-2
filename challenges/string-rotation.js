@@ -16,6 +16,25 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  // begin with string1, then concat all permutations
+  let len = s1.length;
+
+  let allPermutations = '';
+
+  let currentPerm = '';
+
+  for(var i=0; i<s1.length; i++) {
+    let last = s1[s1.length-1];
+    let front = s1.slice(0,-1);
+    currentPerm = last+front;
+    console.log(currentPerm);
+    s1 = currentPerm;
+    allPermutations += currentPerm;
+  }
+
+  console.log(allPermutations)
+
+  return isSubstring(allPermutations, s2) && (len == s2.length )
 
 }
 
