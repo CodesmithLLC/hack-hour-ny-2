@@ -7,11 +7,11 @@ function Stack() {
   this.content = [];
   this.length = 0;
 }
-Stack.protoType.push = function(val) {
+Stack.prototype.push = function(val) {
   this.length++;
   return this.content.push(val);
 }
-Stack.protoType.pop = function() {
+Stack.prototype.pop = function() {
   if (this.length > 0) this.length--;
   return this.content.pop();
 }
@@ -26,13 +26,14 @@ function Queue() {
   this.stack2 = new Stack();
 }
 
-Queue.protoType.enquene = function(val) {
+Queue.prototype.enquene = function(val) {
   this.stack1.push(val);
 }
 
-Queue.protoType.dequene = function() {
+Queue.prototype.dequene = function() {
   if (this.stack2.length > 0) return this.stack2.pop();
-  for (let i=0; i<this.stack1.length; i++) {
+  const n1 = this.stack1.length;
+  for (let i=0; i<n1; i++) {
     const val = this.stack1.pop();
     this.stack2.push(val);
   }
