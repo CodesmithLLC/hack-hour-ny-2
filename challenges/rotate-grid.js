@@ -17,6 +17,26 @@
  */
 
 function rotateGrid(grid, n) {
+  var newArray = [];
+  for (var i = 0; i < n; i++) {
+    newArray.push([]);
+  };
+
+  for (var i = n-1; i >= 0; i--) {
+    for (var j = 0; j < n; j++) {
+      newArray[j].push(array[i][j]);
+    };
+  };
+  return newArray;
+
+  // for (var i = 0; i < n; i++) {
+  //   for (var j = 0; j < i; j++) {
+  //     //swap element[i,j] and element[j,i]
+  //     var temp = grid[i][j];
+  //     grid[i][j] = grid[j][i];
+  //     grid[j][i] = temp;
+  //   }
+  // }
 
 }
 
