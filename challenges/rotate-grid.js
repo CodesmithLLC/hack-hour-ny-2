@@ -16,20 +16,25 @@
  * BONUS: Do this in place
  */
 
+// function rotateGrid(grid, n) {
+//   const rows = grid.length;
+//   const columns = grid[0].length;
+//
+//   let result = [];
+//   for(let col = 0; col < columns; col++){
+//     let newRow = [];
+//     for(let row = rows - 1; row >= 0; row--){
+//       newRow.push(grid[row][col])
+//     }
+//     result.push(newRow);
+//   }
+//
+//   return result;
+// }
+
 function rotateGrid(grid, n) {
-  const rows = grid.length;
-  const columns = grid[0].length;
-
-  let result = [];
-  for(let col = 0; col < columns; col++){
-    let newRow = [];
-    for(let row = rows - 1; row >= 0; row--){
-      newRow.push(grid[row][col])
-    }
-    result.push(newRow);
-  }
-
-  return result;
+  // outer edge
+  
 }
 
 console.log(rotateGrid([[1,2,3], [4,5,6], [7,8,9]]))
