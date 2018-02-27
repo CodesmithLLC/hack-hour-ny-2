@@ -40,8 +40,6 @@ console.log(myStack)
 
 function Queue() {
   this.storage = {};
-  this.oldestIndex = 1; // first to remove 
-  this.newestIndex = 1;  // where to enter new vals? 
   this.index = 0; // same as size/length
 
   this.enqueue = (value) => {
