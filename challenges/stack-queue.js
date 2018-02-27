@@ -40,13 +40,13 @@ Queue.prototype.length = function() {
     return this.primary.length() + this.temp.length() + (!!this.nextVal);
 }
 
-Queue.prototype.enqueue = function(val) {
+Queue.prototype.push = function(val) {
     if(!this.length()) this.nextVal = val;
     if(!this.temp) this.primary.push(val);
     return this.length();
 }
 
-Queue.prototype.dequeue = function() {
+Queue.prototype.pop = function() {
     let temp = this.nextVal;
 
     if(this.length() > 1) {
