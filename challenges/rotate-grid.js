@@ -6,7 +6,7 @@
  * For example:     sampleGrid before:  [   [1, 2, 3],
  *                                          [4, 5, 6],
  *                                          [7, 8, 9]  ]
- *                  
+ *                   
  *                  rotateGrid(sampleGrid, 3);
  *                  
  *                  sampleGrid after:   [   [7, 4, 1],
