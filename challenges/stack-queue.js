@@ -20,7 +20,7 @@ function Stack() {
     this.length--;
     return last; 
   }
-}
+
 
 let myStack = new Stack();
 
@@ -42,6 +42,7 @@ function Queue() {
   this.storage = {};
   this.index = 0; // same as size/length
 
+// add newest element to end of queue 
   this.enqueue = (value) => {
     // move every previous value up one index (doesn't loop when index == 0, for first element)
     for(let i = this.index; i > 0; i--){
@@ -50,9 +51,11 @@ function Queue() {
     this.storage[0] = value;
     this.index++;
   };
-
+  
+// add oldest element to front of queue 
   this.dequeue = () => {
     if(this.index === 0) return undefined;
+    // store the last element so can delete it and still return the val after 
     const last = this.storage[this.index-1];
     delete this.storage[this.index-1];
     this.index--;
