@@ -8,12 +8,12 @@ function Stack() {
 	this.storage = [];
 }
 
-Stack.prototype.push(val) {
+Stack.prototype.push = function(val) {
 	this.storage[this.length] = val;
 	this.length++;
 }
 
-Stack.prototype.pop() {
+Stack.prototype.pop = function() {
 	this.storage[this.length--];
 }
 
@@ -28,11 +28,11 @@ function Queue() {
 	this.out = Stack();
 }
 
-Queue.prototype.que(val) {
+Queue.prototype.que = function(val) {
 	Queue.in.push(val);
 }
 
-Queue.prototype.deQue() {
+Queue.prototype.deQue = function() {
 	if(Queue.out.length === 0){
 		while(Queue.in.length !== 0){
 			Queue.out.push(Queue.in.pop())
