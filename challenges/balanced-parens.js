@@ -23,9 +23,44 @@
  *
  *
  */
+ function balancedParens(input){
+   let opens = ['(', '[', '{'];
+   let close = [')', ']', '}'];
 
-function balancedParens(input){
+   let stack = [];
 
-}
+  let balanced = true;
+
+  i = 0
+
+  while ( i < input.length && balanced ) {
+    let s = input[i]; // s is current bracket/parenthesis symbol
+    let last;
+
+    if (opens.includes(s)) {
+      stack.push(s)
+    } else { // hit closing bracket
+      last = stack.slice(-1).toString() // last open bracket in stack
+      // current s must be closing for last in stack; if so then pop; if not return false
+     // console.log(close.indexOf(s), opens.indexOf(last))
+      if(close.indexOf(s) === opens.indexOf(last)){
+        stack.pop();
+        console.log(stack);
+      } else {
+        return false;
+      }
+    }
+
+    i++;
+  }
+
+ return stack.length === 0; 
+
+ }
+
+
+balancedParens('[(]{)}');
+
+
 
 module.exports = balancedParens;

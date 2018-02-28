@@ -12,8 +12,20 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+function bestProfit(prices) {
+  if (!Array.isArray(prices) || !prices.length) return 0; 
+  
+  let buyPrice = prices[0], profit = 0, currentPrice;
 
+  for (let i = 0; i < prices.length; i++) {
+    currentPrice = prices[i];
+    buyPrice = Math.min(buyPrice, currentPrice); // compare the current price to previous buy price, returning min of two to get lowest buy price out of array
+    profit = Math.max(profit, currentPrice - buyPrice);  // max profit finding largest difference between current Price and buy price (lowest buy option)
+  }
+  
+  return profit; 
 }
+
+
 
 module.exports = bestProfit;
