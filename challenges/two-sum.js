@@ -3,12 +3,14 @@
  */
 
 function twoSum(arr, n) {
+  // console.log(arr);
   if(arr.length < 2){
     return false;
   }
 
-  return arr.includes(n - arr[0]) || twoSum(arr.slice(1), n);
+  const next = arr.slice(1);
+  return next.includes(n - arr[0]) || twoSum(next, n);
 }
 
-// console.log(twoSum([1, 2, 3, 4, 5], 5))
+// console.log(twoSum([1, 2, -3, 4, 5], 4))
 module.exports = twoSum;
