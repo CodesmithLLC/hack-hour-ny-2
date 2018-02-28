@@ -4,8 +4,8 @@
 
 
 function twoSum(arr, n, count = 0) {
-    if (arr.length === 0) return false;
     if (!n) return count === 2 ? true : false;
+    if (!arr.length) return false;
     return twoSum(arr.slice(1), n - arr[0], count + 1) || twoSum(arr.slice(1), n, count);
 }
 
