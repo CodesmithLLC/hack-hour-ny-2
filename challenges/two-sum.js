@@ -4,6 +4,7 @@
 
 
 function twoSum(arr, n, count = 0) {
+    console.log(arr);
     if (!n) return count === 2 ? true : false;
     if (!arr.length) return false;
     return twoSum(arr.slice(1), n - arr[0], count + 1) || twoSum(arr.slice(1), n, count);
