@@ -25,7 +25,56 @@
  */
 
 function balancedParens(input){
+	let charStart = ['(','{','['];
+	let charEnd = [')','}',']'];
 
+	let collectionStartArray = []; 
+	let collectionEndArray = [];
+	let matchChar = "";
+	let position = null;
+	
+		for(i = 0; i < input.length; i++){
+			if(charStart.indexOf(input[i]) >= 0)
+				collectionStartArray.push(input[i]);
+			else if(charEnd.indexOf(input[i]) >=0)
+				collectionEndArray.push(input[i]);
+		}
+		console.log(collectionStartArray)
+		console.log(collectionEndArray)
+
+		if(collectionStartArray.length !== collectionEndArray.length){
+			return false; 
+		}
+
+		for(j = 0; j < collectionStartArray.length; j++){
+			if(collectionStartArray[j] === '('){
+				matchChar = ')';
+				booleanChecker(collectionEndArray.indexOf(matchChar),collectionEndArray)
+			} 
+				else if(collectionStartArray[j] === '{'){
+				matchChar = '}';
+				booleanChecker(collectionEndArray.indexOf(matchChar),collectionEndArray)
+			}
+				else if(collectionStartArray[j] === '['){
+				matchChar = ']'
+				booleanChecker(collectionEndArray.indexOf(matchChar),collectionEndArray)
+			}
+		}
+		if(collectionEndArray.length !== 0)
+			return false; 
+		return true; 
 }
+
+let booleanChecker = function(position,collection){
+	if(position >= 0){ 
+		collection.splice(position, 1);
+	}
+}
+
+
+
+
+	
+	
 
 module.exports = balancedParens;

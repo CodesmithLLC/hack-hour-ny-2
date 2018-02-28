@@ -14,8 +14,29 @@
 */
 
 function drawStairs(n) {
+	let star = '*';
+	let stair = '';
+	let whitespace = ' '; 
+	let totalspace = '';
 
+	while(n <= 100 && n >= 1){
+	  
+	  for(var i = 0; i < n - 1; i++){
+	    totalspace += whitespace; 
+	  }
+	  
+		stair +=star; 
+		
+		console.log(totalspace + stair);
+		
+		totalspace = '';
+		n--;
+	}
 }
+
+// make a new star
+// in second row make star to the left of star. 
+
 
 
 module.exports = drawStairs;
