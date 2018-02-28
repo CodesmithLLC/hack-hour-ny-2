@@ -3,12 +3,22 @@
  */
 
 function twoSum(arr, n) {
-  for (let i = 0; i < arr.length; i += 1) {
-    for (let j = i + 1; j < arr.length; j += 1) {
-    if (j + i === n) return true ;
+  for (let i = 0; i < arr.length - 1; i += 1) {
+    for (let j = i + 1; j < arr.length - 1; j += 1) {
+      console.log('hey')
+      if (j + i === n) {
+        console.log('true')
+        return true ;
+      }
     }
   }
+  console.log('false')
   return false;
 }
 
 module.exports = twoSum;
+
+
+
+
+
