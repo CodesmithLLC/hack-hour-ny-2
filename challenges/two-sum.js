@@ -3,6 +3,24 @@
  */
 
 function twoSum(arr, n) {
+  const hash = {};
+
+  for (let i of arr) {
+    if (hash[i] === undefined) {
+      hash[i] = i;
+    }
+    // else {
+    //   hash[i] += 1;
+    // }
+  }
+
+  for (let i of arr) {
+    if (hash[n - i] && hash[n - i] !== i) {
+      console.log(hash[n - i])
+      return true
+    }
+  }
+  return false;
 
 }
 
