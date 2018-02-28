@@ -5,14 +5,11 @@
 function twoSum(arr, n) {
   for (let i = 0; i < arr.length - 1; i += 1) {
     for (let j = i + 1; j < arr.length - 1; j += 1) {
-      console.log('hey')
-      if (j + i === n) {
-        console.log('true')
+      if (arr[j] + arr[i] === n) {
         return true ;
       }
     }
   }
-  console.log('false')
   return false;
 }
 
