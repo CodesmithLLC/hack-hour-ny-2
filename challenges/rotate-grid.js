@@ -14,6 +14,7 @@
  *                                          [9, 6, 3]  ]
  *
  * BONUS: Do this in place
+ // 8,7,4,9,5,1,6,3,2z
  */
 
 function rotateGrid(grid, n) {
