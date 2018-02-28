@@ -4,9 +4,9 @@
 
 
 function twoSum(arr, n, count = 0) {
-    if (!arr.length) return false;
+    if (arr.length === 0) return false;
     if (!n) return count === 2 ? true : false;
-    return twoSum(arr.splice(1), n - arr[0], count + 1) || twoSum(arr.splice(1), n, count);
+    return twoSum(arr.slice(1), n - arr[0], count + 1) || twoSum(arr.slice(1), n, count);
 }
 
 module.exports = twoSum;
