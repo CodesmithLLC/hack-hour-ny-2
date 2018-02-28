@@ -11,11 +11,22 @@
 
 function twoSum(arr, n) {
   if(!arr || !arr.length) return false;
-  while (arr && arr.length) {
-    if(arr.includes(n - arr.pop())) return true;
+  let mySet = new Set();
+  for (let i = 0; i < arr.length; i++) {
+    if(mySet.has(n - arr[i])) return true;
+    mySet.add(arr[i])
   }
   return false;
 }
+
+
+// function twoSum(arr, n) {
+//   if(!arr || !arr.length) return false;
+//   while (arr && arr.length) {
+//     if(arr.includes(n - arr.pop())) return true;
+//   }
+//   return false;
+// }
 
 
 // function twoSum(arr, n) {
