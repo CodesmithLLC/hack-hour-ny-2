@@ -16,7 +16,7 @@ function twoSum(arr, n) {
 			// if less than caculate target minus the num
 			remainder = n - arr[i];
 			// check if array contains the remainder > return true
-			if (arr.slice(i).includes(remainder)) return true;
+			if (arr.slice(i).indexOf(remainder) >= 0) return true;
 		}
 	}
 
