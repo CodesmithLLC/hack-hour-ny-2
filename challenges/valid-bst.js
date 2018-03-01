@@ -13,7 +13,13 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
-}
+    if (tree.value < tree.left.value  && tree.value > tree.right.value) {
+      return false
+    }
+    while (tree.left !== null || tree.right !== null) {
+      return (validBST(tree.left) && validBST(tree.right))
+    }
+    return true
+  }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
