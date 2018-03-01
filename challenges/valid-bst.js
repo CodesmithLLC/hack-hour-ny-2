@@ -26,7 +26,7 @@ function validBST(tree) {
         if (tree.left.value > tree.value) return false;
         //check if the current node's granchildren are valid
         if (tree.left.left && tree.left.left.value > tree.left.value) return false;
-        if (tree.left.right && tree.left.right.value > tree.left.value) return false;
+        if (tree.left.right && tree.left.right.value < tree.left.value) return false;
     }
     if (tree.right) {
         //check if the current node and its children are valid
