@@ -40,8 +40,7 @@ function validBST(tree) {
         if (tree.right.right && tree.right.right.value < tree.value) return false;
     }
     //traverse the tree preorder
-    if (tree.left) return validBST(tree.left);
-    if (tree.right) return validBST(tree.right);
+    if (tree.left) return validBST(tree.left) && validBST(tree.right);
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
