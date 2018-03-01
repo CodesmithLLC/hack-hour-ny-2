@@ -13,9 +13,10 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+    if (!tree) return true;
     //check if sibilings are valid
-    if  (tree.left && tree.right && tree.left.value > tree.right.value) return false;
-    if (tree.left){
+    if (tree.left && tree.right && tree.left.value > tree.right.value) return false;
+    if (tree.left) {
         //check if the current node and its children are valid
         if (tree.left.value > tree.value) return false;
         //check if the current node's granchildren are valid
@@ -24,7 +25,7 @@ function validBST(tree) {
     }
     if (tree.right) {
         //check if the current node and its children are valid
-        if (tree.right.value > tree.value) return false;
+        if (tree.right.value < tree.value) return false;
         //check if the current node's granchildren are valid
         if (tree.right.left && tree.right.left > tree.value) return false;
         if (tree.right.right && tree.right.right < tree.value) return false;
