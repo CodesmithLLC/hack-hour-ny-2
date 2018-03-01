@@ -17,11 +17,23 @@ function validBST(tree) {
   if (tree === null) return true;
   if (current.left) {
     if (current.left.value > current.value) return false;
+    if (current.left.left) {
+      if (current.left.left.value > current.value) return false;
+    }
+    if (current.left.right) {
+      if (current.left.right.value > current.value) return false;
+    }
   }
   if (current.right) {
     if (current.right.value < current.value) return false;
+    if (current.right.right) {
+      if (current.right.right.value < current.value) return false;
+    }
+    if (current.right.left) {
+      if (current.right.left.value < current.value) return false;
+    }
   }
-  if (!validBST(current.left) || !validBST(current.right)) return false;
+  if (!validBST(current.left, current.value) || !validBST(current.right, current.value)) return false;
   else return true;
 }
 
