@@ -42,17 +42,23 @@ BinaryTree.prototype.traverse = function(cb) {
 }
 
 function validBST(tree) {
-  let arr = [];
+  // let arr = [];
+  let prev = null;
+  let result = true;
   tree.traverse(function(val){
-    arr.push(val)
+    // arr.push(val)
+    result = result && (prev === null || prev <= val);
+    prev = val;
   });
 
-  let prev = arr[0]
-  return arr.slice(1).reduce((bool, val) => {
-    const result = bool && prev <= val;
-    prev = val;
-    return result;
-  }, true);
+  return result;
+
+  // let prev = arr[0]
+  // return arr.slice(1).reduce((bool, val) => {
+  //   const result = bool && prev <= val;
+  //   prev = val;
+  //   return result;
+  // }, true);
 }
 
 // let bt = new BinaryTree(10);
