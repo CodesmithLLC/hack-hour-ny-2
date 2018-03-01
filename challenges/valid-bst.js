@@ -12,9 +12,11 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree) {
+function validBST(tree, max=Infinity, min=-Infinity) {
+  if (tree.value > pval) return false;
   if (!tree.left && !tree.right) return true;
   if (tree.left) {
+    const val = tree.value;
     if (tree.left.value > tree.value) return false;
     else return validBST(tree.left);
   }
