@@ -13,7 +13,14 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
+    //check if the current node and its children are valid
+    if (tree.left && tree.left.value > tree.value) return false;
+    if (tree.right && tree.right.value < tree.value) return false;
+    // define case if tree is null
+    if (!tree.left && !tree.right) return true;
+    //traverse the tree preorder
+    if (tree.left) return validBST(tree.left);
+    if (tree.right) return validBST(tree.right);
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
