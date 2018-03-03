@@ -14,7 +14,6 @@
 
  function validBST(tree, max=Infinity, min=-Infinity) {
    let resultLeft, resultRight;
-   console.log(max,min);
    if (tree.value > max) return false;
    if (tree.value < min) return false;
    if (!tree.left && !tree.right) return true;
