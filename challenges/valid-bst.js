@@ -33,7 +33,7 @@ function validBST(tree) {
       if (current.right.left.value < current.value) return false;
     }
   }
-  if (!validBST(current.left, current.value) || !validBST(current.right, current.value)) return false;
+  if (!validBST(current.left) || !validBST(current.right)) return false;
   else return true;
 }
 
