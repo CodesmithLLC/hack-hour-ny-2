@@ -3,7 +3,15 @@
  */
 
 function pow(base, power) {
+	
+	let newValue = base;
+	if(power === 1){
+		return base; 
+	}
 
+	newValue *= pow(base,power-1)
+
+	return newValue; 
 }
 
 module.exports = pow;

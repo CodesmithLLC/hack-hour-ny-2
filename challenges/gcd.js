@@ -7,8 +7,20 @@
  *
  */
 
-function gcd(a, b) {
 
+// brute force solution. As loop increments, the divisor is overwritten by next highest i. 
+
+function gcd(a, b) {
+	let divisor; 
+	let max = Math.max(a,b)
+
+	for(i = 0; i < max; i++){
+		if(a % i === 0 && b % i === 0)
+			divisor = i; 
+		}
+	}
+
+	return divisor;
 }
 
 module.exports = gcd;
