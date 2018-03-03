@@ -6,21 +6,24 @@
 
 function Stack() {
   this.storage = {};
-  this.length = 0;
+  this.index = 0;
 
   this.push = function(value) {
-    this.storage[this.length] = value;
-    this.length++;
+    this.storage[this.index] = value;
+    this.index++;
+    return value;
   }
 
   this.pop = () => {
-    if (this.length === 0) return undefined;
-    const last = this.storage[this.length-1];
-    delete this.storage[this.length-1];
-    this.length--;
+    if (this.index === 0) return undefined;
+    console.log(this.index)
+    const last = this.storage[--this.index];
+    console.log(this.index)
+    delete this.storage[this.index];
     return last; 
   }
 
+}
 
 let myStack = new Stack();
 

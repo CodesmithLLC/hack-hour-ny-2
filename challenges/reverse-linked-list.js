@@ -7,6 +7,7 @@ LinkedList.prototype.push = function(val){
    value: val,
    next: null
  }
+
  if(!this.head){
    this.head = node;
  } else {
@@ -48,6 +49,7 @@ function Node(value) {
 
 // in place 
 function reverseLL(head) {
+  // only one node
 	if (!head || !head.next) return head;
 	
 	let prev = null, curr = head, next;
