@@ -6,14 +6,25 @@
  */
  
 
-function BinaryTree(val) {
-    this.value = val;
-    this.left = null;
-    this.right = null;
-}
+// function BinaryTree(val) {
+//     this.value = val;
+//     this.left = null;
+//     this.right = null;
+// }
 
-function validBST(tree) {
+// function validBST(tree) {
+// 	if(!tree.left && !tree.right) return true
+// 	if(tree.value > tree.left.value || tree.value < tree.right.value) return false
+// 	return checkLeft(tree.left) && checkRight(tree.right)
+// }
 
-}
+// function checkLeft(leftNode) {
+// 	return validBST(leftNode)
+// }
+
+// function checkRight(rightNode) {
+// 	return validBST(rightNode)
+// }
+
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
