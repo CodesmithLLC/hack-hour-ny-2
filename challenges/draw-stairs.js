@@ -18,13 +18,18 @@ function drawStairs(n, counter = 1) {
 
 	if (n > 100) n = 100;
 
+	// variables for string concatenation 
 	let space = ' ';
-	let str = '*';
+	let star = '*';
 
+	// increment counter before each recursive call
 	if (counter <= n) {
-		str = str.repeat(counter);
+		// draw a star n number of times
+		star = star.repeat(counter);
+		// the difference between n and the counter are the number of spaces
 		space = space.repeat(n - counter)
-		console.log(space + str);
+		// spaces come before stars
+		console.log(space + star);
 		counter++
 		return drawStairs(n, counter)
 	}

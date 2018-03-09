@@ -9,40 +9,46 @@
  */
 
 function subsetSum(array, target) {
+	if (!target) return true; // target === 0
+	if (!array.length) return false;
+
+	return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
+}
+
+// Old code
 	// inputs: array of nums, target num which is the sum of SOME integers contained in the array
 	// output true if the target is met, false otherwise
 	// sort array in descending order
-	let end = array.length,
-			sum = 0,
-			temp;
+	// let end = array.length,
+	// 		sum = 0,
+	// 		temp;
 
-	for (let j = 0; j < array.length; j++) {
-		for (let i = 1; i < end; i++) {
-			if (array[i - 1] < array[i]) {
-				temp = array[i - 1];
-				array[i - 1] = array[i];
-				array[i] = temp;
-			}
-		}
-		end -= 1;
-	}
+	// for (let j = 0; j < array.length; j++) {
+	// 	for (let i = 1; i < end; i++) {
+	// 		if (array[i - 1] < array[i]) {
+	// 			temp = array[i - 1];
+	// 			array[i - 1] = array[i];
+	// 			array[i] = temp;
+	// 		}
+	// 	}
+	// 	end -= 1;
+	// }
 
-	console.log(array)
+	// console.log(array)
 
-	// reduce to true or false
-	return array.reduce((bool, num) => {
-		console.log('num',num)
-		if (num + sum <= target) {
-			console.log('sum',sum)
-			sum += num;
-			return true;
-		} else {
-			return false;
-		}
-	}, false)
-}
+	// // reduce to true or false
+	// return array.reduce((bool, num) => {
+	// 	console.log('num',num)
+	// 	if (num + sum <= target) {
+	// 		console.log('sum',sum)
+	// 		sum += num;
+	// 		return true;
+	// 	} else {
+	// 		return false;
+	// 	}
+	// }, false)
 
-console.log(subsetSum([8, 2, 4, 12], 13));
+console.log(subsetSum([8, 2, 4, 12], 13)) // -> false);
 
 module.exports = subsetSum;
 

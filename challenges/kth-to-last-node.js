@@ -43,7 +43,7 @@ function kthToLastNode(k, head) {
       if (counter === end) return head.next.value;
 
       counter++;
-      head = head.next;       
+      head = head.next;
     }
   }
 
