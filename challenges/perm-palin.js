@@ -10,7 +10,17 @@
  */
 
 function permPalin(str) {
-	
+
 }
+
+console.log(permPalin('abab')); // => true)
+
+
+
+// abab
+// baab
+// aabb
+// bbaa
+// baba
 
 module.exports = permPalin;

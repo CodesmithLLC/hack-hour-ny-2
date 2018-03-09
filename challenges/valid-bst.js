@@ -30,86 +30,36 @@ BinaryTree.prototype.add = function(val) {
 	if (val < this.value) return this.left.add(val);
 };
 
-function validBST(tree, compare) {
+function validBST(tree) {
 	// at any given node, the value of all the nodes in its left tree must be < its value
 	// at any given node, the value of all the nodes in its right tree must be > its value
-	// all the nodes on the left have to be less than the tree head
-	// all the nodes on the right have to be less than the tree head
-	const head = tree;
-	let current = tree;
+	let lastVal = Number.NEGATIVE_INFINITY; 
+	let isValid = true;
 
-	while (current.left) {
-		current = tree.left;
-		if (current.value > head.value) return false;
+	function compare(node) {
+		//if (!isValid || !node) 
+		if (node.left) compare(node.left);
+
+		// if node.value < lastVal, is valid is false
+		if (node.value < lastVal) isValid = false;
+		// else set lastVal to node.value
+		else lastVal = node.value;
+
+		if (node.right) compare(node.right)
 	}
 
-	current = head;
-	
-	while(current.right) {
-		current = tree.right;
-		if (current.value < head.value) return false;
-	}
-
-	return true;
+	compare(tree);
+	return isValid;
 }
 
-// const tree = new BinaryTree(5);
-// tree.add(7);
-// tree.add(2);
-// tree.add(3);
-// tree.add(6);
+const tree = new BinaryTree(5);
+tree.add(7);
+tree.add(2);
+tree.add(3);
+tree.add(6);
 
 // //console.log(tree)
-// console.log(validBST(tree, compare));
-	// Base case: left is null or right is null, return true
-	// if (tree.left !== null) {
-	// 	// if current value is greater than left, call valid BST on left
-	// 	if (tree.value > tree.left.value) {
-	// 		console.log('tv', tree.value)
-	// 		console.log('tl', tree.left.value)
-	// 		return validBST(tree.left);
-	// 	}
-	// 	// else return false
-	// 	else {
-	// 		return false;
-	// 	}
-	// } else if (tree.right !== null) {
-	// 	// if current value is less than right, call valid BST on right
-	// 	if (tree.value < tree.right.value) {
-	// 		console.log('tv', tree.value)
-	// 		console.log('tr', tree.right.value)
-	// 		return validBST(tree.right)
-	// 	}
-	// 	// else return false
-	// 	else {
-	// 		return false;
-	// 	}
-	// } else {
-	// 	return true;
-	// }
-	
-	// if (tree !== null) {
-	// 	if(tree.left && compare(tree.value, tree.left.value)) {
-	// 		console.log('tv', tree.value)
-	// 		console.log('tl', tree.left)
-	// 		return validBST(tree.left);
-	// 	} else {
-	// 		console.log('f1')
-	// 		return false;
-	// 	}
-
-	// 	if(tree.right && compare(tree.right.value, tree.value)) {
-	// 		console.log('tv', tree.value)
-	// 		console.log('tr', tree.right)
-	// 		return validBST(tree.right);
-	// 	} else {
-	// 		console.log('f2')
-	// 		return false;
-	// 	}
-
-	// } else {
-	// 	return true;
-	// }
+console.log(validBST(tree));
 
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
