@@ -28,8 +28,6 @@
 function applyIt(func, args) {
     // returning a function that passes the arguments into the callback and returns the result of invoking it.
 
-    // return () => func(...args);
-
     // count the number of arguements we have. This tells us how many variables need to be passed into the callback
 
     let len = args.length;
