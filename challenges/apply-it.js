@@ -26,9 +26,31 @@
  */
 
 function applyIt(func, args) {
-    // returning a function that passes the arguements into the call back
+    // returning a function that passes the arguments into the callback and returns the result of invoking it.
 
     return () => func(...args);
+
+    // count the number of arguements we have. This tells us how many variables need to be passed into the callback
+
+    let len = args.length;
+
+    switch (len) {
+        case 1:
+            return () => func(args[0]); 
+        case 2:
+            return () => func(args[0], args[1]);
+        case 3:
+            return () => func(args[0], args[1], args[2]);
+        case 4:
+            return () => func(args[0], args[1], args[2], args[3]);
+        case 5:
+            return () => func(args[0], args[1], args[2], args[3], args[4]);
+        case 6:
+            return () => func(args[0], args[1], args[2], args[3], args[4], args[5]);
+        default:
+            return () => func();
+    }
+   
 }
 
 module.exports = applyIt;
