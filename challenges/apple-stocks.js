@@ -13,6 +13,33 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+	// 9:30 open. Time is in minutes since open.
+	// total time is length of array. Basically a giant ticker. 
+
+	// loop through. Take smallest and largest
+
+	let smallestP = null; 
+	let largestP = 0;  
+
+	for(let i = 0; i < stock_prices_yesterday.length; i++){
+		if(smallestP === null)
+			if(stock_prices_yesterday[i] > stock_prices_yesterday[i+1])
+				largestP = stock_prices_yesterday[i]
+			else
+				smallestP = stock_prices_yesterday[i]	
+		else if(stock_prices_yesterday[i] > largestP)
+			largestP = stock_prices_yesterday[i]
+		else if(stock_prices_yesterday[i] < smallestP)
+			smallestP = stock_prices_yesterday[i]
+		else if(stock_prices_yesterday[i] < 0)
+			return 0; 
+	} 
+
+	let maxGain = largestP - smallestP; 
+
+	if(maxGain === 0 || stock_prices_yesterday.length < 2)
+		return 0;
+	return maxGain; 
 
 }
 

@@ -13,6 +13,47 @@
  */
 
 function numToWords(num) {
+	// assuming all positive. 
+	if(num < 0)
+		return 'Please provide a number greater than 0'
+
+	if(num <= 20)
+	return baseKeyPair[num]
+
+	let stringV = num.toString();
+	let length = stringV.length;
+	let newString = '';
+	let counter = length; 
+
+	for(let i = 0; i < length; i++){
+		if(counter === 1){
+			newString += baseKeyPair[Number(stringV[i])]
+			counter --; 
+	  }
+
+		if(counter === 2){
+			let num = stringV[i]
+			if(Number(num) < 39){
+				if(num[0] === '3'){
+					let temp = baseKeyPair[num[0]].slice(0,2)
+					temp += 'irty'
+					newString += temp; 
+				}
+			}
+		}
+	}
+	return newString
+}
+
+	
+
+
+
+
+// if 1-10 -> new word
+// eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
+
+
 
 }
 
