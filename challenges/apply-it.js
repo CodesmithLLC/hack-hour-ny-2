@@ -28,9 +28,7 @@
 function applyIt(func, args) {
     // returning a function that passes the arguements into the call back
 
-    return () => {
-        func(...args);
-    }
+    return () => func(...args);
 }
 
 module.exports = applyIt;
