@@ -8,6 +8,7 @@
 
 
 function countTwos(n) {
+	if (n < 0) n = -n;
 	let total = 0;
 	for (let i = 1; i <= n; i++){
 		const str = i + '';
@@ -18,6 +19,6 @@ function countTwos(n) {
 	return total;
 }
 
-console.log(countTwos(11420))
+console.log(countTwos(-11420))
 
 module.exports = countTwos;
