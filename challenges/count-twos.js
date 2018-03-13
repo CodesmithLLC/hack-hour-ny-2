@@ -9,16 +9,16 @@
 
 function countTwos(num) {
   let str = ''
-for (let i = 1; i <= num; i += 1) {
-  str += i
-}
-let count = 0
-for (let i = 0; i < str.length; i += 1){
-  if (str[i] === '2') {
-    count += 1
+  for (let i = 1; i <= num; i += 1) {
+    str += i
   }
-}
-return count
+  let count = 0
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === '2') {
+      count += 1
+    }
+  }
+  return count
 }
 
 module.exports = countTwos;
