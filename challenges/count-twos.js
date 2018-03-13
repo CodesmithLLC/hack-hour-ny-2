@@ -9,6 +9,23 @@
 
 function countTwos(num) {
 
+  let twos = {2:0};
+  
+  for(let i = 1; i<= num; i++){
+    let str = i.toString().split('');
+    console.log(str)
+    for(var n of str){
+      if (n === '2'){
+        twos[2] += 1
+      }
+    }
+  }
+
+  return twos[2];
+  
 }
+
+
+// countTwos(23)
 
 module.exports = countTwos;
