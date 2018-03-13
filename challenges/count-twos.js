@@ -6,9 +6,19 @@
 // countTwos(1000);  -> 300
 // countTwos(11420);  -> 4483
 
-
 function countTwos(num) {
+	let counter = 0; 
 
+	while(num > 0){
+		let strNum = num.toString();
+		let length = strNum.length 
+		for(let i = 0; i < length; i++){
+			if(strNum.charAt(i) == 2)
+				counter++
+		}
+		num --
+	}
+	return counter; 
 }
 
 module.exports = countTwos;
