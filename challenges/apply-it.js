@@ -26,8 +26,7 @@
  */
 
 function applyIt(func, args) {
-  // const input = 
-  //still trying to figure out how to not use the spread operator
+  const input = 
   return function () {
     return func(...args);
   }
