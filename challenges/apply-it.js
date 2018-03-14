@@ -27,25 +27,26 @@
 
 function applyIt(func, args) {
     // console.log(args);
-    if (args.length === 0) {
-      return function() {
-        return func;
-      }
-    }
-    if (args.length === 1) {
-      return function() {
-        return func(args[0]);
-      }
-    }
-    if (args.length === 2) {
-      return function() {
-        return func(args[0], args[1]);
-      }
-    }
-    if (args.length === 3) {
-      return function () {
-        return func(args[0], args[1], args[2]);
-      }
-    }
+    // return () => func(...args)
+    // if (args.length === 0) {
+    //   return function() {
+    //     return func;
+    //   }
+    // }
+    // if (args.length === 1) {
+    //   return function() {
+    //     return func(args[0]);
+    //   }
+    // }
+    // if (args.length === 2) {
+    //   return function() {
+    //     return func(args[0], args[1]);
+    //   }
+    // }
+    // if (args.length === 3) {
+    //   return function () {
+    //     return func(args[0], args[1], args[2]);
+    //   }
+    // }
   }
 module.exports = applyIt;
