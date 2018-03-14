@@ -13,7 +13,34 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  let stock = stock_prices_yesterday;
+  if(!Array.isArray(stock) || !stock.length){
+    return 0;
+  }
 
+  let min = stock[0];
+  let max = stock[0];
+  let profit = 0;
+
+  for(let i = 1; i < stock.length; i++){
+    if(stock[i] < min){
+      min = stock[i];
+    }
+    else if(stock[i] > max){
+      max = stock[i];
+      profit = Math.max(profit, max - min);
+    }
+  }
+
+  return Math.max(profit, 0);
 }
+
+let stocks = [];
+for(let i = 0; i < 4; i++){
+  stocks.push(Math.round(Math.random() * 100));
+}
+
+// console.log(stocks);
+// console.log(bestProfit(stocks));
 
 module.exports = bestProfit;

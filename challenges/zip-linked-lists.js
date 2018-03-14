@@ -10,7 +10,54 @@ function Node(val) {
   this.next = null;
 }
 
+// function create(arr){
+//   let prev = null;
+//   let current = null;
+//   let start = null;
+//
+//   arr.forEach((val, i) => {
+//     prev = current;
+//     current = new Node(val);
+//     if(prev){
+//       prev.next = current;
+//     }
+//     else {
+//       start = current;
+//     }
+//   });
+//   return start;
+// }
+
 function zip(l1, l2) {
+  if(!l2) return l1;
+  if(!l1) return l2;
+
+  let currentOne = l1;
+  let currentTwo = l2;
+
+  while(currentOne !== null && currentTwo !== null){
+    let nextOne = currentOne.next;
+    let nextTwo = currentTwo.next;
+
+    currentOne.next = currentTwo;
+    currentOne.next.next = nextOne;
+
+    if(!nextOne && nextTwo){
+      currentOne.next.next = nextTwo;
+      break;
+    }
+
+    currentOne = nextOne;
+    currentTwo = nextTwo;
+  }
+
+  return l1;
 };
+
+// const listOne = create([0, 2]);
+// const listTwo = create([1, 3, 5]);
+//
+// zip(listOne, listTwo);
+// console.log(JSON.stringify(listOne, null, 4))
 
 module.exports = {Node: Node, zip: zip};
