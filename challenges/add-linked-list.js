@@ -20,15 +20,21 @@ function Node(val) {
 function addLinkedList(l1, l2) {
   l1Str = '';
   l2Str = '';
-  while ( l1.next != null ) {
-    l1Str += l1.value;
-    l1 = l1.next
-    if(l1.next === null) {l1Str += l1.value;}
+  if (l1.next === null) {l1Str = l1.value.toString()}
+  else {
+    while ( l1.next != null ) {
+      l1Str += l1.value;
+      l1 = l1.next
+      if(l1.next === null) {l1Str += l1.value;}
+    }
   }
-  while ( l2.next != null ) {
-    l2Str += l2.value;
-    l2 = l2.next
-    if(l2.next === null) {l2Str += l2.value;}
+  if (l2.next === null) {l2Str = l2.value.toString()}
+  else {
+    while ( l2.next != null ) {
+      l2Str += l2.value;
+      l2 = l2.next
+      if(l2.next === null) {l2Str += l2.value;}
+    }
   }
   let l1Reve = ''
   for (let i = 0; i < l1Str.length; i += 1) {
@@ -38,6 +44,7 @@ function addLinkedList(l1, l2) {
   for (let i = 0; i < l2Str.length; i += 1) {
     l2Reve = l2Str[i] + l2Reve 
   }
+  
   const sum = Number(l1Reve) + Number(l2Reve)
   const sumStr = sum.toString()
 
