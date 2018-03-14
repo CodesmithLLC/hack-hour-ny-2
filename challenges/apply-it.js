@@ -26,7 +26,26 @@
  */
 
 function applyIt(func, args) {
+  const arg = arguments;
 
+  return function(){
+    let num = 1;
+    let str = 'func(';
+
+    while(arg[num]){
+      str += (arg[num]);
+      num++;
+      if(arg[num]){
+        str += ',';
+      }
+      else {
+        str += ');';
+      }
+    }
+
+    return eval(str);
+  }
 }
+
 
 module.exports = applyIt;
