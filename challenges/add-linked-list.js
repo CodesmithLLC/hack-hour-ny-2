@@ -28,16 +28,19 @@ function addLinkedList(l1, l2) {
   let current3 = l3;
   let current1 = l1.next;
   let current2 = l2.next;
-  while(current1 && current2) {
-    if (current1.value + current2.value > 9) {
-      current3.next = new Node((current1.value + current2.value + carryOver) % 10);
-      carryOver = 1;
-    } 
-    else if (current1.value + current2.value === 9 && carryOver) current3.next = new Node(0);
-    else {
-      current3.next = new Node(current1.value + current2.value + carryOver);
-      carryOver = 0;
-    } 
+  while(current1 || current2 || carryOver) {
+    if (current2 && current2) {
+      if (current1.value + current2.value > 9) {
+        current3.next = new Node((current1.value + current2.value + carryOver) % 10);
+        carryOver = 1;
+      } 
+      else if (current1.value + current2.value === 9 && carryOver) current3.next = new Node(0);
+      else {
+        current3.next = new Node(current1.value + current2.value + carryOver);
+        carryOver = 0;
+      } 
+    }
+    
     current1 = current1.next;
     current2 = current2.next;
     current3 = current3.next;
