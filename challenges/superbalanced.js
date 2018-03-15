@@ -27,7 +27,7 @@ BinaryTree.prototype.inOrderTraverse = function(cb) {
   }
 }
 
-function superBalanced(tree) {
+function superbalanced(tree) {
   let prev = null;
   let left = 0;
   let right = 0;
