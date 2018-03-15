@@ -14,7 +14,19 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  let levels = breathFirstSearch(tree);
 
+  return (levels%2 === 0) ? true : false;
 }
+
+function breathFirstSearch(tree, count = 0) {
+  if(!tree.left && !tree.right) return count;
+  // if count is even then its balanced if odd it's not;
+  if(tree.left && tree.right) return breathFirstSearch(tree.left, count +1) + breathFirstSearch(tree.right, count + 1);
+
+  if(tree.left) return breathFirstSearch(tree.left, count + 1);
+  if(tree.right) return breathFirstSearch(tree.right, count + 1);
+}
+
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
