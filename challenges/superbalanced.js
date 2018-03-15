@@ -14,7 +14,31 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+ // if length left and length right difference is < 2 
+ // recursively call this.left. while this.left is !== null && this.right !== null, superbalanced(this.left), superbalanced this.right
+ // if count is difference is greater than 2, return false; 
+ let countleft = 0;
+ countright = 0;  
 
+(function wrapper(tree){
+ while(tree.left !== null && tree.right !== null){
+ 	countleft += wrapper(tree.left)
+ 	countright += wrapper(tree.right)
+ }
+
+if(tree.left !== null && tree.right === null){
+	countleft += wrapper(tree.right)
+}
+
+if(tree.left === null && tree.right !== null){
+	countright += wrapper(tree.left)
+}
+ return 1; 
+})(); 
+
+if(countleft !== countright)
+	return false
+return true; 
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
