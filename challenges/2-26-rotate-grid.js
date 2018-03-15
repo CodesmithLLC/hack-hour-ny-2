@@ -22,11 +22,16 @@ function rotateGrid(grid, n) {
     newArray.push([]);
   };
 
-  for (var i = n-1; i >= 0; i--) {
-    for (var j = 0; j < n; j++) {
-      newArray[j].push(array[i][j]);
+  for (var i = 0; i < n; i++) {
+    for (var j = n - 1; j >= 0; j--) {
+      newArray[i].push(array[j][i]);
     };
   };
+  // for (var i = n-1; i >= 0; i--) {
+  //   for (var j = 0; j < n; j++) {
+  //     newArray[j].push(array[i][j]);
+  //   };
+  // };
   return newArray;
 
   // for (var i = 0; i < n; i++) {

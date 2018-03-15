@@ -12,6 +12,19 @@ function BinaryTree(val) {
     this.right = null;
 }
 
+traverse = function(iteratorFunc, order) {
+
+    // iteratorFunc(this.left.value);
+    if(this.left) this.left.traverse(iteratorFunc, order);
+    if(order === 'in-order') iteratorFunc(this.value);
+    // iteratorFunc(this.right.value);
+    if(this.right) this.right.traverse(iteratorFunc, order);
+
+
+}
+
+
+
 function validBST(tree) {
     if (tree.left === null && tree.right === null) {
         return true;

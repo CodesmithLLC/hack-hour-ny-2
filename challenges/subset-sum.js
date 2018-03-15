@@ -69,7 +69,7 @@ function subsetSum(array, target) {
   return false;
  }
   
- function subset(array) {
+function subset(array) {
   let result = [[]];
   for (let ele of array) {
     for (let subset of result.slice(0)) {
@@ -78,8 +78,7 @@ function subsetSum(array, target) {
   }
   result.shift();
   return result;
-  }
-
 }
+
 
 module.exports = subsetSum;

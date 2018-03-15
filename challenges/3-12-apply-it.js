@@ -27,6 +27,24 @@
 
 function applyIt(func, args) {
 
+  // initiate function string
+  
+  // stringify args
+
+  // join the args
+
+  // add args str to function str & complete function str
+
+  // return eval'ed str
+
+  const newArr = args.map((arg) => {
+    return JSON.stringify(arg);
+  });
+  let funcStr = `func(${newarr.join(',')})`;
+  return function() {
+    return eval(funcStr);
+  }
+
 }
 
 module.exports = applyIt;
