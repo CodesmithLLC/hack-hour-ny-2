@@ -25,8 +25,17 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
+function applyIt(func, args) {	
+	
+	return func.call(this,args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7]); 
+	// let x = for(let i = 0; i < args.length; i++){
+	// 	(func(i){
+	// 	}).call(args[i], i); 
+	// }
 
+	// return x; 
 }
+		
+
 
 module.exports = applyIt;
