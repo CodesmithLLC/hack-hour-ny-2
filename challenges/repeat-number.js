@@ -11,12 +11,19 @@
  */
 
 function repeatNumbers(array) {
-  const obj = {};
   for (let i = 0; i < array.length; i++) {
-    if (obj[array[i]]) return array[i];
-    obj[array[i]] = true;
+    if (i + 1 !== array[i]) return array[i];
   }
   return 'no repeat numbers';
 }
+
+// function repeatNumbers(array) {
+//   const obj = {};
+//   for (let i = 0; i < array.length; i++) {
+//     if (obj[array[i]]) return array[i];
+//     obj[array[i]] = true;
+//   }
+//   return 'no repeat numbers';
+// }
 
 module.exports = repeatNumbers;
