@@ -11,15 +11,20 @@
  */
 
 function repeatNumbers(array) {
-  let repeated, 
-    count = {};
-  
-  array.forEach(el => {
-    count[el] = count[el] ? count[el] + 1 : 1;
-    if(count[el] == 2) repeated = el;
-  });
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== array[0] + i) return array[i];
+  }
 
-  return repeated;
+  return undefined;
 }
+
+
+// function repeatNumbers(array) {
+//   let len = array.length;
+//   for(let i = array[0]; i < array[0] + len; i++)
+//     if(array[i] !== i) return array[i];
+
+//   return undefined;
+// }
 
 module.exports = repeatNumbers;
