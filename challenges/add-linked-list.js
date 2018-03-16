@@ -25,22 +25,25 @@ function addLinkedList(l1, l2) {
 	let sumArr = []; 
 	placeholder;
 
-	while(l1.next !== null && l2.next !== null ){
+	while(l1.next !== null){
 		let sumVal; 
 		sumVal = l1.value + l2.value + placeholder; 
 
 		if(String(sumVal).length > 1){
-			sumArr.push(Number(sumVal.charAt[0])); 
-			placeholder = Number(sumVal.charAt[1]);
+			sumArr.push(Number(sumVal.charAt[1])); 
+			placeholder = Number(sumVal.charAt[0]);
 		} else {
 			sumArr.push(sumVal)
 		}
 	}
 
 	let newll = new Node(sumArr[0]);
+	
 
 	for(let i = 1; i < sumArr.length; i++){
 		newll.next = new Node(sumArr[i])
+		// make a this.head and this.tail. //derp (its what makes the linked list structure)
+
 	} 
 
 	return newll
