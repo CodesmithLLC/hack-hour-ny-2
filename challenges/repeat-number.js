@@ -11,7 +11,15 @@
  */
 
 function repeatNumbers(array) {
+  let repeated, 
+    count = {};
+  
+  array.forEach(el => {
+    count[el] = count[el] ? count[el] + 1 : 1;
+    if(count[el] == 2) repeated = el;
+  });
 
+  return repeated;
 }
 
 module.exports = repeatNumbers;
