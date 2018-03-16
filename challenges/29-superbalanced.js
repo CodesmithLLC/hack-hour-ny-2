@@ -15,11 +15,8 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
   if (!tree) return true;
-  let thisNode, leftBranch, rightBranch;
-  thisNode = (Math.abs(height(tree.left) - height(tree.right)) <= 1);
-  leftBranch = superbalanced(tree.left);
-  rightBranch = superbalanced(tree.right);
-  return thisNode && leftBranch && rightBranch;
+  let thisNode = (Math.abs(height(tree.left) - height(tree.right)) <= 1);
+  return thisNode && superbalanced(tree.left) && superbalanced(tree.right);
 }
 
 function height(tree) {
