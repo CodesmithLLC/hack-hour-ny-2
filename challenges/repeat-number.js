@@ -12,15 +12,13 @@
 
 function repeatNumbers(array) {
   if (!array || array.length === 0) return;
-  let min = array[0];
   let max = array[0];
   let sum = array[0];
   for (let i=1; i<array.length; i++) {
-    if (array[i] < min) min = array[i];
     if (array[i] > max) max = array[i];
     sum += array[i];
   }
-  return (min+max)*(array.length+1)/2 - sum;
+  return sum - (1+max)*(array.length-1)/2;
 }
 
 module.exports = repeatNumbers;
