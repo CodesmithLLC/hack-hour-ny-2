@@ -11,7 +11,28 @@
 
 
 function mergeRanges(array) {
-
+  let ranges = {}
+  for (let i = 0; i < array.length; i += 1) {
+    console.log(ranges)
+    if ((array[i][0] - 1) in ranges) {
+      ranges[array[i][0] - 1] = array[i][1]
+    }
+    else if ((array[i][0] + 1) in ranges) {
+      ranges[array[i][0]] = ranges[array[i][0] + 1]
+      delete ranges[array[i][0] + 1]
+    }
+    else {
+      ranges[array[i][0]] = array[i][1]
+    }
+  }
+  let newRanges = []
+  for (let key in ranges) {
+    let range = []
+    range.push(key)
+    range.push(ranges[key])
+    newRanges.push(range)
+  }
+  return newRanges
 }
 
 module.exports = mergeRanges;
