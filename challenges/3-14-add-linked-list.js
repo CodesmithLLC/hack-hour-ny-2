@@ -19,6 +19,27 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
 
+
+// initialize sum and carry variables
+
+
+// init solution list
+
+
+// set current node variables
+
+
+// while loop for both input 
+
+
+// while loop for remaining list
+
+
+// new node for carried value if needed
+
+
+// return solution
+
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

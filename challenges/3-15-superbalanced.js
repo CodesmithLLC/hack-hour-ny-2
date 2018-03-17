@@ -13,7 +13,20 @@ function BinaryTree(value) {
   this.right = null;
 }
 
+// function traverse(cb) {
+
+// }
+
+function height(tree) {
+  if(!tree) return 0;
+  
+  return 1 + Math.max(height(tree.left), height(tree.right));
+}
+
 function superbalanced(tree) {
+  let lh, rh;
+
+
 
 }
 
