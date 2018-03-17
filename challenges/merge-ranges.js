@@ -17,8 +17,15 @@ function mergeRanges(array) {
   let j = 0;
   const result = [array[j]];
   for (let i = 1; i < array.length; i++) {
-    if (array[i][0] <= array[i - 1][1]) {
-      result[j] = [array[i - 1][0], array[i][1]];
+    if (array[i][0] <= result[result.length - 1][1]) {
+      let newArr = array[i - 1].concat(result[result.length - 1]);
+      let max = newArr[0];
+      let min = max;
+      for (let k = 0; k < newArr.length; k++) {
+        max = Math.max(max, newArr[k]);
+        min = Math.min(min, newArr[k]);
+      }
+      result[j] = [min, max];
     }
     else {
       j++;
