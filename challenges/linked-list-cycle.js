@@ -33,6 +33,10 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if(!head){
+    return true;
+  }
+  
   let current = head;
   let next = current.next;
 
