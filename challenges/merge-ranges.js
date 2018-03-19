@@ -9,28 +9,26 @@
  * Do not assume the ranges are in order
  */
 
-var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
-mergeRanges(times);
+// var times = [[0, 1], [4, 8], [3, 5], [10, 12], [9, 10]];
+// console.log(mergeRanges(times));
 
 function mergeRanges(array) {
   const res = [];
+  let rIdx = 0;
+  let sArr = [...array].sort((a,b) => a[0] - b[0]);
 
-  for(let i = 0; i < array.length; i++) {
-    let reset = 0;
-    let low = array[i][0];
-    let high = array[i][1];
-    res.forEach((el, i) => {
-      if(low >= el[0] && low <= el[1]) {
-        if(high > el[1]) el[1] = high;
-        reset = 1;
-      }
-      else if (high >= el[0] && high <= el[1]) {
-        if (low < el[0]) el[0] = low;
-        reset = 1;
-      } 
-    });
+  for(let i = 0; i < sArr.length; i++) {
+    let low = sArr[i][0];
+    let high = sArr[i][1];
+    let el = res[rIdx] || [Number.Positive_INFINITY, Number.NEGATIVE_INFINITY];
 
-    if(!reset) res.push(array[i]);
+    if(low >= el[0] && low <= el[1]) {
+      if(high > el[1]) el[1] = high;
+    }
+    else if (!(high >= el[0] && high <= el[1]))
+      res.push(sArr[i]);
+      
+    rIdx = res.length - 1;
   }
 
   return res;
