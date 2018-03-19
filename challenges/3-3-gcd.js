@@ -13,7 +13,7 @@ function gcd(a, b) {
   a > b ? smaller = b : smaller = a;
   let divisor = 1;
 
-  for(let i = 0; i < smaller; i++) {
+  for(let i = 0; i <= smaller; i++) {
     if (a % i === 0 && b % i === 0 && i > divisor) {
       divisor = i;
     }
