@@ -33,7 +33,14 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  let copy = head
+  let start = new Date().getTime();
+  while (copy) {
+    let elapsed = new Date().getTime() - start;
+    if (elapsed > 5000) return true
+    copy = copy.next
+  }
+  return false
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
