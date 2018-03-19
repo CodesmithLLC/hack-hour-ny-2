@@ -34,9 +34,9 @@ var Node = function(value) {
 
 function hasCycle(head) {
   if(!head){
-    return true;
+    return false;
   }
-  
+
   let current = head;
   let next = current.next;
 
@@ -46,7 +46,12 @@ function hasCycle(head) {
     }
 
     current = current.next;
-    next = next.next.next;
+    if(next.next){
+      next = next.next.next;
+    }
+    else {
+      return false;
+    }
   }
 
   return false;
