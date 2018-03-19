@@ -33,7 +33,38 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  let current = head;
+  let next = current.next;
 
+  while(next && current){
+    if(current === next){
+      return true;
+    }
+
+    current = current.next;
+    next = next.next.next;
+  }
+
+  return false;
 }
+
+// function create(arr){
+//   const result = new Node(arr[0]);
+//   const next = new Node(arr[1]);
+//   result.next = next;
+//
+//   let current = next;
+//   for(let i = 2; i < arr.length; i++){
+//     current.next = new Node(arr[i]);
+//     current = current.next;
+//   }
+//
+//   current.next = next;
+//   return result;
+// }
+
+// const ll = create(['A', 'B', 'C', 'D', 'E', 'F', 'G'])
+// console.log(hasCycle(ll));
+//console.log(JSON.stringify(ll))
 
 module.exports = {Node: Node, hasCycle: hasCycle}
