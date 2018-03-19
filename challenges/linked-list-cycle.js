@@ -33,7 +33,19 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  // 1: create an obj that holds all the values
+    // key is the node val, value is the next value
+    // if next ever equals a key value break iteration and return true
+  // if outside of iteration is reached return false
 
+  let linkObj = {};
+  let curr = head;
+  while (curr.next !== null) {
+    if (linkObj.hasOwnProperty(curr.value)) return true;
+    linkObj[curr.value] = curr.next.value;
+    curr = curr.next;
+  }
+  return false;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
