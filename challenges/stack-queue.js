@@ -32,39 +32,24 @@ Stack.prototype.length = function() {
 
 
 function Queue(stack) {
-    this.primary = new Stack();
-    this.temp = new Stack();
-    this.nextVal = undefined;
-}
-
-Queue.prototype.length = function() {
-    return this.primary.length() + this.temp.length() + (!!this.nextVal);
+    this.inbox = new Stack();
+    this.outbox = new Stack();
 }
 
 Queue.prototype.enqueue = function(val) {
-    if(!this.length()) this.nextVal = val;
-    if(!this.temp) this.primary.push(val);
-    return this.length();
+  this.inbox.push(val);
+  return this.inbox.length + this.outbox.length;
 }
 
 Queue.prototype.dequeue = function() {
-    let temp = this.nextVal;
+  if(this.outbox.length) return this.outbox.pop();
+  if(this.inbox.length === 1) return this.inbox.pop();
 
-    if(this.length() > 1) {
-        while(this.primary.length > 1) {
-            let moveVal = this.primary.pop();
-            this.temp.push(moveVal);
-        }
+  while(this.inbox.length) {
+    this.outbox.push(this.inbox.pop());
+  }
 
-        this.nextVal = this.primary.pop()
-
-        while(this.temp.length > 1) {
-            let moveVal = this.temp.pop();
-            this.primary.push(moveVal);
-        }
-    }
-
-    return temp;
+  return this.outbox.pop();
 }
 
 module.exports = {Stack: Stack, Queue: Queue};

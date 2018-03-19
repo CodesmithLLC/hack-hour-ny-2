@@ -14,19 +14,28 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-  let levels = breathFirstSearch(tree);
+  if (!tree.left && !tree.right) return true;
+  //difference between the height of the left and right trees
+  if (!tree.right)
+    return (Math.abs(getTreeHeight(tree.left) - getTreeHeight(tree.right)) <= 1) && superbalanced(tree.left);
+  if (!tree.left)
+    return (Math.abs(getTreeHeight(tree.left) - getTreeHeight(tree.right)) <= 1) && superbalanced(tree.right);
+  if (tree.left && tree.right)
+    return (Math.abs(getTreeHeight(tree.left) - getTreeHeight(tree.right)) <= 1) && superbalanced(tree.left) && superbalanced(tree.right);
 
-  return (levels%2 === 0) ? true : false;
 }
 
-function breathFirstSearch(tree, count = 0) {
-  if(!tree.left && !tree.right) return count;
+function getTreeHeight(tree, count = 0) {
+  if (!tree) return count;
+  if (!tree.left && !tree.right) return count + 1;
   // if count is even then its balanced if odd it's not;
-  if(tree.left && tree.right) return breathFirstSearch(tree.left, count +1) + breathFirstSearch(tree.right, count + 1);
+  if (tree.left && tree.right) return getTreeHeight(tree.left, count + 1) + getTreeHeight(tree.right, count + 1);
 
-  if(tree.left) return breathFirstSearch(tree.left, count + 1);
-  if(tree.right) return breathFirstSearch(tree.right, count + 1);
+  if (tree.left) return getTreeHeight(tree.left, count + 1);
+  if (tree.right) return getTreeHeight(tree.right, count + 1);
 }
+
+
 
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
