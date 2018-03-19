@@ -37,7 +37,7 @@ function hasCycle(head) {
   let start = new Date().getTime();
   while (copy) {
     let elapsed = new Date().getTime() - start;
-    if (elapsed > 5000) return true
+    if (elapsed > 10000) return true
     copy = copy.next
   }
   return false
