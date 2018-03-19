@@ -14,6 +14,8 @@ function mergeRanges(array) {
 
   var result = [], last;
 
+  array = array.sort((a,b) => { return a[0] > b[0]; })
+
   array.forEach(function (r) {
     if (!last || r[0] > last[1])
       result.push(last = r);
@@ -46,7 +48,7 @@ function mergeRanges(array) {
   //   }
   // }
   // return result;
-
+  
 }
 
 module.exports = mergeRanges;
