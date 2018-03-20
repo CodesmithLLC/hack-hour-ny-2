@@ -21,12 +21,25 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   z--;
   const nx = Math.floor(z/x);
   const ny = Math.floor(z/y);
-  const nxy = Math.floor(z/(y*x));
+  const nxy = Math.floor(z/lcm(x,y));
   sum += (x+x*nx)*nx/2;
   sum += (x+x*ny)*ny/2;
   sum -= (x+x*nxy)*nxy/2;
   return sum;
 }
+
+function lcm(x,y) {
+  return x*y/gcd(x,y);
+}
+
+function gcd(a,b) {
+  if (a%b === 0) return b;
+  if (b%a === 0) return a;
+  let d = (a>b) ? b   : a;
+  let c = (a>b) ? a%b : b%a;
+  return gcd(d, c);
+}
+
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
