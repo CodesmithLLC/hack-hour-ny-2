@@ -20,11 +20,11 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
   const nx = Math.floor((z-1)/x);
   const ny = Math.floor((z-1)/y);
-  const nxy = Math.floor((z-1)/lcm(x,y));
+  const lcmxy = lcm(x,y);
+  const nxy = Math.floor((z-1)/lcmxy);
   sum += (x+x*nx)*nx/2;
-  sum += (x+x*ny)*ny/2;
-  sum -= (x+x*nxy)*nxy/2;
-  console.log(x,y,z,sum)
+  sum += (y+y*ny)*ny/2;
+  sum -= (lcmxy+lcmxy*nxy)*nxy/2;
   return sum;
 }
 
