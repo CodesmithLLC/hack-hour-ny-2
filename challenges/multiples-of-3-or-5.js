@@ -8,7 +8,7 @@
 function sumMultiples3Or5Below1000() {
   let sum = 0;
   sum += (3+999)*333/2;
-  sum += (5+1000)*200/2;
+  sum += (5+995)*199/2;
   sum -= (15+990)*66/2;
   return sum;
 }
@@ -18,6 +18,7 @@ function sumMultiples3Or5Below1000() {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
+  z--;
   const nx = Math.floor(z/x);
   const ny = Math.floor(z/y);
   const nxy = Math.floor(z/(y*x));
