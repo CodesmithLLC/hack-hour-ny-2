@@ -8,25 +8,28 @@
  */
 
 function maxSubarray(arr) {
-  if(arr.length < 4){
-    return;
-  }
+  const forward = arr.slice(1).reduce((newArr, num) => {
+    newArr.push(newArr[newArr.length - 1] + num);
+    return newArr;
+  }, [arr[0]]);
 
-  let sub = arr[0];
-  let total = arr.slice(0, 4).reduce((sum, num) => { return sum + num; });
+  arr.reverse();
 
-  for(let i = 4; i < arr.length; i++){
-    const add = arr[i];
-    const newNum = total + add - sub;
+  const backward = arr.slice(1).reduce((newArr, num) => {
+    newArr.push(newArr[newArr.length - 1] + num);
+    return newArr;
+  }, [arr[0]]);
 
-    if(newNum >= total){
-      total = newNum;
-      sub = arr[i - 3];
-      console.log(arr[i], total, sub);
-    }
-  }
+  console.log(forward, backward);
 
-  return total;
+  let result = forward[0];
+  forward.forEach((sum, i) => {
+    const other = Math.max(...forward.slice(0, i + 1)) - Math.min(0, ...backward.slice(i));
+    console.log(other);
+    result = Math.max(result, other)
+  })
+
+  return result;
 }
 
 console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
