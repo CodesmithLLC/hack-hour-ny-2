@@ -1,6 +1,6 @@
 /* You have two numbers represented by linked lists. Each node contains a single digit. The digits
  * are stored in reverse order, such that the 1's digit is at the head of the list. Write
- * a function that adds the two numbers and returns the sum as a linked list with the same
+ * a function that adds numbers and returns the sum as a linked list with the same
  * structure.
  * EXAMPLE
  * Input: (2 -> 1 -> 5) + (5 -> 9 -> 2)
@@ -18,7 +18,33 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let arrOne = [];
+  let arrTwo = [];
+  let currentOne = l1;
+  let currentTwo = l2;
+  if (!l1) return l2;
+  if (!l2) return l1;
+  while(currentOne || currentTwo) {
+    if (currentOne) {
+      arrOne.push(currentOne);
+      let nextOne = currentOne.next;
+      if (nextOne) {
+        arrOne.push(nextOne);
+        currentOne = nextOne;
+      }
+    }
+    if (currentTwo) {
+      arrTwo.push(currentTwo);
+      let nextTwo = currentTwo.next;
+      if (nextTwo) {
+        arrTwo.push(nextTwo);
+        currentTwo = nextTwo;
+      }
+    }
+  } 
+  let numOne = parseInt(arrOne.reverse().join(''));
+  let numTwo = parseInt(arrTwo.reverse().join(''));
+  return numOne + numTwo;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
