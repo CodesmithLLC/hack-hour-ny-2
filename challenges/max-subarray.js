@@ -14,7 +14,10 @@ function maxSubarray(arr) {
   for (let i = 0; i < arr.length; i++) {
     max = Math.max(max, arr[i]);
     for (let j = i + 1; j < arr.length + 1; j++) {
-      if (count > 0) max = Math.max(max, sum);
+      if (count > 0) {
+        max = Math.max(max, sum);
+        sum = 0;
+      }
       count++;
       for (let k = i; k < j; k++) {
         sum += arr[k];
