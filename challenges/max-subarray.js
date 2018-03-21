@@ -8,11 +8,11 @@
  */
 
 function maxSubarray(arr) {
-  let max = 0;
+  let max = Number.NEGATIVE_INFINITY;
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     max = Math.max(max, arr[i]);
-    for (let j = i + 1; j < arr.length; j++) {
+    for (let j = i + 1; j < arr.length + 1; j++) {
       max = Math.max(max, sum);
       sum = 0;
       for (let k = i; k < j; k++) {
