@@ -7,9 +7,9 @@
  *
  */
 
-// console.log(maxSubarray([15, 20, -5, 10]));
+console.log(maxSubarray([-15, -20, -5, -10]));
 
-function maxSubarray(arr, max = 0) {
+function maxSubarray(arr, max = Number.NEGATIVE_INFINITY) {
   if(arr.length === 0) return max;
 
   let tempMax = arr.reduce((acc, curr) => {return acc + curr}, 0);
