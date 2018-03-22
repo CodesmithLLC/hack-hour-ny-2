@@ -31,6 +31,4 @@ function anagrams(string) {
   return Object.keys(result);
 }
 
-console.log(anagrams('abc'));
-
 module.exports = anagrams;
