@@ -7,7 +7,7 @@
  *
  */
 
-console.log(maxSubarray([-15, -20, -5, -10]));
+console.log(maxSubarray([-15, 20, 5, -10]));
 
 function maxSubarray(arr, max = Number.NEGATIVE_INFINITY) {
   if(arr.length === 0) return max;
@@ -16,7 +16,7 @@ function maxSubarray(arr, max = Number.NEGATIVE_INFINITY) {
 
   max = tempMax > max ? tempMax : max;
 
-  return maxSubarray(arr.slice(1), max) < maxSubarray(arr.slice(0, arr.length - 2), max) ? maxSubarray(arr.slice(0, arr.length - 2), max) : maxSubarray(arr.slice(1), max);
+  return maxSubarray(arr.slice(1), max) < maxSubarray(arr.slice(0, arr.length - 1), max) ? maxSubarray(arr.slice(0, arr.length - 1), max) : maxSubarray(arr.slice(1), max);
 }
 
 module.exports = maxSubarray;
