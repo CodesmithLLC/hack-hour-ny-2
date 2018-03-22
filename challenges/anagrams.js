@@ -13,9 +13,12 @@
   */
 
  function anagrams(string) {
-  let letters = string.split('');
-  return permute(letters);
-}
+  if (!string) return [''];
+  else {
+    let letters = string.split('');
+    return permute(letters);
+  }
+}  
 function permute(letters) {
   if (letters.length === 1) {
     return letters;
@@ -31,6 +34,7 @@ function permute(letters) {
   }
   return permutations;
 }
+
 
 
 module.exports = anagrams;
