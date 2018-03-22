@@ -13,8 +13,7 @@
   */
 
   function anagrams(str) {
-    if (str.length === 0) return [];
-    if (str.length === 1) return [str];
+    if (str.length === 1 || str.length === 0) return [str];
     let result = [];
     const s = str[0];
     const subarr = anagrams(str.substring(1));
