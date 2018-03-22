@@ -12,8 +12,25 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
-
+ function anagrams(string) {
+  let letters = string.split('');
+  return permute(letters);
 }
+function permute(letters) {
+  if (letters.length === 1) {
+    return letters;
+  } 
+  let permutations = [];
+  for (let i = 0; i < letters.length; i++) {
+    let lettersCopy = letters.slice(0);
+    let fixedLetter = lettersCopy.splice(i, 1);
+    let recursivePermutations = permute(lettersCopy);
+    for (let j = 0; j < recursivePermutations.length; j++) {
+      permutations.push(fixedLetter.concat(recursivePermutations[j]).join(''));
+    }
+  }
+  return permutations;
+}
+
 
 module.exports = anagrams;
