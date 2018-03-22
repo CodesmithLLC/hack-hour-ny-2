@@ -13,25 +13,16 @@ function maxSubarray(arr) {
     return newArr;
   }, [arr[0]]);
 
-  arr.reverse();
+  let result = arr[0];
 
-  const backward = arr.slice(1).reduce((newArr, num) => {
-    newArr.push(newArr[newArr.length - 1] + num);
-    return newArr;
-  }, [arr[0]]);
-
-  console.log(forward, backward);
-
-  let result = forward[0];
-  forward.forEach((sum, i) => {
-    const other = Math.max(...forward.slice(0, i + 1)) - Math.min(0, ...backward.slice(i));
-    console.log(other);
-    result = Math.max(result, other)
-  })
+  for(let i = 1; i < forward.length; i++){
+    result = Math.max(result, forward[i]);
+    for(let j = 0; j < i; j++){
+      result = Math.max(result, forward[i] - forward[j]);
+    }
+  }
 
   return result;
 }
-
-console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
 
 module.exports = maxSubarray;
