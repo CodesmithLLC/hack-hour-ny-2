@@ -40,7 +40,7 @@ function deleteDups(head) {
     } else prev = curr;
     curr = prev.next;
   }
-  return head;
+  return head; 
 }
 
 module.exports = deleteDups;
