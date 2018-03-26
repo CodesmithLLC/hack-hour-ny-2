@@ -9,10 +9,18 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
-function findInOrderedSet(arr, target) {
-
+function getHalfOfArray(arr) {
+  return Math.floor(arr.length / 2);
 }
 
+function findInOrderedSet(arr, target) {
+  let temp = arr[getHalfOfArray(arr)];
+  while (temp !== target && arr.length !== 1) {
+    if (temp > target) arr = arr.slice(0, getHalfOfArray(arr));
+    if (temp < target) arr = arr.slice(getHalfOfArray(arr));
+    temp = arr[getHalfOfArray(arr)];
+  }
+  return temp === target;
+}
 
 module.exports = findInOrderedSet;
