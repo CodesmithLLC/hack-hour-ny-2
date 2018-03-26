@@ -12,8 +12,30 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
+function anagrams(str) {
+  let letter, shorterWord, allAnagrams; 
+  if(str.length < 2) return [str];
+  else {
+    allAnagrams = []; 
+    for(var i = 0; i < str.length; i++){
+      letter = str[i]; 
+      shorterWord = str.substr(0,i) + str.substr(i+1, str.length-1);
+      const shorterWordArray = anagrams(shorterWord); 
+      shorterWordArray.map(word => allAnagrams.push(letter + word))
+    }
+    
+    allAnagrams = [...new Set(allAnagrams)]; 
+    
+    // allAnagrams = Array.from(new Set(allAnagrams)) // same thing
+    
+    // better time complexity to store to obj, then return keys of that obj 
 
+    return allAnagrams;
+  }
 }
+
+
+
+anagrams('hellow')
 
 module.exports = anagrams;
