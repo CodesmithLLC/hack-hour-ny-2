@@ -11,6 +11,7 @@
  * instance.trigger('increment'); // counter should be 1
  * instance.trigger('increment'); // counter should be 2
  *
+ * .on is just listening for input function !!!!
  *
  * Caveats:
  * - If we repeatedly call .on with the same event name, it should
@@ -22,15 +23,18 @@
  */
 
 function EventEmitter() {
-
+  this.funcObj = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  this.funcArgs[funcName] = func;
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  let funcArray = arguments;
+  for (let i = 0; i < funcArray.length; i++) {
+    this.funcObj[funcArray[i]]();
+  }
 };
 
 module.exports = EventEmitter;
