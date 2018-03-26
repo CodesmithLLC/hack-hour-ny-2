@@ -11,9 +11,20 @@
  */
 
 
-
 function deleteDups(head) {
-
+ 
+  let current = head;
+  if (!current || !current.next) return current;
+  let arr = [current.value];
+  while(current.next) {
+    if (!arr.includes(current.value)) arr.push(current.value);
+    else {
+      current = current.next;
+    }
+    current = current.next;
+  }
+  return current;
 }
+
 
 module.exports = deleteDups;
