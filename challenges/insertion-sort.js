@@ -5,22 +5,24 @@
 
 
 function insertionSort(array) {
-  let result = [array[0]];
+  // let result = [];
+  // if(array.length){
+  //   result.push(array[0])
+  // }
 
-  for(let i = 1; i < arr.length; i++){
-    let j = result.length - 1;
-    result.push(null);
+  for(let i = 1; i < array.length; i++){
+    let j = i - 1;
+    const temp = array[i];
 
-    while(j > -1 && result[j] > arr[i]){
-      result[j + 1] = result[j]
+    while(j > -1 && array[j] > temp){
+      array[j + 1] = array[j]
       j--;
     }
 
-    result[j + 1] = arr[i];
+    array[j + 1] = temp;
   }
 
-  array = result;
-  return result;
+  return array;
 }
 
 // const arr = [6, 5, 3, 1, 8, 7, 2, 4];
