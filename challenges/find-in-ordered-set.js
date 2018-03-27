@@ -14,7 +14,7 @@ function findInOrderedSet(arr, target) {
   let len = arr.length;
   while(len > 1){
    let midIdx = Math.floor(arr.length/2)
-   let mid = arr[Math.floor(arr.length/2)];
+   let mid = arr[midIdx];
    if(target < mid) {
      arr = arr.slice(0, midIdx)
    } else {
