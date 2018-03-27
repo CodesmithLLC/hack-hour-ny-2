@@ -14,14 +14,17 @@
 function deleteDups(head) {
  
   let current = head;
+  let prev = null;
   if (!current || !current.next) return current;
   let arr = [current.value];
   while(current.next) {
-    if (!arr.includes(current.value)) arr.push(current.value);
-    else {
+    if (!arr.includes(current.value)) {
+      arr.push(current.value);
+      prev = current;
       current = current.next;
+    } else {
+      prev = current.next
     }
-    current = current.next;
   }
   return current;
 }
