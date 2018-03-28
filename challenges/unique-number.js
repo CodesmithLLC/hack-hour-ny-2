@@ -10,6 +10,21 @@
  *
  */
 function uniqueNumber(array) {
+	let newObj - {}; 
+
+	for(let i = 0; i < array.length; i++){
+		if(newObj[array[i]])
+			newObj[array[i]]++
+		else 
+			newObj[array[i]] = 1 
+	}
+
+	for(key in newObj){
+		if(newObj[key] === 1)
+			return newObj[key]
+	}
+
+	return false
 
 }
 
