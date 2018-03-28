@@ -10,7 +10,23 @@
  *
  */
 function uniqueNumber(array) {
+  let nums = {}
+  for (let i = 0; i < array.length; i += 1) {
+    if (!(array[i] in nums) ) {
+      nums[array[i]] = 1
+    }
+    else {
+      nums[array[i]] = 2
+    }
+  }
+  let n = null
+  for (key in nums) {
+    if (nums[key] === 1) {
+      n = key 
+    } 
+  }
 
+  return n
 }
 
 module.exports = uniqueNumber;
