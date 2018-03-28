@@ -10,7 +10,18 @@
  *
  */
 function uniqueNumber(array) {
-
+  let hash = {};
+  for(var i of array){
+    if(!hash[i]) {
+      hash[i] = 1
+    } else {
+      delete hash[i]
+    }
+  }
+  return +Object.keys(hash)[0]
 }
+
+
+uniqueNumber([1,2,1,3,3]);
 
 module.exports = uniqueNumber;
