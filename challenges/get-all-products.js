@@ -10,18 +10,23 @@
  */
 
 function getAllProducts(array) {
-    let result = [];
-    for (let i = 0; i < array.length; i++) {
+    if (!array.length) return [0]
+    if (array.length === 2) return array;
+    else {
+        let result = [];
+        for (let i = 0; i < array.length; i++) {
         let arrayCopy = array.slice(0);
         arrayCopy.splice(i,1);
         let product = multiply(arrayCopy);
         result.push(product);
+        }
+        return result;
     }
-    return result;
 }
   
 function multiply(arr) {
   return arr.reduce((total, num) => total * num);
 }
+
 
 module.exports = getAllProducts;
