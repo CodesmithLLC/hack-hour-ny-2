@@ -10,19 +10,22 @@
  */
 
 function getAllProducts(array) {
-  let mults = []
+  if (array.length === 0) {
+    return [0];
+  }
+  let mults = [];
   for ( i = 0; i < array.length; i += 1) {
-    let subMult = 1
+    let subMult = 1;
     for ( j = 0; j < array.length; j += 1){
       if (j === i) {
-        continue
+        continue;
       }
-      subMult *= array[j]
+      subMult *= array[j];
       
     }
-    mults.push(subMult)
+    mults.push(subMult);
   }
-  return mults
+  return mults;
 }
 
 module.exports = getAllProducts;
