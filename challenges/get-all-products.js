@@ -11,8 +11,13 @@
 
 function getAllProducts(array) {
   const result = [];
-  let total = 1;
 
+  if(!array.length){
+    result.push(0);
+    return result;
+  }
+
+  let total = 1;
   for(let i = 0; i < array.length; i++){
     result.push(total);
     total *= array[i];
