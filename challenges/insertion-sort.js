@@ -6,11 +6,14 @@
 
 function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
-    for (let j = 0; j < i; j++) {
-      if (array[i] < array[j]) {
-        let spliced = array.splice(i, 1);
-        array.splice(j, 0, spliced[0]);
+    let j = i;
+    while (j > 0) {
+      if (array[j] < array[j-1]) {
+        let temp = array[j-1];
+        array[j-1] = array[j];
+        array[j] = temp;
       }
+      j--
     }
   }
   return array;
