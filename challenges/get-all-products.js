@@ -12,14 +12,14 @@
 
 function getAllProducts(arr) {
   
-  let sets = []; 
+  const sets = []; 
 
   for(let i = 0; i < arr.length; i++) {
     let temp = arr.slice(0,i).concat(arr.slice(i+1, arr.length))
     sets.push(temp)
   }
-    
-  return sets = sets.map((array) => {
+  
+  return sets.map((array) => {
     return array.reduce((a,b) => a * b)
   })
 
