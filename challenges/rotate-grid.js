@@ -16,8 +16,27 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
+const sampleGrid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]; 
+ 
+ 
+function rotateGrid(array, n) {
+  let res = []; 
+  // creates an array of subarrays of same length of array to push into 
+  for(var i = 0; i < n; i++){
+    res.push([]);
+  }
+  
+  // array cols -> res rows (first col becomes first row)
+  for(var r=0; r<n; r++) { //rows of array
+    for (var c=0; c < n; c++) {
+      //console.log(res[c])
+      res[c].push(array[r][c])
+    }
+  }
+  return res.map(r => r.reverse()); 
 
 }
+
+rotateGrid(sampleGrid, 3)
 
 module.exports = rotateGrid;

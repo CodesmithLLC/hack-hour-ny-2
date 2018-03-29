@@ -7,8 +7,22 @@
  *
  */
 
-function maxSubarray(arr) {
 
+function maxSubarray(arr) {
+  let max = arr[0];
+  for (let i=0; i<arr.length; i++) {
+    let sum = 0;
+    for (let j=i; j<arr.length; j++) {
+      console.log('i', arr[i], 'j', arr[j])
+      sum += arr[j];
+      if (sum > max) max=sum;
+      console.log(sum);
+    }
+  }
+  return max;
 }
+
+const arr = [15,20,-5,10] // 40
+console.log(maxSubarray(arr));
 
 module.exports = maxSubarray;

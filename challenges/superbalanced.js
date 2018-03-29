@@ -13,8 +13,48 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+function superbalanced(node) {
 
+  let lh; /* for height of left subtree */
+  
+  let rh; /* for height of right subtree */
+  
+  /* If tree is empty then return true */
+   if (node == null) return true;
+
+   /* Get the height of left and right sub trees */
+   lh = height(node.left);
+   rh = height(node.right);
+  
+    if (Math.abs(lh - rh) <= 1
+        && superbalanced(node.left)
+        && superbalanced(node.right)) {
+      return true;
+    }
+            
+    /* If we reach here then tree is not height-balanced */
+     return false;
+
+  }
+
+
+/* UTILITY FUNCTIONS TO TEST isBalanced() FUNCTION */
+    /*  The function Compute the "height" of a tree. Height is the
+        number of nodes along the longest path from the root node
+        down to the farthest leaf node.*/
+    
+
+function height(node){
+   if(!node) return 0;
+   let leftHeight = height(node.left);
+   let rightHeight = height(node.right);
+
+   return Math.max(leftHeight, rightHeight) + 1;
 }
+
+
+
+
+
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
