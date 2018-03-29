@@ -10,7 +10,19 @@
  */
 
 function getAllProducts(array) {
-
+  let mults = []
+  for ( i = 0; i < array.length; i += 1) {
+    let subMult = 1
+    for ( j = 0; j < array.length; j += 1){
+      if (j === i) {
+        continue
+      }
+      subMult *= array[j]
+      
+    }
+    mults.push(subMult)
+  }
+  return mults
 }
 
 module.exports = getAllProducts;
