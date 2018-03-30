@@ -10,7 +10,7 @@
  */
 
 function getAllProducts(arr) {
-  if (arr.length === 1) return arr;
+  if (arr.length === 0) return [0];
   let counter0 = 0;
   let prod = 1;
   let idx;
