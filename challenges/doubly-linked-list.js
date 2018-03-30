@@ -49,7 +49,11 @@ LinkedList.prototype.remove = function(val) {
   currNode = currNode.next;
   while(currNode) {
     if (currNode.val === val) {
-      if (currNode === this.tail) this.tail = currNode.prev;
+      if (currNode === this.tail) {
+        this.tail = currNode.prev;
+        currNode.prev.next = null;
+        return;
+      }
       currNode.prev.next = currNode.next;
       currNode.next.prev = currNode.prev;
       return;
