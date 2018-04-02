@@ -11,16 +11,20 @@
 
 function getAllProducts(array) {
     if (!array.length) return [0]
-    if (array.length === 2) return array;
+    if (array.length === 1) return array;
     else {
-        let result = [];
-        for (let i = 0; i < array.length; i++) {
-        let arrayCopy = array.slice(0);
-        arrayCopy.splice(i,1);
-        let product = multiply(arrayCopy);
-        result.push(product);
-        }
-        return result;
+        return array.map((i, ele) => {
+          let arrayCopy = array.slice(0);
+          arrayCopy.splice(i,1);
+        }).map((num) => ele.reduce((total, num) => total * num));
+        
+        
+        // for (let i = 0; i < array.length; i++) {
+      
+        // let product = multiply(arrayCopy);
+        // result.push(product);
+        // }
+        // return result;
     }
 }
   
