@@ -5,7 +5,7 @@
 
 
 function bubbleSort(array) {
-  if (!array || !array.length) return 'invalid';
+  if (!array || !array.length) return [];
   if (array.length === 1) return array;
   let left = 0;
   let right = 1;
