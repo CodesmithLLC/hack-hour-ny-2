@@ -41,6 +41,13 @@ function makePhoneBookObject(jazbook){
     const key = jazbook[i][0] ;
     this.bookObj[key] = jazbook[i][1]; 
   };
+  this.showBook = function() {
+    return this.bookObj;
+  };
+  this.addPhone = function(name, phone) {
+    this.bookObj[name] = phone;
+    return this.bookObj;
+  };
   this.findPhone = function(name) {
     return this.bookObj[name] ? this.bookObj[name] : false;
   };
@@ -48,6 +55,7 @@ function makePhoneBookObject(jazbook){
     delete this.bookObj[name];
     return this.bookObj;
   };
+
 }
 
 const objectToExport = {
