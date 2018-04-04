@@ -15,7 +15,30 @@
  */
 
 function countStairs(n) {
+  const record = {};
+  function combinations(curr, left){
+    if(!left.length){
+      record[curr] = true;
+    }
 
+    left.forEach((num, i) => {
+      combinations(curr + num, left.slice(0, i).concat(left.slice(i + 1)));
+    })
+  }
+
+  const start = [...new Array(n)].map((i) => "1");
+  combinations("", start);
+
+  let done = false;
+  while(!done){
+    start.splice(start.indexOf("1"), 2, "2");
+    combinations("", start);
+    done = start.length === Math.ceil(n/2);
+  }
+
+  return Object.keys(record)
 }
+
+console.log(countStairs(5));
 
 module.exports = countStairs;
