@@ -18,6 +18,7 @@
  */
 
 function newIntersections(x, y){
+  let intersections = 0
   let order_pairs = []
   for (i = 0; i < x.length; i += 1) {
    let temp = []
@@ -32,13 +33,21 @@ function newIntersections(x, y){
   let maxY = order_pairs[order_pairs.length - 1][1]
 
   let count = 0
-  for (i = minX; i <= maxX ; i += 1) {
-    for (j = minY + 1; j < maxY; j += 1) {
-      count += 1
+  for (let i = minX; i <= maxX ; i += 1) {
+    for (let j = minY; j <= maxY; j += 1) {
+      let countX = 0
+      let countY = 0
+      for (let z = 0; z < order_pairs.length; z += 1) {
+        if (order_pairs[z][0] === i) countX += 1
+        if (order_pairs[z][1] === j) countY += 1
+      }
+      if (countX >= 2 && countY >= 2) {
+        intersections += 1
+      }
     }
   }
-  count -= x.length
-  return count;
+  
+  return intersections;
 }
 
 module.exports = newIntersections;
