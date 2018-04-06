@@ -18,7 +18,27 @@
  */
 
 function newIntersections(x, y){
+  let order_pairs = []
+  for (i = 0; i < x.length; i += 1) {
+   let temp = []
+   temp.push(x[i]) 
+   temp.push(y[i])
+   order_pairs.push(temp)
+  }
+  order_pairs.sort( (a,b) => {return a[0] - b[0]})
+  let minX = order_pairs[0][0]
+  let maxX = order_pairs[order_pairs.length - 1][0]
+  let minY = order_pairs[0][1]
+  let maxY = order_pairs[order_pairs.length - 1][1]
 
+  let count = 0
+  for (i = minX; i <= maxX ; i += 1) {
+    for (j = minY + 1; j < maxY; j += 1) {
+      count += 1
+    }
+  }
+  count -= x.length
+  return count;
 }
 
 module.exports = newIntersections;
