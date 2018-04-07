@@ -13,18 +13,44 @@
 function knightjumps(str) {
   const x = Number(str[0]);
   const y = Number(str[2]);
-  count = 8;
+  let count = 8;
+  let div = false
   
-  if (y + 2 > 8) count -= 2
-  if (y - 2 < 1) count -= 2
-  if (y + 1 > 8) count -= 2
-  if (y - 1 < 1) count -= 2
+  if (y + 2 > 8) {
+    count -= 1
+    div = true
+  }
+  if (y - 2 < 1) {
+    count -= 1
+    div = true
+  }
+  if (y + 1 > 8) {
+    count -= 1
+    div = true
+  }
+  if (y - 1 < 1) {
+    count -= 1
+    div = true
+  }
   
-  if (x + 2 > 8) count -= 2
-  if (x - 2 < 1) count -= 2
-  if (x + 1 > 8) count -= 2
-  if (x - 1 < 1) count -= 2
+  if (x + 2 > 8) {
+    count -= 1
+    div = true
+  }
+  if (x - 2 < 1) {
+    count -= 1
+    div = true
+  }
+  if (x + 1 > 8) {
+    count -= 1
+    div = true
+  }
+  if (x - 1 < 1) {
+    count -= 1
+    div = true
+  }
   
+  if (div) count = count / 2
   return count
   }
 
