@@ -11,7 +11,21 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
-}
+  const x = Number(str[0]);
+  const y = Number(str[2]);
+  count = 8;
+  
+  if (y + 2 > 8) count -= 2
+  if (y - 2 < 1) count -= 2
+  if (y + 1 > 8) count -= 2
+  if (y - 1 < 1) count -= 2
+  
+  if (x + 2 > 8) count -= 2
+  if (x - 2 < 1) count -= 2
+  if (x + 1 > 8) count -= 2
+  if (x - 1 < 1) count -= 2
+  
+  return count
+  }
 
 module.exports = knightjumps;
