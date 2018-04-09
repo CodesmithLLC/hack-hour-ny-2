@@ -16,7 +16,7 @@
 
 // const cache = { 1: 1, 2: 2 };
 function countStairs(n) {
-  return step(n, { 0: 0, 1: 1, 2: 2 });
+  return step(n, { 0: 1, 1: 1, 2: 2 });
 }
 
 function step(n, cache) {
