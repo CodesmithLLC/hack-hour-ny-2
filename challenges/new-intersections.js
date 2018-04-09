@@ -26,6 +26,8 @@ function newIntersections(x, y){
     if (vobj[x[i]]) vobj[x[i]].push(i);
     else vobj[x[i]] = [i];
   }
+  
+
 }
 
 
