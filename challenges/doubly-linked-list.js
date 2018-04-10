@@ -1,6 +1,7 @@
 /*
 Create a doubly linked list with an add and remove method
  */
+// 3-30
 
 function LinkedList() {
   this.head = null;

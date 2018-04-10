@@ -9,6 +9,8 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
+ // 3-29
+ 
 function getAllProducts(array) {
   if (arr.length === 0) return [0];
   let counter0 = 0;

@@ -24,48 +24,48 @@
 * complete with methods to add new names and look up and remove existing entries
 */
 
-// //  return the number associated with the name in the jazbook
-// function findName(jazbook, name) {
-//   jazbook.forEach((item) => {
-//     if (item[0] === name) return item[1];
-//   });
-//   return false;
-// }
-
-// // return an object literal representing the jazbook
-// function makePhoneBookObject(jazbook) {
-//   const book = {};
-//   jazbook.forEach((item) => {
-//     book[item[0]] = item[1];
-//   });
-//   return book;
-// }
-
-// const objectToExport = {
-//   findName,
-//   makePhoneBookObject,
-// };
-
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-  for (let i = 0; i < jazbook.length; i++) {
-    if (jazbook[i][0] === name) {
-      return jazbook[i][1];
-    }
-  }
+  jazbook.forEach((item) => {
+    if (item[0] === name) return item[1];
+  });
   return false;
 }
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook) {
-  return jazbook.reduce((obj, arr) => {
-    obj[arr[0]] = arr[1];
-  }, {});
+  const book = {};
+  jazbook.forEach((item) => {
+    book[item[0]] = item[1];
+  });
+  return book;
 }
 
 const objectToExport = {
   findName,
   makePhoneBookObject,
 };
+
+// //  return the number associated with the name in the jazbook
+// function findName(jazbook, name) {
+//   for (let i = 0; i < jazbook.length; i++) {
+//     if (jazbook[i][0] === name) {
+//       return jazbook[i][1];
+//     }
+//   }
+//   return false;
+// }
+
+// // return an object literal representing the jazbook
+// function makePhoneBookObject(jazbook) {
+//   return jazbook.reduce((obj, arr) => {
+//     obj[arr[0]] = arr[1];
+//   }, {});
+// }
+
+// const objectToExport = {
+//   findName,
+//   makePhoneBookObject,
+// };
 
 module.exports = objectToExport;
