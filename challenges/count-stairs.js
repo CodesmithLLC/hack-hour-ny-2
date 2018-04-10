@@ -36,9 +36,9 @@ function countStairs(n) {
     done = start.length === Math.ceil(n/2);
   }
 
-  return Object.keys(record)
+  return Object.keys(record).length;
 }
 
-console.log(countStairs(5));
+// console.log(countStairs(5));
 
 module.exports = countStairs;
