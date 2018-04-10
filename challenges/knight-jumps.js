@@ -13,9 +13,24 @@
 function knightjumps(str) {
   const x = Number(str[1]);
   const y = Number(str[3]);
-  if (x===1 && y===1 || x===1 && y===8 || x===8 && y===1 || x===8 && y===8) return 3;
-  if (x===1 || x===8 ||  y===1 || y===8) return 5;
-  return 8;
+  let moves = 0;
+  if (x-1 > 0) {
+    if (y-2 > 0) moves++;
+    if (y+2 < 9) moves++;
+  }
+  if (x+1 < 9) {
+    if (y-2 > 0) moves++;
+    if (y+2 < 9) moves++;
+  }
+  if (x-2 > 0) {
+    if (y-1 > 0) moves++;
+    if (y+1 < 9) moves++;
+  }
+  if (x+2 < 9) {
+    if (y-1 > 0) moves++;
+    if (y+1 < 9) moves++;
+  }
+  return moves;
 }
 
 module.exports = knightjumps;
