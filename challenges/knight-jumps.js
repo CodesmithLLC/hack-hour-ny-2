@@ -11,8 +11,8 @@
 // const str1 = "(0 0)";
 
 function validMove(x, y) {
-  const validX = x >= 0 && x <= 8;
-  const validY = y >= 0 && y <= 8;
+  const validX = x > 0 && x <= 8;
+  const validY = y > 0 && y <= 8;
   return validX && validY ? 1 : 0;
 }
 
@@ -34,5 +34,6 @@ function knightjumps(str) {
 
   return ways;
 }
+
 
 module.exports = knightjumps;
