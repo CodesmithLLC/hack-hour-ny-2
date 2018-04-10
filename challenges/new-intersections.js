@@ -40,13 +40,17 @@ function newIntersections(x, y){
         let right = false;
         if (objy[k].length >= 2) {
           for(let m = 0; m < objy[k].length; m++) {
-            
+            if (objy[k][m] < xkey) left = true;
+            if (objy[k][m] > xkey) right - true;
           }
+          if (left & right) count++;
+          left = false;
+          right = false;
         }
       }
     }
   }
-
+  return count;
 
 //test all possible points -- not efficient
   // let minx = Number.POSITIVE_INFINITY;
