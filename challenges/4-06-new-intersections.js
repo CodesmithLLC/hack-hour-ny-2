@@ -16,6 +16,7 @@
  *   - if a new point is bounded by old points and lands on an old point, then count it
  * 	 
  */
+// 4-06
 
 
 // CSmith Erik
