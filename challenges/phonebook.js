@@ -37,6 +37,8 @@ function findName(jazbook, name) {
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
   this.book = {};
+  //foreach on jazbook (array)
+  //return this.book
 }
 
 makePhoneBookObject.prototype.add = (name, num) => {
