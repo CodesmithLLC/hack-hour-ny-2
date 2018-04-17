@@ -15,9 +15,9 @@ function solveKnapsack(items, weightAvailable) {
     if (item[0].weight > weightAvailable) return 0;
     return item[0].value;
   }
-  const takeIt = solveKnapsack(item.slice(1), weightAvailable-item[0].weight);
+  const takeIt = solveKnapsack(item.slice(1), weightAvailable-item[0].weight) + item[0].value;
   const notTakeIt = solveKnapsack(item.slice(1), weightAvailable);
   return Math.max(takeIt, notTakeIt);
-};
+}
 
 module.exports = solveKnapsack;
