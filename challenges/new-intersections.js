@@ -17,19 +17,53 @@
  *
  */
 
-function newIntersections(x, y){
-  const hobj = {};
-  const vobj = {};
-  for (let i=0; i<x.length; i++) {
-    if (hobj[y[i]]) hobj[y[i]].push(i);
-    else hobj[y[i]] = [i];
-    if (vobj[x[i]]) vobj[x[i]].push(i);
-    else vobj[x[i]] = [i];
-  }
-  
+// function newIntersections(x, y){
+//   const hobj = {};
+//   const vobj = {};
+//   for (let i=0; i<x.length; i++) {
+//     if (hobj[y[i]]) hobj[y[i]].push(i);
+//     else hobj[y[i]] = [i];
+//     if (vobj[x[i]]) vobj[x[i]].push(i);
+//     else vobj[x[i]] = [i];
+//   }
+// }
 
+function newIntersections(x, y) {
+  // create object that stores all vertical lines created by x-y coords
+  const verticalLines = x.reduce((lines, xCoord, index) => {
+    if (!lines[xCoord]) lines[xCoord] = { max: y[index], min: y[index] };
+    lines[xCoord].max = Math.max(lines[xCoord].max, y[index]);
+    lines[xCoord].min = Math.min(lines[xCoord].min, y[index]);
+    return lines;
+  }, {});
+
+  // create object that stores all horizontal lines
+  const horizontalLines = y.reduce((lines, yCoord, index) => {
+    if (!lines[yCoord]) lines[yCoord] = { max: x[index], min: x[index] };
+    lines[yCoord].max = Math.max(lines[yCoord].max, x[index]);
+    lines[yCoord].min = Math.min(lines[yCoord].min, x[index]);
+    return lines;
+  }, {});
+
+  // initialize intersections variable
+  let intersections = 0;
+
+  // nested loop through lines objects
+  Object.keys(verticalLines).forEach((xCoord) => {
+    Object.keys(horizontalLines).forEach((yCoord) => {
+      // increment intersections if lines intersect
+      if (
+        verticalLines[xCoord].min < yCoord
+        && yCoord < verticalLines[xCoord].max
+        && horizontalLines[yCoord].min < xCoord
+        && xCoord < horizontalLines[yCoord].max
+      ) {
+        intersections += 1;
+      }
+    });
+  });
+  return intersections;
 }
-
 
 
 module.exports = newIntersections;
