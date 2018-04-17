@@ -49,6 +49,7 @@ function checkCommon(allcount) {
       if (flags[0] && flags[1] && flags[2] && flags[3]) result.push(Number(key));
     }
   }
+  if (result.length === 0) return;
   return result;
 }
 
