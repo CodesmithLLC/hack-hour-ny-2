@@ -109,8 +109,8 @@ function pipe(functions) {
  */
 
 function letterGenerator(letter) {
-  return function(letters) {
-    return letters ? 'H' + letters : 'H';
+  return function(input) {
+    return input ? letter + input : letter;
   }
 }
 
