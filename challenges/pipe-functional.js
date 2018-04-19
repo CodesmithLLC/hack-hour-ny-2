@@ -66,7 +66,7 @@ function o(letters) {
 
 function pipe(functions) {
   return function(input) {
-    return functions.reduce( (i, func) => {
+    return functions.reduceRight( (i, func) => {
       return func(i);
     }, input);
   }
