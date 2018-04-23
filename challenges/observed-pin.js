@@ -41,11 +41,50 @@ expectations = {
 
 // 4-10
 
-
-
 function getPINs(observed) {
-
+  const matrix = [];
+  matrix[0] = ["8", "0"];
+  matrix[1] = ["2", "4", "1"];
+  matrix[2] = ["1", "3", "5", "2"];
+  matrix[3] = ["2", "6", "3"];
+  matrix[4] = ["1", "5", "7", "4"];
+  matrix[5] = ["2", "4", "6", "8", "5"];
+  matrix[6] = ["3", "5", "9", "6"];
+  matrix[7] = ["4", "8", "7"];
+  matrix[8] = ["0", "5", "7", "9", "8"];
+  matrix[9] = ["6", "8", "9"];
+  if (observed.length === 1) return matrix[observed];
+  const sets = [];
+  for (let i = 0; i < observed.length; i++) {
+    sets.push(matrix[observed[i]]);
+  }
+  const all = [];
+  const combinedarr = cartesinoProduct(sets);
+  combinedarr.forEach(function (combination) {
+    let s = combination.join("");
+    if (!all.includes(s)) all.push(s);
+  });
+  return all;
 }
 
+function cartesinoProduct(arr) {
+  if (arr.length === 1)
+    return arr;
+  if (arr.length === 2) {
+    const arrProduct = [];
+    const a1 = arr[0];
+    const a2 = arr[1];
+    for (let i = 0; i < a1.length; i++) {
+      for (let j = 0; j < a2.length; j++) {
+        arrProduct.push([].concat(a1[i], a2[j]));
+      }
+    }
+    return arrProduct;
+  }
+  const last = arr[arr.length - 1];
+  const beforeLast = arr.slice(0, arr.length - 1);
+  const s = cartesinoProduct(beforeLast);
+  return cartesinoProduct([s, last]);
+}
 
 module.exports = getPINs
