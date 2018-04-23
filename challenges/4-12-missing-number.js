@@ -25,6 +25,8 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
+
+// Penghe
 function missingNum(arr) {
   const n = arr.length;
   const sum = arr.reduce((a, b) => a + b);
