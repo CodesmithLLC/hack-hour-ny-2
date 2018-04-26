@@ -26,7 +26,50 @@
  */
 
 function applyIt(func, args) {
+	//const arr = Array.prototype.slice.call(arguments, 1)[0];
 
+	var functionCall = 'func' + "(";
+
+    for ( let i = 0; i < args.length; i++ )
+    {
+        functionCall += "\"" + args[i] + "\"";
+
+        if ( i < args.length - 1 ) functionCall += ",";
+    }
+
+    functionCall += ")";
+
+    //Now we run the compiled call which will be something like:
+    //myFunction("one","two")
+    return () => eval(functionCall);
 }
+
+// function applyIt(func, args) {
+//   // Build up funcString starting with func(
+//   let funcString = 'func(';
+
+//   // Loop through arguments in ascending order
+//   args.forEach((arg, index, args) => {
+//     // Concat each argument wrapped by quotation marks
+//     funcString += `'${arg}'`;
+
+//     // Concat comma after each argument except last
+//     if (index < args.length - 1) funcString += ',';
+//   });
+
+//   // Concat )
+//   funcString += ')';
+
+//   // Return callback that returns evaluation of funcString
+//   return () => eval(funcString);
+// }
+
+var jae = function(name, age, location) {
+  return name + " is " + age + " and he lives in " + location;
+};
+
+var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
+
+console.log(jaero())
 
 module.exports = applyIt;
