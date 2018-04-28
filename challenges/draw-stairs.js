@@ -12,23 +12,33 @@
 ******
 
 */
+function drawStairs(n, stars = '') {
+	if (n === 0) console.log(stars)
+	else {
+		//stars += '*'
+		console.log( ' '.repeat(n) + stars )
+		drawStairs(n-1, stars+'*')
+	}
 
-function drawStairs(n) {
-	let step = '*';
-	let numOfSpaces = n-1;
-	spaces = (s) => {
-		let ws = '';
-		for (let i = 0; i < s; i++){
-			ws += ' ';
-		}
-		return ws;
-	}
-	for (let i = 0; i < n; i++){
-		console.log( spaces(numOfSpaces) + step);
-		step += '*';
-		numOfSpaces--;
-	}
 }
-drawStairs(1);
+
+
+// function drawStairs(n) {
+// 	let step = '*';
+// 	let numOfSpaces = n-1;
+// 	spaces = (s) => {
+// 		let ws = '';
+// 		for (let i = 0; i < s; i++){
+// 			ws += ' ';
+// 		}
+// 		return ws;
+// 	}
+// 	for (let i = 0; i < n; i++){
+// 		console.log( spaces(numOfSpaces) + step);
+// 		step += '*';
+// 		numOfSpaces--;
+// 	}
+// }
+drawStairs(6);
 
 module.exports = drawStairs;
