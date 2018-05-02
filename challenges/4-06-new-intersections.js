@@ -18,7 +18,6 @@
  */
 // 4-06
 
-
 // CSmith Erik
 function newIntersections(x, y) {
   // create object that stores all vertical lines created by x-y coords

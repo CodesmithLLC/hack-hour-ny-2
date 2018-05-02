@@ -24,6 +24,8 @@ eachPermutation([1, 2, 3], function(perm) {
 
 // }
 
+// 4-17
+
 function eachPermutation(arr, callback) {
   const permsArr = permutation(arr);
   permsArr.forEach((el) => {
@@ -44,7 +46,5 @@ function permutation(arr) {
   });
   return permsArr;
 }
-
-
 
 module.exports = eachPermutation;

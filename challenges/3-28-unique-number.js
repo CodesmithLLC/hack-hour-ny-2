@@ -9,7 +9,7 @@
  * Complete the challenge in O(1) space
  *
  */
-// function uniqueNumber(array) {
+// function uniqueNumber(arr) {
 //   let buffer = arr[0];
 //   for (let i = 1; i < arr.length; i++) {
 //     buffer = buffer ^ arr[i]
@@ -37,3 +37,16 @@ function uniqueNumber(array) {
 console.log(uniqueNumber([1, 2, 1, 3, 3]));
 
 module.exports = uniqueNumber;
+
+/**
+ * array.reduce((obj, num) => {
+    if (obj[num]) {
+      delete obj[num];
+    }
+    else {
+      obj[num] = true;
+    }
+    return obj;
+  }, {})
+  
+ */
