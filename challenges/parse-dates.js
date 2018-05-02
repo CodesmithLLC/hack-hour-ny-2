@@ -39,8 +39,18 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
+
+// 4-13
 function parseDates(str) {
-  
+  const weekdays = [];
+  const arr = str.split(' ');
+  const n = arr.length;
+  const pm = arr[n - 1];
+  const time = arr[n - 2];
+  let hour = time.split(':')[0];
+  const minute = time.split(':')[1];
+  if (pm.toUpperCase() === 'PM') hour = (Number(hour) + 12).toString();
+
 }
 
 module.exports = parseDates;

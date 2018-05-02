@@ -20,10 +20,31 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+// function eachPermutation(arr, callback) {
 
+// }
+
+// 4-17
+
+function eachPermutation(arr, callback) {
+  const permsArr = permutation(arr);
+  permsArr.forEach((el) => {
+    callback(el);
+  })
 }
 
-
+function permutation(arr) {
+  if (arr.length <= 1) return [arr];
+  const permsArr = [];
+  const first = arr[0];
+  const restPerms = permutation(arr.slice(1));
+  restPerms.forEach((perm) => {
+    for (let i = 0; i <= perm.length; i++) {
+      const newPerm = [].concat(perm.slice(0, i), first, perm.slice(i));
+      permsArr.push(newPerm);
+    }
+  });
+  return permsArr;
+}
 
 module.exports = eachPermutation;

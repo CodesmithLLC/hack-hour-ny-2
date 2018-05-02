@@ -18,6 +18,7 @@
  */
 
 function H(letters) {
+  return letters ? 'H' + letters : 'H';
 
 }
 
@@ -42,14 +43,17 @@ function H(letters) {
  */
 
 function e(letters) {
+  return letters ? 'e' + letters : 'e';
 
 }
 
 function l(letters) {
+  return letters ? 'l' + letters : 'l';
 
 }
 
 function o(letters) {
+  return letters ? 'o' + letters : 'o';
 
 }
 
@@ -75,7 +79,11 @@ function o(letters) {
  */
 
 function pipe(functions) {
-
+  return function (input) {
+    return functions.reduceRight((i, func) => {
+      return func(i);
+    }, input);
+  }
 }
 
 // OR
@@ -123,7 +131,9 @@ function pipe(functions) {
  */
 
 function letterGenerator(letter) {
-
+  return function (input) {
+    return input ? letter + input : letter;
+  }
 }
 
 // OR
