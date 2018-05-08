@@ -17,7 +17,7 @@ bt.left = new BinaryTree(4);
 bt.right = new BinaryTree(7);
 bt.right.left = new BinaryTree(6);
 
-function validBST(tree) {
+function validBST(tree, headVal = tree.value) {
 	if (tree === null) return true;
 	//console.log(tree.value)
 

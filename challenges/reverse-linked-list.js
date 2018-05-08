@@ -19,14 +19,19 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-
-   if (!head || !head.next) {
-     return head;
-   }
-   let temp = reverseLinkedList(head.next);
-   head.next.next = head;
-   head.next = null;
-   return temp;   
+  var prev = null;
+  var curr = head;
+  var next;
+  
+  while (curr) {
+    next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+  
+  head = prev;
+  return head;
 }
 
 const showList = (head) => {

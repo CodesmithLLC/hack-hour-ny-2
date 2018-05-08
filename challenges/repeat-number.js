@@ -22,7 +22,7 @@ arr = [1,5,12,3,7,6,9,8,2,10,11,13,4,12];
 // }
 
 
-// O(2n)? 
+// O(n) time
 // function repeatNumbers(array) {
 // 	array = array.sort((a, b) => a - b);
 // 	for (let i = 0; i < array.length-1; i++){
@@ -32,15 +32,15 @@ arr = [1,5,12,3,7,6,9,8,2,10,11,13,4,12];
 // }
 
 //O(n) time, O(n) space
-// function repeatNumbers(array){
-// 	const mem = {}
-// 	let repeated;
-// 	for (let i = 0; i < array.length; i++){
-// 		if (mem[array[i]]) return array[i] 
-// 		else mem[array[i]] = true
-// 	}
-// 	return null
-// }
+function repeatNumbers(array){
+	const mem = {}
+	let repeated;
+	for (let i = 0; i < array.length; i++){
+		if (mem[array[i]]) return array[i] 
+		else mem[array[i]] = true
+	}
+	return null
+}
 
 // O(n) time, O(1) space
  function repeatNumbers(array) {
@@ -53,6 +53,12 @@ arr = [1,5,12,3,7,6,9,8,2,10,11,13,4,12];
    return actual - expected;
  }
 
-console.log(repeatNumbers(arr))
+//console.log(repeatNumbers(arr))
 
 module.exports = repeatNumbers;
+
+
+
+
+
+

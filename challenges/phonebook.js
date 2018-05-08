@@ -23,16 +23,37 @@
 * develop a function that takes in the poorly constructed jazbook and returns a proper phonebook 
 * complete with methods to add new names and look up and remove existing entries
 */
+const jazbook = [
+     ['alex','301-844-3421'],
+     ['jae','301-844-1211'],
+     ['david','301-844-0978'],
+     ['travis','301-844-8505'],
+     ['jasmine','1800-974-4539'],
+  ];
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+	for (let i = 0; i < jazbook.length; i++){
+		if (jazbook[i][0]===name) return jazbook[i][1];
+	}
+	return false;
 }
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
+	const obj = {};
+	let name, number;
 
+	for (let i = 0; i < jazbook.length; i++){
+		name = jazbook[i][0]; number = jazbook[i][1]
+		obj[name] = number
+	}
+
+	return obj;
 }
+
+ //console.log(makePhoneBookObject(jazbook))
+//console.log(findName(jazbook, 'tavis'))
 
 const objectToExport = {
   findName,

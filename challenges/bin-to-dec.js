@@ -14,10 +14,9 @@
  */
 
 function binToDec(binary) {
-	let len = binary.length;
 	let power = 0;
 	let result = 0;
-	for (let i = len-1; i >= 0; i--){
+	for (let i = binary.length-1; i >= 0; i--){
 		
 		if (binary[i] === '1'){
 			result += Math.pow(2, power);

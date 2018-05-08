@@ -19,8 +19,44 @@
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
+
+function checkNumofaKind(obj) {
+	let high = false;
+	let count = 0; 
+	for (let prop in obj){
+		if (obj[prop] > count) {
+			count = obj[prop]
+			high = prop
+		}
+	}
+
+	return {count:count, high:high}
+}
+
 function poker(hand1, hand2) {
 
+	const p1 = hand1.reduce((acc, cur)=>{
+		if (!acc[cur]) acc[cur] = 1;
+		else acc[cur]++;
+		return acc;
+	},{})
+
+	const p2 = hand2.reduce((acc, cur)=>{
+		if (!acc[cur]) acc[cur] = 1;
+		else acc[cur]++;
+		return acc;
+	},{})
+
+	if (checkNumofaKind(p1).count === 4 && checkNumofaKind(p2).count !== 4 )
+		return 'player 1 wins'
+	else if (checkNumofaKind(p2).count === 4 && checkNumofaKind(p1).count !== 4 )
+		return 'player 2 wins'
+	else if (checkNumofaKind(p1).count === 4 && checkNumofaKind(p2).count === 4 )
+		return (checkNumofaKind(p1).high > checkNumofaKind(p1).high) ? 'player 1 wins' : 'player 2 wins';
+	
+
 }
+
+console.log(poker([5,3,5,5,2], [4,8,8,8,8]))
 
 module.exports = poker;

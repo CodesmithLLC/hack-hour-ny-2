@@ -10,20 +10,20 @@ function Node(val) {
   this.next = null;
 }
 
-// let A = new Node(1);
-// 		A.next = new Node(3);
-// 		A.next.next = new Node(5);
-// 		A.next.next.next = new Node(7);
-// let B = new Node(2);
-// 		B.next = new Node(4);
-// 		B.next.next = new Node(6);
-// 		B.next.next.next = new Node(8);
+let A = new Node(1);
+		A.next = new Node(3);
+		A.next.next = new Node(5);
+		A.next.next.next = new Node(7);
+let B = new Node(2);
+		B.next = new Node(4);
+		B.next.next = new Node(6);
+		B.next.next.next = new Node(8);
 
 function zip(l1, l2) {
 
-	if (!l1 && !l2) return false;
-	if (!l1 && l2) return l2;
-	if (l1 && !l2) return l1;
+	if (!l1) return l2;
+	if (!l2) return l1;
+	
 	let first = l1;
 	let second = l2;
 	let firstNext;
@@ -39,7 +39,7 @@ function zip(l1, l2) {
 		first = firstNext;
 		second = secondNext;
 	}	
-	l2 = second;
+	//l2 = second;
 	return l1;
 };
 
@@ -53,7 +53,7 @@ const showList = (head) => {
 	}
 }
 
-//zip(A,B);
+zip(A,B);
 
-//showList(A);
+showList(A);
 module.exports = {Node: Node, zip: zip};
