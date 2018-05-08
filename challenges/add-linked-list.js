@@ -17,8 +17,54 @@ function Node(val) {
   this.next = null;
 }
 
+let A = new Node(1);
+		A.next = new Node(3);
+		A.next.next = new Node(5);
+		A.next.next.next = new Node(7);
+let B = new Node(2);
+		B.next = new Node(4);
+		B.next.next = new Node(6);
+		B.next.next.next = new Node(8);
+
 function addLinkedList(l1, l2) {
 
+	let carried = 0;
+	let currentNum;
+	let current1 = l1;
+	let current2 = l2;
+	let returnList = new Node(0);
+	let newList = returnList;
+
+	while (current2.next !== null && current1 !== null){
+		
+		let currentNum = current1.value + current2.value + carried;
+		if (currentNum > 9){
+			carried = Number(''+currentNum[0]);
+			currentNum = Number(''+currentNum[1]);
+		}
+
+		newList.value = currentNum;
+
+		current1 = current1.next;
+		current2 = current2.next;
+		if (current1 !== null && current2 !== null){
+			newList.next = new Node(0);
+			newList = newList.next;
+		}
+	}
+
+	return returnList
 }
+
+const showList = (head) => {
+	let current = head;
+	console.log(current.value)
+	while (current.next !== null){
+		current = current.next;
+		console.log(current.value)
+	}
+}
+
+showList(addLinkedList(A,B))
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

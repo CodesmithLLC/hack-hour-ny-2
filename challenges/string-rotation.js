@@ -26,10 +26,12 @@ function stringRotation(s1, s2) {
   for (let i = 0; i < firstIndex; i++){
     result+= s2[i]
   }
-  for (let i = 0; i < s1.length; i++){
-    if (s1[i] !== result[i]) return false;
-  }
- return true;
+  return result === s1;
+ //  for (let i = 0; i < s1.length; i++){
+ //    if (s1[i] !== result[i]) return false;
+ //  }
+ // return true;
 }
 
+console.log(stringRotation("hello", "ollhe"))
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

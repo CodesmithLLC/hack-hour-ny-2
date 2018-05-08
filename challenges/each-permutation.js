@@ -21,7 +21,12 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-
+	const perms = []
+	const recur = function(array){
+		for (let i = 0; i < arr.length; i++){
+			if 
+		}
+	}
 }
 
 

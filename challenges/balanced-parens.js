@@ -27,7 +27,6 @@
 
 function balancedParens(input){
 	
-	
 	const stack = [];
 
 	for (let i = 0; i < input.length; i++){
@@ -49,6 +48,8 @@ function balancedParens(input){
 		return false;
 	else return true;
 }
+
+
 
 
 
