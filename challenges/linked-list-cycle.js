@@ -32,28 +32,41 @@ var Node = function(value) {
   this.next = null;
 }
 
+
 function hasCycle(head) {
+
+	if (!head || !head.next) return false
+
 	let turtle = head;
 	let rabbit = head.next;
-	while (rabbit.next !== null ){
+
+	while (rabbit && rabbit.next){
 
 		if (turtle === rabbit) return true
 
 		turtle = turtle.next;
 		rabbit = rabbit.next.next;
 
-		if (!rabbit) return false
-
 	}
-	//return rabbit
+	return false
 }
 
+
+function hasCycle(head){
+	try{
+		JSON.stringify(head)
+	}
+	catch (e){
+		return true
+	}
+	return false
+}
 // var node1 = new Node('1');
 // var node2 = node1.next = new Node('2');
 // var node3 = node2.next = new Node('3')
 // var node4 = node3.next = new Node('4');
 // var node5 = node4.next = new Node('5');
-// node5.next = node2;
+// //node5.next = node2;
 // console.log(hasCycle(node1))
 
 module.exports = {Node: Node, hasCycle: hasCycle}

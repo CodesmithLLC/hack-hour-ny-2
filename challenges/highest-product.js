@@ -3,35 +3,17 @@
  */
 
 function highestProduct(array) {
-
-  if (!Array.isArray(array)) return 0;
-  if (array.length < 3) return 0;
-
-	const combinations = [];
-  const recur = (comb, arr) => {
-   // console.log(comb);
-    for (let i = 0; i < arr.length; i++){
-    	if (comb.length === 2)
-      	combinations.push( comb.concat(arr[i]) );
-      
-      recur( comb.concat(arr[i]), arr.slice(i+1) );
-    }
-  }
-	recur([], array);
-  console.log(combinations);
-  let result = false;
-  let product;
-  let greatest = combinations[0].reduce((acc, cur) => 
-  	acc * cur)
-
+  let len = array.length;
+  if (len < 3) return 0;
   
-  combinations.forEach((comb) => {
-    product = comb.reduce((acc, cur) => 
-    	acc * cur)
-    if (product > greatest) greatest = product;
-  })
-  return greatest;
+  array.sort((a,b) => a - b);
+  
+  return Math.max(
+    array[0] * array[1] * array[len-1], 
+    array[len-3] * array[len-2] * array[len-1]
+    )
+
 }
 
-console.log(highestProduct([-5, 2, 1, 4, 3]));
+console.log(highestProduct([-5, 2, 0, 10, 4, -3]));
 module.exports = highestProduct;
