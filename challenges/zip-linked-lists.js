@@ -19,30 +19,33 @@ let B = new Node(2);
 		B.next.next = new Node(6);
 		B.next.next.next = new Node(8);
 
-function zip(l1, l2) {
+function zip(l1, l2){
 
-	if (!l1) return l2;
-	if (!l2) return l1;
-	
-	let first = l1;
-	let second = l2;
-	let firstNext;
-	let secondNext;
-	while (first !== null && second !== null){
-		
-		firstNext = first.next;
-		secondNext = second.next;
+  if (!l1) return l2
+  if (!l2) return l1
 
-		second.next = firstNext;
-		first.next = second;
+  let curr1 = l1
+  let curr2 = l2
+  let curNext1 = l1.next
+  let curNext2 = l2.next
 
-		first = firstNext;
-		second = secondNext;
-	}	
-	//l2 = second;
-	return l1;
-};
+  while (curNext1 && curNext2){
 
+    curr1.next = curr2
+    curr2.next = curNext1
+
+    curr1 = curNext1
+    curr2 = curNext2
+
+    curNext1 = curNext1.next
+    curNext2 = curNext2.next
+  }
+  
+  if (!curr2.next) curr2.next =  curr1.next
+  curr1.next = curr2
+   
+  return l1
+}
 
 const showList = (head) => {
 	let current = head;
