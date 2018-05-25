@@ -14,11 +14,11 @@
  *
  * 	 - x and y will contain the same number of elements
  *   - if a new point is bounded by old points and lands on an old point, then count it
- * 	 
+ * 	 stuff
  */
 
 function newIntersections(x, y){
-
+ 
 }
 
 module.exports = newIntersections;
