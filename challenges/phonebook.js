@@ -24,39 +24,68 @@
 * complete with methods to add new names and look up and remove existing entries
 */
 const jazbook = [
-     ['alex','301-844-3421'],
-     ['jae','301-844-1211'],
-     ['david','301-844-0978'],
-     ['travis','301-844-8505'],
-     ['jasmine','1800-974-4539'],
+     ['alex','301-844-3421', '123 cool st'],
+     ['jae','301-844-1211', '456 boring rd'],
+     ['david','301-844-0978', '789 7th heaven'],
+     ['travis','301-844-8505', '246 dude hwy'],
+     ['jasmine','1800-974-4539', '135 yup ave'],
   ];
 
 //  return the number associated with the name in the jazbook
-function findName(jazbook, name) {
+const findNumber = (jazbook, name) => {
 	for (let i = 0; i < jazbook.length; i++){
-		if (jazbook[i][0]===name) return jazbook[i][1];
+		if (jazbook[i][0] === name) return jazbook[i][1];
 	}
 	return false;
 }
 
-// return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
-	const obj = {};
-	let name, number;
 
-	for (let i = 0; i < jazbook.length; i++){
-		name = jazbook[i][0]; number = jazbook[i][1]
-		obj[name] = number
-	}
-
-	return obj;
+const memoize = (func, mem = {}) => {
+	return (data, id) => {
+		!mem[id] ? mem[id] = func(data, id) : console.log('in memory...');
+		return mem[id];
+	} 
 }
 
- //console.log(makePhoneBookObject(jazbook))
-//console.log(findName(jazbook, 'tavis'))
+const memoizedJazbookNumbers = memoize(findNumber)
+
+
+console.log(memoizedJazbookNumbers(jazbook, 'jae'))
+console.log(memoizedJazbookNumbers(jazbook, 'alex'))
+console.log(memoizedJazbookNumbers(jazbook, 'david'))
+console.log(memoizedJazbookNumbers(jazbook, 'david'))
+console.log(memoizedJazbookNumbers(jazbook, 'nate'))
+
+
+// return an object literal representing the jazbook
+
+function Jazbook(array){
+  this.phonebook = {};
+  array.forEach((individual) => {
+    this.phonebook[individual[0]]=individual[1];
+  });
+};
+
+Jazbook.prototype.add = function(name, number) {
+  this.phonebook[name] = number;
+}
+
+Jazbook.prototype.lookup = function(name) {
+  return this.phonebook[name];
+}
+
+Jazbook.prototype.remove = function(name) {
+  delete this.phonebook[name];
+}
+
+const makePhoneBookObject = new Jazbook(jazbook);
+
+makePhoneBookObject.add('todd','555-555-5555')
+
+console.log(makePhoneBookObject)
 
 const objectToExport = {
-  findName,
+  findNumber,
   makePhoneBookObject,
 };
 

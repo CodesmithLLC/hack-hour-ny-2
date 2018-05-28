@@ -25,12 +25,23 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
-	Array.sort((a,b)=> a-b)
-	for (let i = 0; i < Array.length-1; i++){
-		if (Array[i]+1 !== Array[i+1]) return Array[i]+1
-	}
-	return false
+// function missingNum(Array) {
+// 	Array.sort((a,b)=> a-b)
+// 	for (let i = 0; i < Array.length-1; i++){
+// 		if (Array[i]+1 !== Array[i+1]) return Array[i]+1
+// 	}
+// 	return false
+// }
+
+function missingNum(arr) {
+  const n = arr.length + 1;
+  const expectedSum = (n * (n + 1)) / 2;
+  const sum = arr.reduce((acc, cur) => {
+    acc += cur;
+    return acc;
+  })
+
+  return expectedSum - sum;
 }
 
 console.log(missingNum([2,1,3,5,4,7]))

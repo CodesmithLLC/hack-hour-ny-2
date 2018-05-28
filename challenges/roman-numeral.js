@@ -21,18 +21,49 @@
  let romans = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
 
 
-function romanNumeral(n) {
-	let result = '';
-	let tempNum;
-	for (let i = 0; i < ints.length; i++){
-		while (n >= ints[i]){
-			result += romans[i];
-			n = n-ints[i];
+
+function rr(n){
+	let str = '';
+	for (let i = 0; i < ints.length && n > 0; i++){
+		while ( n >= ints[i]){
+			str += romans[i]
+			n -= ints[i]
 		}
 	}
-	return result;
+	return str;
 }
- console.log(romanNumeral(98));
 
 
-module.exports = romanNumeral;
+console.log(rr(195))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function romanNumeral(n) {
+// 	let result = '';
+// 	let tempNum;
+// 	for (let i = 0; i < ints.length; i++){
+// 		while (n >= ints[i]){
+// 			result += romans[i];
+// 			n = n-ints[i];
+// 		}
+// 	}
+// 	return result;
+// }
+ //console.log(romanNumeral(98));
+
+
+//module.exports = romanNumeral;
