@@ -33,7 +33,7 @@
 */
 
 function pascalTriangle(numRows) {
-
+  const nathan;
 }
 
 module.exports = pascalTriangle;

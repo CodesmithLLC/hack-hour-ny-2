@@ -37,12 +37,48 @@ Stack.prototype.getMax = function() {
 
 const STACK = new Stack();
 
-console.log(STACK.push(0)); 
-console.log(STACK.push(1)); 
-console.log(STACK.push(2)); 
-console.log(STACK.push(3)); 
+console.log(STACK); 
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
 
-console.log(STACK.pop()); 
+STACK.push(4)
+console.log('push(4) -> ',STACK); 
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
 
-console.log(STACK.getMax()); 
+STACK.push(2)
+console.log('push(2) -> ',STACK); 
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
+
+STACK.push(3) 
+console.log('push(3) -> ',STACK); 
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
+
+STACK.push(5)
+console.log('push(5) -> ',STACK);  
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
+
+STACK.push(1)
+console.log('push(1) -> ',STACK);
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
+
+STACK.pop()
+console.log('pop() -> ',STACK);
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
+
+STACK.pop()
+console.log('pop() -> ',STACK);
+console.log('getMax() -> ',STACK.getMax()); 
+console.log('----------------------------------------')
+
+STACK.pop()
+console.log('pop() -> ',STACK);
+console.log('getMax() -> ',STACK.getMax()); 
+
+
 module.exports = Stack;
