@@ -13,38 +13,35 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
+// function mergeArrays(array1, array2) {
+//   return array1.concat(array2).sort(function(a, b) {
+//     return a > b;
+//   });
+// }
 
-	if (!arr1) return arr2;
-	if (!arr2) return arr1;
 
-	let merged = [];
-	let i = 0;
-	let j = 0;
+function mergeArrays(a1, a2){
 
-	while (arr1.length > i && arr2.length > j){
+	const res = [];
+	let i = 0, j = 0;
 
-		if (arr1[i] < arr2[j]){
-			merged.push(arr1[i])
-			i++;
-		}
-		else{
-			merged.push(arr2[j])
-			j++;
-		}
+	while (i < a1.length && j < a2.length) {
+
+		a1[i] < a2[j] ? res.push(a1[i++]) : res.push(a2[j++]); 
 	}
 
-	if (arr1.length !== i)
-		return merged.concat(arr1.slice(i))
-	else if (arr2.length !== j)
-		return merged.concat(arr2.slice(j))
+	if (i < a1.length) return res.concat(a1.slice(i));
+	else if (j < a2.length) return res.concat(a2.slice(j));
 
-	return merged;
+	return res;
 }
 
-// var my_array = [3,4,6,10,11,15,21];
-// var another_array = [1,5,8];
-//
-// console.log(mergeArrays(my_array, another_array))
+
+
+
+var my_array = [3,4,6,10,11,15,21];
+var another_array = [1,5,8];
+
+console.log(mergeArrays(my_array, another_array))
 
 module.exports = mergeArrays;
