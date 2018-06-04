@@ -19,6 +19,8 @@ function permPalin(str) {
   return Object.keys(mem).length <= 1;
 }
 
+console.log(permPalin('ccbvvaa'))
+
 //  const isPalin = (arr) => {
 //  	for (let i = 0; i < arr.length/2; i++){
 //  		if (arr[i] !== arr[arr.length-1-i]) return false
@@ -57,7 +59,7 @@ function permPalin(str) {
 //   return bool;
 // }
 
-console.log(permPalin('ccbvvaa'))
+//console.log(permPalin('ccbvvaa'))
 
 module.exports = permPalin;
 
