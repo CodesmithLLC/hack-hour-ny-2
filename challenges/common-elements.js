@@ -22,6 +22,7 @@ function commonElements(array1, array2, array3, array4){
 		})
 	}
 
+	console.log(mem)
 	for (let prop in mem){
 		if (Object.keys(mem[prop]).length === 4) result.push(prop)
 	}
