@@ -12,9 +12,9 @@ function twoSum(arr, n) {
 
 	for (let i = 0; i < arr.length; i++){
 		for (let j = 0; j < arr.length; j++){
-			if (i !== j){
-				if (arr[i] + arr[j] === n) return true;
-			}
+			
+				if (i !== j && arr[i] + arr[j] === n) return true;
+			
 		}
 	}
 
