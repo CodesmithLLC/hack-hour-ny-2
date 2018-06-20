@@ -25,21 +25,24 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
 
-	var functionCall = 'func' + "(";
+const applyIt = (func, args) => () => func(...args);
 
-    for ( let i = 0; i < args.length; i++ ) {
+// function applyIt(func, args) {
+
+// 	var functionCall = 'func' + "(";
+
+//     for ( let i = 0; i < args.length; i++ ) {
         
-        functionCall += "\"" + args[i] + "\"";
+//         functionCall += "\"" + args[i] + "\"";
 
-        if ( i < args.length - 1 ) functionCall += ",";
-    }
+//         if ( i < args.length - 1 ) functionCall += ",";
+//     }
 
-    functionCall += ")";
+//     functionCall += ")";
 
-    return () => eval(functionCall);
-}
+//     return () => eval(functionCall);
+// }
 
 
 
