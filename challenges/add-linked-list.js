@@ -125,7 +125,7 @@ const showList = (head) => {
 	}
 }
 
-//const head = new Node(0);
+const head = new Node(0);
 
 showList(addLinkedList(A,B))
 
