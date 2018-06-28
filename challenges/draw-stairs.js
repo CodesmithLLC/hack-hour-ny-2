@@ -14,15 +14,20 @@
 */
 
 function drawStairs(n) {
-  for (let i = 1; i <= n; i += 1) {
-    let j = '';
-    let k = 1;
-    while (k <= i) {
-      j += '*';
-      k += 1;
+  // create loop - n steps
+  let result = '';
+  let j = n;
+  for (let i = 0; i < n; i++) {
+    while (j > i + 1) {
+      result += ' ';
+      j--;
     }
-    console.log(j);
+    while (j > 0) {
+      result += '*';
+    }
+    result += '\n';
   }
+  return result;
 }
 
 
