@@ -86,7 +86,7 @@ const pipe = functions => (val = '') => functions.map(x => x()).join('') + val;
  * helloWorld(); // -> 'Hello, World!'
  */
 
-const letterGenerator = letter => () => letter;
+const letterGenerator = letter => val => letter + (val || '');
 
 const objectToExport = {
   H,
