@@ -14,9 +14,9 @@
 */
 
 function drawStairs(n) {
-  // create loop - n steps
   let result = '';
   let j = n;
+
   for (let i = 0; i < n; i++) {
     while (j > i + 1) {
       result += ' ';

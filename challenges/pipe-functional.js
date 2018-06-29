@@ -48,7 +48,7 @@ const o = letters => letters ? 'o' + letters : 'o';
  * Hell('o'); // -> 'Hello'
  */
 
-const pipe = functions => (val = '') => functions.map(x => x()).join('') + val;
+const pipe = functions => val => functions.map(x => x()).join('') + (val || '');
 
 /*
  * PART 4 DYNAMIC FUNCTION CREATION
