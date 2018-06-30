@@ -21,6 +21,30 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
+{
+	events: {inc:[], dec:[]}
+	on: function(key, func){
+		events[key].push(func)
+	}
+	trigger: function(key, ...args) {
+		//execute each function asossiated with key
+		this.events[key].forEach((func) => {
+			func(...args);
+		})
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 function EventEmitter() {
 	
 }
