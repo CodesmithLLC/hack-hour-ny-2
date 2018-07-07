@@ -9,6 +9,8 @@
  * Complete the challenge in O(1) space
  *
  */
+
+
 function uniqueNumber(array) {
     let result = 0;
     for (let i = 0; i < array.length; i++) {
