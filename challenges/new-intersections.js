@@ -53,3 +53,4 @@ function newIntersections(x, y){
 console.log(newIntersections([0,1,1,],[1,2,0,1]))
 
 module.exports = newIntersections;
+
