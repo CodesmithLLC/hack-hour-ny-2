@@ -39,7 +39,6 @@ const findNumber = (jazbook, name) => {
 	return false;
 }
 
-
 const memoize = (func, mem = {}) => {
 	return (data, id) => {
 		!mem[id] ? mem[id] = func(data, id) : console.log('in memory...');
