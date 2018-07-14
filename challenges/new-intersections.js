@@ -44,13 +44,13 @@ function newIntersections(x, y){
 		for (let yCoord in xObj){
 			if ( xObj[yCoord].min < xCoord && xCoord < xObj[yCoord].max &&
 					 yObj[xCoord].min < yCoord && yCoord < yObj[xCoord].max) 
-				intersections++
+				intersections++;
 		}
 	}
-	return intersections
+	return intersections;
 }
 
-console.log(newIntersections([0,1,1,],[1,2,0,1]))
+console.log(newIntersections([0,1,1,2],[1,2,0,1]))
 
 module.exports = newIntersections;
 
