@@ -42,6 +42,7 @@ function kthToLastNode(k, head) {
     t1 = t1.next;
     k-=1;
   }
+  if (!t1) return;
   while (t1){
     t1 = t1.next;
     t2 = t2.next;
