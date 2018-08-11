@@ -35,25 +35,19 @@ function Node(val) {
 function kthToLastNode(k, head) {
 	if (!head) return;
 
-	let saveHead = head;
-	function getLength(headNode){
-		let len = 1;
-		while( headNode.next !== null){
-			len++;
-			headNode = headNode.next;
-		}
-		return len;
-	}
-	k = getLength(saveHead) - k;
-	if (k < 0) return ;
-	//console.log('k is '+ k);
-	for (i = 0; i < k; i++){
-		if (saveHead.next === null) return ;
-		saveHead = saveHead.next;
-	}
-	return saveHead.value;
-}
+  let t1 = head; let t2 = head;
 
+  while (k && t1) {
+    
+    t1 = t1.next;
+    k-=1;
+  }
+  while (t1){
+    t1 = t1.next;
+    t2 = t2.next;
+  }
+  return t2.value;
+}
 console.log(kthToLastNode(1,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
