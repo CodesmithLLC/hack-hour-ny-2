@@ -27,12 +27,10 @@ function deleteDups(head) {
       curr = curr.next;
     }
   }
-
   return head;
 }
 
-
-function deleteDups(head) {
+function deleteDups2(head) {
   let outerNode = head;
   let innerNode;
 
