@@ -18,17 +18,12 @@ const gcd = (a, b) => {
 	return 1;
 }
 
-
-
-
-
 // const gcd = (a, b, div = a > b ? b : a) => {
 // 	if (!(a % div) && !(b % div)) return div;
 // 	else return gcd(a, b, --div);
 // }
 
-
-
+//sadflsdfdf
 
 
 // const gcd = (a, b, div = a > b ? b : a) => (!(a % div) && !(b % div)) ? div : gcd(a, b, --div);
