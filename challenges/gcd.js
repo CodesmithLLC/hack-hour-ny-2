@@ -23,8 +23,7 @@ const gcd = (a, b) => {
 // 	else return gcd(a, b, --div);
 // }
 
-
-
+//sadflsdfdf
 
 
 // const gcd = (a, b, div = a > b ? b : a) => (!(a % div) && !(b % div)) ? div : gcd(a, b, --div);
